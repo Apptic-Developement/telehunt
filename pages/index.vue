@@ -2,6 +2,9 @@
 </script>
 
 <template>
-    <h1>Home</h1>
+    <UContainer as="main" class="flex flex-col items-center justify-center">
+        <PagesHero />
+
+    </UContainer>
 </template>
 

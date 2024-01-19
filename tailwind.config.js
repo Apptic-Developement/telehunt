@@ -4,6 +4,9 @@ export default {
   content: [],
   theme: {
     extend: {
+      // colors: {
+      //   primary: 
+      // }
       aspectRatio: {
         auto: 'auto',
         square: '1 / 1',
