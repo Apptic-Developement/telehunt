@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaUsers } from "react-icons/fa6";
 import { BiUpvote } from "react-icons/bi";
+import { CardData } from "@/lib/types";
 
 export default function Card({
     logo,
@@ -12,14 +13,7 @@ export default function Card({
     description,
     totalUsers,
     totalVotes,
-}: {
-    logo: string;
-    name: string;
-    categories: string[];
-    description: string;
-    totalUsers: number;
-    totalVotes: number;
-}) {
+}: CardData) {
     const filteredCategories = categories.slice(0, 2).map((category, index) =>
         index === categories.slice(0, 2).length - 1 ? category : `${category},`,
     );

@@ -4,7 +4,7 @@
     "name": "Creative Minds",
     "description": "Unlock your creativity and connect with fellow artists and creators.",
     "categories": ["Art", "Design", "Creativity"],
-    "totalMembers": 80,
+    "totalUsers": 80,
     "totalVotes": 100
   },
   {
@@ -12,7 +12,7 @@
     "name": "Fitness Fanatics",
     "description": "Join the community to discuss fitness goals, tips, and workouts.",
     "categories": ["Fitness", "Health", "Motivation"],
-    "totalMembers": 250,
+    "totalUsers": 250,
     "totalVotes": 220
   },
   {
@@ -20,7 +20,7 @@
     "name": "Bookworms Club",
     "description": "A haven for book lovers to discuss literature, recommend books, and more.",
     "categories": ["Books", "Reading", "Book Club"],
-    "totalMembers": 120,
+    "totalUsers": 120,
     "totalVotes": 150
   },
   {
@@ -28,7 +28,7 @@
     "name": "Gaming Warriors",
     "description": "Connect with fellow gamers, share gaming experiences, and strategize.",
     "categories": ["Gaming", "Esports", "Strategy"],
-    "totalMembers": 180,
+    "totalUsers": 180,
     "totalVotes": 200
   },
   {
@@ -36,7 +36,7 @@
     "name": "Travel Enthusiasts",
     "description": "Share your travel stories, tips, and discover new destinations.",
     "categories": ["Travel", "Adventure", "Exploration"],
-    "totalMembers": 300,
+    "totalUsers": 300,
     "totalVotes": 250
   },
   {
@@ -44,7 +44,7 @@
     "name": "Tech Support Hub",
     "description": "Get help and support for all your tech-related queries and issues.",
     "categories": ["Technology", "Support", "Troubleshooting"],
-    "totalMembers": 100,
+    "totalUsers": 100,
     "totalVotes": 120
   },
   {
@@ -52,7 +52,7 @@
     "name": "Music Makers",
     "description": "Connect with fellow musicians, share your compositions, and collaborate.",
     "categories": ["Music", "Composition", "Collaboration"],
-    "totalMembers": 90,
+    "totalUsers": 90,
     "totalVotes": 110
   },
   {
@@ -60,7 +60,7 @@
     "name": "Foodie Haven",
     "description": "Discuss your favorite recipes, cooking tips, and culinary experiences.",
     "categories": ["Food", "Cooking", "Culinary"],
-    "totalMembers": 150,
+    "totalUsers": 150,
     "totalVotes": 180
   },
   {
@@ -68,7 +68,7 @@
     "name": "Photography Club",
     "description": "Share your photography skills, tips, and showcase your best shots.",
     "categories": ["Photography", "Art", "Visual Arts"],
-    "totalMembers": 200,
+    "totalUsers": 200,
     "totalVotes": 170
   },
   {
@@ -76,7 +76,7 @@
     "name": "Science Explorers",
     "description": "Discuss and explore the wonders of science with fellow enthusiasts.",
     "categories": ["Science", "Exploration", "Discovery"],
-    "totalMembers": 130,
+    "totalUsers": 130,
     "totalVotes": 160
   }
 ]

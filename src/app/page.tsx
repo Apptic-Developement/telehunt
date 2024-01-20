@@ -1,13 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { FaSearch } from "react-icons/fa";
 import cards from "@/lib/cards.json";
-import Card from "@/components/utils/card";
+import CategoryGrid from "@/components/utils/category-grid";
+import { GrChannel, GrGroup, GrRobot } from "react-icons/gr";
+
 
 export default function Home() {
   return (
     <main className="flex flex-col items-center container md:my-12 my-20 px-4 h-full w-full">
-      {/* Hero */}
-      <section className="flex flex-col items-center gap-3 text-center">
+
+      <section className="flex flex-col items-center gap-3 text-center md:mb-20 mb-24">
         <h1 className="md:text-3xl text-2xl font-semibold">
           Discover numerous Telegram bots, channels, groups!
         </h1>
@@ -24,22 +26,14 @@ export default function Home() {
         </form>
       </section>
 
-      {/* Channels */}
-      <section className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 mt-10">
-        {cards.map((card, index) => (
-          <Card
-            key={index}
-            name={card.name}
-            logo={card.logo}
-            categories={card.categories}
-            description={card.description}
-            totalUsers={card.totalMembers}
-            totalVotes={card.totalVotes}
-          />
-        ))}
+      <section className="flex flex-col space-y-16">
+        {/* Channels */}
+        <CategoryGrid name="Popular Channels" icon={GrChannel} data={cards} />
+        {/* Groups */}
+        <CategoryGrid name="Popular Groups" icon={GrGroup} data={cards} />
+        {/* Bots */}
+        <CategoryGrid name="Popular Bots" icon={GrRobot} data={cards} />
       </section>
-      {/* Groups */}
-      {/* Bots */}
     </main>
   );
 }
