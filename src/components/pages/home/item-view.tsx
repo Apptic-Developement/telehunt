@@ -17,7 +17,7 @@ export default function ItemView({ data }: { data: CardData[] }) {
                 }
             </div>
             <Separator orientation="vertical" className="h-auto" />
-            <div className="flex flex-row">
+            <div className="lg:flex hidden flex-row">
                 Ads...
             </div>
         </section>
