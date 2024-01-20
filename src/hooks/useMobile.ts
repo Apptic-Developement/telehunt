@@ -7,7 +7,7 @@ export default function useIsMobile(): boolean {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
     };
-    handleResize()
+    handleResize();
 
     window.addEventListener("resize", handleResize);
 

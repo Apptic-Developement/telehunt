@@ -5,7 +5,10 @@ import { cn } from "@/lib/utils";
 import NavBar from "@/components/common/nav";
 import Providers from "@/components/providers";
 
-const inter = Poppins({ subsets: ["latin"], weight: ['300', '400', '500', '600', '700', '800'] });
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(inter.className)}>
+      <body className={cn(poppins.className)}>
         <Providers>
           <NavBar />
           {children}

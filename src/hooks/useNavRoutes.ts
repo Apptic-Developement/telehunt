@@ -10,82 +10,86 @@ import { MdOutlineMenuOpen } from "react-icons/md";
 import { FaRegCircleUser } from "react-icons/fa6";
 
 export interface NavRoute {
-    name: string;
-    href: string;
-    active: boolean;
-    icon: IconType;
+  name: string;
+  href: string;
+  active: boolean;
+  icon: IconType;
 }
 
 export const useTopNavRoutes = (): NavRoute[] => {
-    const pathName = usePathname();
+  const pathName = usePathname();
 
-    return useMemo<NavRoute[]>(
-        () => [
-            {
-                name: "Home",
-                href: "/",
-                active: pathName.startsWith('/'),
-                icon: pathName.startsWith('/') ? GoHomeFill : GoHome
-            },
-            {
-                name: "Explore",
-                href: "/explore",
-                active: pathName.startsWith('/explore'),
-                icon: pathName.startsWith('/explore') ? RiMenuSearchFill : RiMenuSearchLine
-            },
-            {
-                name: "Bots",
-                href: "/bots",
-                active: pathName.startsWith('/bots'),
-                icon: pathName.startsWith('/bots') ? RiRobot2Fill : RiRobot2Line
-            },
-            {
-                name: "Groups",
-                href: "/",
-                active: pathName.startsWith('/groups'),
-                icon: pathName.startsWith('/groups') ? TiGroup : TiGroupOutline
-            },
-            {
-                name: "Channels",
-                href: "/channels",
-                active: pathName.startsWith('/groups'),
-                icon: pathName.startsWith('/groups') ? BsChatLeftFill : BsChatLeftDots
-            },
-        ],
-        [pathName],
-    );
+  return useMemo<NavRoute[]>(
+    () => [
+      {
+        name: "Home",
+        href: "/",
+        active: pathName.startsWith("/"),
+        icon: pathName.startsWith("/") ? GoHomeFill : GoHome,
+      },
+      {
+        name: "Explore",
+        href: "/explore",
+        active: pathName.startsWith("/explore"),
+        icon: pathName.startsWith("/explore")
+          ? RiMenuSearchFill
+          : RiMenuSearchLine,
+      },
+      {
+        name: "Bots",
+        href: "/bots",
+        active: pathName.startsWith("/bots"),
+        icon: pathName.startsWith("/bots") ? RiRobot2Fill : RiRobot2Line,
+      },
+      {
+        name: "Groups",
+        href: "/",
+        active: pathName.startsWith("/groups"),
+        icon: pathName.startsWith("/groups") ? TiGroup : TiGroupOutline,
+      },
+      {
+        name: "Channels",
+        href: "/channels",
+        active: pathName.startsWith("/groups"),
+        icon: pathName.startsWith("/groups") ? BsChatLeftFill : BsChatLeftDots,
+      },
+    ],
+    [pathName],
+  );
 };
 
 export const useBottomNavRoutes = (): NavRoute[] => {
-    const pathName = usePathname();
+  const pathName = usePathname();
 
-    return useMemo<NavRoute[]>(
-        () => [
-            {
-                name: "Home",
-                href: "/",
-                active: pathName.startsWith('/'),
-                icon: pathName.startsWith('/') ? GoHomeFill : GoHome
-            },
-            {
-                name: "Explore",
-                href: "/",
-                active: pathName.startsWith('/explore'),
-                icon: pathName.startsWith('/explore') ? RiMenuSearchFill : RiMenuSearchLine
-            },
-            {
-                name: "Menu",
-                href: "/",
-                active: pathName.startsWith('/mobile'),
-                icon: MdOutlineMenuOpen
-            },
-            {
-                name: "Profile",
-                href: "/",
-                active: pathName.startsWith('/profile'),
-                icon: FaRegCircleUser
-            },
-        ],
-        [pathName],
-    );
+  return useMemo<NavRoute[]>(
+    () => [
+      {
+        name: "Home",
+        href: "/",
+        active: pathName.startsWith("/"),
+        icon: pathName.startsWith("/") ? GoHomeFill : GoHome,
+      },
+      {
+        name: "Explore",
+        href: "/",
+        active: pathName.startsWith("/explore"),
+        icon: pathName.startsWith("/explore")
+          ? RiMenuSearchFill
+          : RiMenuSearchLine,
+      },
+      {
+        name: "Menu",
+        href: "/",
+        active: pathName.startsWith("/mobile"),
+        icon: MdOutlineMenuOpen,
+      },
+      {
+        name: "Profile",
+        href: "/",
+        active: pathName.startsWith("/profile"),
+        icon: FaRegCircleUser,
+      },
+    ],
+    [pathName],
+  );
 };

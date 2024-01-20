@@ -1,0 +1,82 @@
+[
+  {
+    "logo": "https://vcodes.xyz/_next/image?url=https%3A%2F%2Fcdn.discordapp.com%2Favatars%2F825095206672138330%2F3d34b6ec189dc3dae7dc8f3e01b290de.png%3Fsize%3D4096&w=1080&q=100",
+    "name": "Creative Minds",
+    "description": "Unlock your creativity and connect with fellow artists and creators.",
+    "categories": ["Art", "Design", "Creativity"],
+    "totalMembers": 80,
+    "totalVotes": 100
+  },
+  {
+    "logo": "https://vcodes.xyz/_next/image?url=https%3A%2F%2Fcdn.discordapp.com%2Favatars%2F825095206672138330%2F3d34b6ec189dc3dae7dc8f3e01b290de.png%3Fsize%3D4096&w=1080&q=100",
+    "name": "Fitness Fanatics",
+    "description": "Join the community to discuss fitness goals, tips, and workouts.",
+    "categories": ["Fitness", "Health", "Motivation"],
+    "totalMembers": 250,
+    "totalVotes": 220
+  },
+  {
+    "logo": "https://vcodes.xyz/_next/image?url=https%3A%2F%2Fcdn.discordapp.com%2Favatars%2F825095206672138330%2F3d34b6ec189dc3dae7dc8f3e01b290de.png%3Fsize%3D4096&w=1080&q=100",
+    "name": "Bookworms Club",
+    "description": "A haven for book lovers to discuss literature, recommend books, and more.",
+    "categories": ["Books", "Reading", "Book Club"],
+    "totalMembers": 120,
+    "totalVotes": 150
+  },
+  {
+    "logo": "https://vcodes.xyz/_next/image?url=https%3A%2F%2Fcdn.discordapp.com%2Favatars%2F825095206672138330%2F3d34b6ec189dc3dae7dc8f3e01b290de.png%3Fsize%3D4096&w=1080&q=100",
+    "name": "Gaming Warriors",
+    "description": "Connect with fellow gamers, share gaming experiences, and strategize.",
+    "categories": ["Gaming", "Esports", "Strategy"],
+    "totalMembers": 180,
+    "totalVotes": 200
+  },
+  {
+    "logo": "https://vcodes.xyz/_next/image?url=https%3A%2F%2Fcdn.discordapp.com%2Favatars%2F825095206672138330%2F3d34b6ec189dc3dae7dc8f3e01b290de.png%3Fsize%3D4096&w=1080&q=100",
+    "name": "Travel Enthusiasts",
+    "description": "Share your travel stories, tips, and discover new destinations.",
+    "categories": ["Travel", "Adventure", "Exploration"],
+    "totalMembers": 300,
+    "totalVotes": 250
+  },
+  {
+    "logo": "https://vcodes.xyz/_next/image?url=https%3A%2F%2Fcdn.discordapp.com%2Favatars%2F825095206672138330%2F3d34b6ec189dc3dae7dc8f3e01b290de.png%3Fsize%3D4096&w=1080&q=100",
+    "name": "Tech Support Hub",
+    "description": "Get help and support for all your tech-related queries and issues.",
+    "categories": ["Technology", "Support", "Troubleshooting"],
+    "totalMembers": 100,
+    "totalVotes": 120
+  },
+  {
+    "logo": "https://vcodes.xyz/_next/image?url=https%3A%2F%2Fcdn.discordapp.com%2Favatars%2F825095206672138330%2F3d34b6ec189dc3dae7dc8f3e01b290de.png%3Fsize%3D4096&w=1080&q=100",
+    "name": "Music Makers",
+    "description": "Connect with fellow musicians, share your compositions, and collaborate.",
+    "categories": ["Music", "Composition", "Collaboration"],
+    "totalMembers": 90,
+    "totalVotes": 110
+  },
+  {
+    "logo": "https://vcodes.xyz/_next/image?url=https%3A%2F%2Fcdn.discordapp.com%2Favatars%2F825095206672138330%2F3d34b6ec189dc3dae7dc8f3e01b290de.png%3Fsize%3D4096&w=1080&q=100",
+    "name": "Foodie Haven",
+    "description": "Discuss your favorite recipes, cooking tips, and culinary experiences.",
+    "categories": ["Food", "Cooking", "Culinary"],
+    "totalMembers": 150,
+    "totalVotes": 180
+  },
+  {
+    "logo": "https://vcodes.xyz/_next/image?url=https%3A%2F%2Fcdn.discordapp.com%2Favatars%2F825095206672138330%2F3d34b6ec189dc3dae7dc8f3e01b290de.png%3Fsize%3D4096&w=1080&q=100",
+    "name": "Photography Club",
+    "description": "Share your photography skills, tips, and showcase your best shots.",
+    "categories": ["Photography", "Art", "Visual Arts"],
+    "totalMembers": 200,
+    "totalVotes": 170
+  },
+  {
+    "logo": "https://vcodes.xyz/_next/image?url=https%3A%2F%2Fcdn.discordapp.com%2Favatars%2F825095206672138330%2F3d34b6ec189dc3dae7dc8f3e01b290de.png%3Fsize%3D4096&w=1080&q=100",
+    "name": "Science Explorers",
+    "description": "Discuss and explore the wonders of science with fellow enthusiasts.",
+    "categories": ["Science", "Exploration", "Discovery"],
+    "totalMembers": 130,
+    "totalVotes": 160
+  }
+]
