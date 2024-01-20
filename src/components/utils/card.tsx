@@ -21,7 +21,7 @@ export default function Card({
         <Link
             href="/"
             passHref
-            className="flex flex-col px-4 py-3 gap-2 bg-card border mx-auto w-[280px] h-fit overflow-hidden rounded-md"
+            className="flex flex-col px-4 py-3 gap-2 mx-auto lg:w-full md:w-[280px] w-full h-fit overflow-hidden rounded-md"
         >
             <div className="flex items-center gap-3">
                 <Image
