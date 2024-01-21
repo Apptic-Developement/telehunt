@@ -1,5 +1,4 @@
 "use client";
-import { Dispatch, SetStateAction, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -11,13 +10,14 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { BiSolidUpvote } from "react-icons/bi";
 import { HiSparkles } from "react-icons/hi";
+import { HomeFiltersType } from "@/lib/types";
 
 export default function FilterMenu({
   filter,
   setFilter,
 }: {
   filter: "top-voted" | "new";
-  setFilter: Dispatch<SetStateAction<"top-voted" | "new">>;
+  setFilter: (filterName: HomeFiltersType) => void;
 }) {
   return (
     <DropdownMenu>

@@ -1,13 +1,12 @@
 "use client";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { HomeTabsType } from "@/lib/types";
-import { Dispatch, SetStateAction } from "react";
 
 
 export default function HomeTabs({
     setTab,
 }: {
-    setTab: Dispatch<SetStateAction<HomeTabsType>>;
+    setTab: (tabName: HomeTabsType) => void;
 }) {
     return (
         <Tabs defaultValue="channels" onValueChange={(value: string) => setTab(value as HomeTabsType)} className="w-fit">

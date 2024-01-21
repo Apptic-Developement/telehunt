@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { ThemeProvider } from "./theme";
+import { HomeContextProvider } from "../contexts/home";
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
@@ -10,7 +11,9 @@ export default function Providers({ children }: { children: React.ReactNode }) {
       enableSystem
       disableTransitionOnChange
     >
-      {children}
+      <HomeContextProvider>
+        {children}
+      </HomeContextProvider>
     </ThemeProvider>
   );
 }

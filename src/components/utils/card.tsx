@@ -5,6 +5,7 @@ import Link from "next/link";
 import { FaUsers } from "react-icons/fa6";
 import { BiUpvote } from "react-icons/bi";
 import { CardData } from "@/lib/types";
+import { Skeleton } from "../ui/skeleton";
 
 export default function Card({
   logo,
@@ -23,7 +24,7 @@ export default function Card({
     <Link
       href="/"
       passHref
-      className="flex flex-col px-4 py-3 gap-2 mx-auto lg:w-full md:w-[280px] w-full h-fit overflow-hidden rounded-md"
+      className="flex flex-col px-4 py-3 gap-2 mx-auto md:w-[280px] w-full h-fit overflow-hidden rounded-md"
     >
       <div className="flex items-center gap-3">
         <Image
@@ -59,4 +60,39 @@ export default function Card({
       </div>
     </Link>
   );
+}
+
+
+export const CardSkeleton = () => {
+  return (
+    <div className="flex flex-col px-4 py-3 gap-2 mx-auto md:w-[280px] w-full h-fit overflow-hidden rounded-md">
+      <div className="flex gap-3">
+        <Skeleton className="rounded-md w-16 h-16" />
+        <div className="flex flex-col gap-2 py-4">
+          <Skeleton className="rounded w-[90px] h-2" />
+          <div className="flex gap-2">
+            <Skeleton className="rounded w-[35px] h-2" />
+            <Skeleton className="rounded w-[35px] h-2" />
+          </div>
+        </div>
+      </div>
+
+      <div className="flex mb-2 h-24 flex-col gap-2">
+        <Skeleton className="rounded w-[120px] h-2" />
+        <Skeleton className="rounded w-[100px] h-2" />
+        <Skeleton className="rounded w-[90px] h-2" />
+      </div>
+
+      <div className="flex justify-between">
+        <div className="flex items-center gap-2">
+          <Skeleton className="rounded-full w-6 h-6" />
+          <Skeleton className="rounded w-4 h-2" />
+        </div>
+        <div className="flex items-center gap-2">
+          <Skeleton className="rounded-full w-6 h-6" />
+          <Skeleton className="rounded w-4 h-2" />
+        </div>
+      </div>
+    </div>
+  )
 }
