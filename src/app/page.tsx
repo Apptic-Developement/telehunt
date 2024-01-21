@@ -1,7 +1,7 @@
 import Hero from "@/components/pages/home/hero";
 import ItemView from "@/components/pages/home/item-view";
 import CaregoryGrid from "@/components/utils/category-grid";
-import cards from '@/lib/cards.json';
+import cards from "@/lib/cards.json";
 import { FaFilter } from "react-icons/fa6";
 import { HiSparkles } from "react-icons/hi";
 export default function Home() {
