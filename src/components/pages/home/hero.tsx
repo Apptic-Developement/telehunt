@@ -1,35 +1,44 @@
-'use client';
-import { useContext, useTransition } from 'react'
-import SearchForm from './search-form'
-import HomeTabs from './tabs'
-import FilterMenu from './filter-menu'
-import { HomeFiltersType, HomeTabsType } from '@/lib/types';
-import { HomeContext } from '@/components/contexts/home';
-
+"use client";
+import { useTransition } from "react";
+import SearchForm from "./search-form";
+import HomeTabs from "./tabs";
+import ShortByMenu from "./short-by-menu";
+import { HomeShortByType, HomeTabsType } from "@/lib/types";
+import { useHomeFilterStore } from "@/stores/home-filter";
 
 export default function Hero() {
-    const [isTabTransitionPending, startTabTransition] = useTransition();
-    const [isFilterTransitionPending, startFilterTransition] = useTransition();
-    const context = useContext(HomeContext)
-    const updateTabWithTransition = (tabName: HomeTabsType) => {
-        startTabTransition(() => {
-            context.setTab(tabName)
-        })
-    }
+  const updateTabs = useHomeFilterStore((state) => state.updateTabs);
 
-    const updateFiltersWithTransition = (filterName: HomeFiltersType) => {
-        startFilterTransition(() => {
-            context.setFilter(filterName)
-        })
-    }
-    return (
-        <section className="flex flex-col gap-4">
-            <h1 className="text-2xl font-bold">Discover numerous Telegram bots, channels, groups!</h1>
-            <SearchForm />
-            <div className="flex justify-between">
-                <HomeTabs setTab={updateTabWithTransition} />
-                <FilterMenu filter={context.filter} setFilter={updateFiltersWithTransition} />
-            </div>
-        </section>
-    )
+  const shortBy = useHomeFilterStore((state) => state.shortBy);
+  const updateShortBy = useHomeFilterStore((state) => state.updateShortBy);
+
+  const [isTabTransitionPending, startTabTransition] = useTransition();
+  const [isShortByTransitionPending, startShortByTransition] = useTransition();
+
+  const updateTabWithTransition = (tabName: HomeTabsType) => {
+    startTabTransition(() => {
+      updateTabs(tabName);
+    });
+  };
+
+  const updateShortByWithTransition = (shortByName: HomeShortByType) => {
+    startShortByTransition(() => {
+      updateShortBy(shortByName);
+    });
+  };
+  return (
+    <section className="flex flex-col gap-4">
+      <h1 className="text-2xl font-bold">
+        Discover numerous Telegram bots, channels, groups!
+      </h1>
+      <SearchForm />
+      <div className="flex justify-between">
+        <HomeTabs updateTab={updateTabWithTransition} />
+        <ShortByMenu
+          shortBy={shortBy}
+          updateShortBy={updateShortByWithTransition}
+        />
+      </div>
+    </section>
+  );
 }

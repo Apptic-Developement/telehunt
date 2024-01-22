@@ -8,4 +8,4 @@ export type CardData = {
 };
 
 export type HomeTabsType = "channels" | "groups" | "bots";
-export type HomeFiltersType = "top-voted" | "new";
+export type HomeShortByType = "top-voted" | "new";

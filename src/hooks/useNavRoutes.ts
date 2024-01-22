@@ -1,19 +1,24 @@
 import { useMemo } from "react";
 import { usePathname } from "next/navigation";
-import { IconType } from "react-icons";
-import { GoHomeFill, GoHome } from "react-icons/go";
-import { BsChatLeftDots, BsChatLeftFill } from "react-icons/bs";
-import { TiGroupOutline, TiGroup } from "react-icons/ti";
-import { RiMenuSearchLine, RiMenuSearchFill } from "react-icons/ri";
-import { RiRobot2Fill, RiRobot2Line } from "react-icons/ri";
-import { MdOutlineMenuOpen } from "react-icons/md";
-import { FaRegCircleUser } from "react-icons/fa6";
+import HomeIcon from '@mui/icons-material/Home';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import MenuOpenIcon from '@mui/icons-material/MenuOpen';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
+import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
+import HelpIcon from '@mui/icons-material/Help';
+import InfoIcon from '@mui/icons-material/Info';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import { SvgIconTypeMap } from '@mui/material';
+import { OverridableComponent } from "@mui/material/OverridableComponent";
 
 export interface NavRoute {
   name: string;
   href: string;
   active: boolean;
-  icon: IconType;
+  icon: OverridableComponent<SvgIconTypeMap>;
 }
 
 export const useTopNavRoutes = (): NavRoute[] => {
@@ -22,36 +27,22 @@ export const useTopNavRoutes = (): NavRoute[] => {
   return useMemo<NavRoute[]>(
     () => [
       {
-        name: "Home",
+        name: "home",
         href: "/",
         active: pathName.startsWith("/"),
-        icon: pathName.startsWith("/") ? GoHomeFill : GoHome,
+        icon: pathName.startsWith("/") ? HomeIcon : HomeOutlinedIcon,
       },
       {
-        name: "Explore",
-        href: "/explore",
-        active: pathName.startsWith("/explore"),
-        icon: pathName.startsWith("/explore")
-          ? RiMenuSearchFill
-          : RiMenuSearchLine,
+        name: 'support',
+        href: '/',
+        active: pathName.startsWith('/support'),
+        icon: pathName.startsWith('/support') ? HelpIcon : HelpOutlineOutlinedIcon
       },
       {
-        name: "Bots",
-        href: "/bots",
-        active: pathName.startsWith("/bots"),
-        icon: pathName.startsWith("/bots") ? RiRobot2Fill : RiRobot2Line,
-      },
-      {
-        name: "Groups",
-        href: "/",
-        active: pathName.startsWith("/groups"),
-        icon: pathName.startsWith("/groups") ? TiGroup : TiGroupOutline,
-      },
-      {
-        name: "Channels",
-        href: "/channels",
-        active: pathName.startsWith("/groups"),
-        icon: pathName.startsWith("/groups") ? BsChatLeftFill : BsChatLeftDots,
+        name: 'policy',
+        href: '/',
+        active: pathName.startsWith('/policy'),
+        icon: pathName.startsWith('/policy') ? InfoIcon : InfoOutlinedIcon
       },
     ],
     [pathName],
@@ -64,30 +55,28 @@ export const useBottomNavRoutes = (): NavRoute[] => {
   return useMemo<NavRoute[]>(
     () => [
       {
-        name: "Home",
+        name: "home",
         href: "/",
-        active: pathName.startsWith("/"),
-        icon: pathName.startsWith("/") ? GoHomeFill : GoHome,
+        active: pathName === '/',
+        icon: pathName === '/' ? HomeIcon : HomeOutlinedIcon,
       },
       {
-        name: "Explore",
-        href: "/",
-        active: pathName.startsWith("/explore"),
-        icon: pathName.startsWith("/explore")
-          ? RiMenuSearchFill
-          : RiMenuSearchLine,
+        name: "menu",
+        href: "/mobile-menu",
+        active: pathName.startsWith("/mobile-menu"),
+        icon: MenuOpenIcon,
       },
       {
-        name: "Menu",
-        href: "/",
-        active: pathName.startsWith("/mobile"),
-        icon: MdOutlineMenuOpen,
+        name: "notifications",
+        href: "/notifications",
+        active: pathName.startsWith("/notifications"),
+        icon: pathName.startsWith("/notifications") ? NotificationsIcon : NotificationsNoneOutlinedIcon,
       },
       {
-        name: "Profile",
-        href: "/",
+        name: "profile",
+        href: "/profile",
         active: pathName.startsWith("/profile"),
-        icon: FaRegCircleUser,
+        icon: pathName.startsWith('/profile') ? AccountCircleIcon : AccountCircleOutlinedIcon,
       },
     ],
     [pathName],

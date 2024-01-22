@@ -8,25 +8,25 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { BiSolidUpvote } from "react-icons/bi";
-import { HiSparkles } from "react-icons/hi";
-import { HomeFiltersType } from "@/lib/types";
+import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp"
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
+import { HomeShortByType } from "@/lib/types";
 
-export default function FilterMenu({
-  filter,
-  setFilter,
+export default function ShortByMenu({
+  shortBy,
+  updateShortBy,
 }: {
-  filter: "top-voted" | "new";
-  setFilter: (filterName: HomeFiltersType) => void;
+  shortBy: HomeShortByType;
+  updateShortBy: (shortByName: HomeShortByType) => void;
 }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
         <Button variant="outline" className="flex items-center gap-2">
-          {filter === "top-voted" && <BiSolidUpvote />}
-          {filter === "new" && <HiSparkles />}
+          {shortBy === "top-voted" && <ArrowCircleUpIcon />}
+          {shortBy === "new" && <AutoAwesomeIcon />}
           <span className="md:inline hidden capitalize">
-            {filter.replace("-", " ")}
+            {shortBy.replace("-", " ")}
           </span>
         </Button>
       </DropdownMenuTrigger>
@@ -35,16 +35,16 @@ export default function FilterMenu({
         <DropdownMenuSeparator />
         <DropdownMenuItem
           className="flex items-center gap-2"
-          onClick={() => setFilter("top-voted")}
+          onClick={() => updateShortBy("top-voted")}
         >
-          <BiSolidUpvote />
+          <ArrowCircleUpIcon />
           <span>Top Voted</span>
         </DropdownMenuItem>
         <DropdownMenuItem
           className="flex items-center gap-2"
-          onClick={() => setFilter("new")}
+          onClick={() => updateShortBy("new")}
         >
-          <HiSparkles />
+          <AutoAwesomeIcon />
           <span>New</span>
         </DropdownMenuItem>
       </DropdownMenuContent>

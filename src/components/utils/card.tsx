@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { FaUsers } from "react-icons/fa6";
-import { BiUpvote } from "react-icons/bi";
+import PeopleIcon from '@mui/icons-material/People';
+import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp"
 import { CardData } from "@/lib/types";
 import { Skeleton } from "../ui/skeleton";
 
@@ -50,18 +50,17 @@ export default function Card({
 
       <div className="flex items-center justify-between mt-auto">
         <div className="flex items-center gap-1">
-          <FaUsers />
+          <PeopleIcon />
           <span className="font-medium text-sm">{totalUsers}</span>
         </div>
         <div className="flex items-center gap-1">
-          <BiUpvote />
+          <ArrowCircleUpIcon />
           <span className="font-medium text-sm">{totalVotes}</span>
         </div>
       </div>
     </Link>
   );
 }
-
 
 export const CardSkeleton = () => {
   return (
@@ -94,5 +93,5 @@ export const CardSkeleton = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

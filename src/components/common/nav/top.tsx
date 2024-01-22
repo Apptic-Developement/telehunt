@@ -27,7 +27,7 @@ export default function TopNav() {
                   "!text-foreground": active,
                 })}
               >
-                <span className="font-medium">{name}</span>
+                <span className="font-medium capitalize">{name}</span>
               </Link>
             );
           })}

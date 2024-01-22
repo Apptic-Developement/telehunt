@@ -23,25 +23,32 @@
 
 "use client";
 
-import { HomeContext } from "@/components/contexts/home";
 import Card, { CardSkeleton } from "@/components/utils/card";
 import { CardData } from "@/lib/types";
 import { useContext } from "react";
+import { useHomeFilterStore } from "@/stores/home-filter";
 
 export default function ItemView({ data }: { data: CardData[] }) {
-  const context = useContext(HomeContext);
+  const tab = useHomeFilterStore((state) => state.tabs);
+  const updateTabs = useHomeFilterStore((state) => state.updateTabs);
+
+  const shortBy = useHomeFilterStore((state) => state.shortBy);
+  const updateShortBy = useHomeFilterStore((state) => state.updateShortBy);
+
   return (
     <section className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6">
-      {context.tab === 'channels' && data.map((card) => {
-        return <Card key={card.name} {...card} />;
-      })}
-      {context.tab === 'groups' && data.map((card) => {
-        return <CardSkeleton key={card.name} />;
-      })}
-      {context.tab === 'bots' && data.map((card) => {
-        return <CardSkeleton key={card.name} />;
-      })}
+      {tab === "channels" &&
+        data.map((card) => {
+          return <Card key={card.name} {...card} />;
+        })}
+      {tab === "groups" &&
+        data.map((card) => {
+          return <CardSkeleton key={card.name} />;
+        })}
+      {tab === "bots" &&
+        data.map((card) => {
+          return <CardSkeleton key={card.name} />;
+        })}
     </section>
-
   );
 }
