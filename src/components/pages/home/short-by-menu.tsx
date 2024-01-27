@@ -8,8 +8,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp"
-import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
+import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
+import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import { HomeShortByType } from "@/lib/types";
 
 export default function ShortByMenu({

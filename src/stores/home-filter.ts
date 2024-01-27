@@ -11,7 +11,7 @@ type Action = {
 };
 export const useHomeFilterStore = create<State & Action>((set) => ({
   tabs: "channels",
-  shortBy: "new",
+  shortBy: "top-voted",
   updateTabs: (tabName: HomeTabsType) => set(() => ({ tabs: tabName })),
   updateShortBy: (shortByName: HomeShortByType) =>
     set(() => ({ shortBy: shortByName })),

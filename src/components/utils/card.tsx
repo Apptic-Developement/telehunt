@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import PeopleIcon from '@mui/icons-material/People';
-import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp"
+import PeopleIcon from "@mui/icons-material/People";
+import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
 import { CardData } from "@/lib/types";
 import { Skeleton } from "../ui/skeleton";
 
