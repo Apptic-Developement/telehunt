@@ -34,22 +34,20 @@ export const useTopNavRoutes = (): NavRoute[] => {
       {
         name: "home",
         href: "/",
-        active: pathName === '/',
+        active: pathName === "/",
         icon: pathName.startsWith("/") ? HomeIcon : HomeOutlinedIcon,
       },
       {
         name: "support",
         href: "/",
-        active: pathName === '/support',
-        icon: pathName === '/support'
-          ? HelpIcon
-          : HelpOutlineOutlinedIcon,
+        active: pathName === "/support",
+        icon: pathName === "/support" ? HelpIcon : HelpOutlineOutlinedIcon,
       },
       {
         name: "policy",
         href: "/",
-        active: pathName === '/policy',
-        icon: pathName === '/policy' ? InfoIcon : InfoOutlinedIcon,
+        active: pathName === "/policy",
+        icon: pathName === "/policy" ? InfoIcon : InfoOutlinedIcon,
       },
     ],
     [pathName],

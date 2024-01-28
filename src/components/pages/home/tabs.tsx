@@ -9,14 +9,14 @@ export default function HomeTabs({
 }) {
   return (
     <Tabs
-      defaultValue="channels"
+      defaultValue='channels'
       onValueChange={(value: string) => updateTab(value as HomeTabsType)}
-      className="w-fit"
+      className='w-fit'
     >
       <TabsList>
-        <TabsTrigger value="channels">Channels</TabsTrigger>
-        <TabsTrigger value="groups">Groups</TabsTrigger>
-        <TabsTrigger value="bots">Bots</TabsTrigger>
+        <TabsTrigger value='channels'>Channels</TabsTrigger>
+        <TabsTrigger value='groups'>Groups</TabsTrigger>
+        <TabsTrigger value='bots'>Bots</TabsTrigger>
       </TabsList>
     </Tabs>
   );

@@ -38,34 +38,35 @@ export default function TopNav() {
         { "top-0": shouldVisible },
       )}
     >
-      <div className="lg:px-16 md:px-8 flex items-center justify-between h-14">
+      <div className='lg:px-16 md:px-8 flex items-center justify-between h-14'>
         {/* Nav Right Section */}
-        <div className="flex items-center gap-6">
+        <div className='flex items-center gap-6'>
           {/* Nav Branding */}
-          <Link href="/" className="text-xl font-extrabold capitalize">
+          <Link href='/' className='text-xl font-extrabold capitalize'>
             telehunt
           </Link>
         </div>
         {/* Nav Left Section */}
-        <div className="flex items-center gap-6">
+        <div className='flex items-center gap-6'>
           {/* Nav Links */}
-          <div className="hidden md:flex items-center space-x-6">
+          <div className='hidden md:flex items-center space-x-6'>
             {routes.map(({ name, href, active, icon: Icon }) => {
               return (
                 <Link
                   href={href}
                   key={href}
                   className={cn("text-muted-foreground", {
-                    "bg-secondary text-secondary-foreground rounded-md px-3 py-1": active,
+                    "bg-secondary text-secondary-foreground rounded-md px-3 py-1":
+                      active,
                   })}
                 >
-                  <span className="font-medium capitalize">{name}</span>
+                  <span className='font-medium capitalize'>{name}</span>
                 </Link>
               );
             })}
           </div>
           {/* Nav Buttons */}
-          <div className="flex items-center gap-2">
+          <div className='flex items-center gap-2'>
             <ThemeToggle />
             <UserDropdown />
             {/* <Button>Login</Button> */}
