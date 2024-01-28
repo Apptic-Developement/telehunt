@@ -21,7 +21,7 @@ export default function ShortByMenu({
 }) {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger>
+      <DropdownMenuTrigger asChild>
         <Button variant="outline" className="flex items-center gap-2">
           {shortBy === "top-voted" && <ArrowCircleUpIcon />}
           {shortBy === "new" && <AutoAwesomeIcon />}
