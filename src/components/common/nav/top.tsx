@@ -34,7 +34,7 @@ export default function TopNav() {
   return (
     <nav
       className={cn(
-        "container  bg-background backdrop-blur supports-[backdrop-filter]:bg-background/70 border-b -top-[200px] sticky transition-all duration-300 ease-in-out z-0",
+        "container bg-background backdrop-blur supports-[backdrop-filter]:bg-background/70 border-b -top-[200px] sticky transition-all duration-300 ease-in-out z-0",
         { "top-0": shouldVisible },
       )}
     >
