@@ -4,12 +4,12 @@ import DashboardShell from "../components/shell";
 
 export default function Channels() {
   return (
-    <section className='flex flex-col gap-4 w-full'>
+    <section className="flex flex-col gap-4 w-full">
       <Header
-        title='Channels'
-        description='Channels uploaded by you.'
+        title="Channels"
+        description="Channels uploaded by you."
         showButton
-        buttonText='Add'
+        buttonText="Add"
       />
       <DashboardShell>
         <h2>Content here</h2>

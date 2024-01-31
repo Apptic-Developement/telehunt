@@ -7,7 +7,7 @@ import React from "react";
 export default function Nav() {
   const routes = useDashboardNavRoutes();
   return (
-    <section className='hidden md:flex flex-col gap-3 w-52'>
+    <section className="hidden md:flex flex-col gap-3 w-52">
       {routes.map(({ name, href, active, icon: Icon }) => {
         return (
           <Link
@@ -21,7 +21,7 @@ export default function Nav() {
             <span>
               <Icon />
             </span>
-            <span className='font-semibold text-sm'>{name}</span>
+            <span className="font-semibold text-sm">{name}</span>
           </Link>
         );
       })}

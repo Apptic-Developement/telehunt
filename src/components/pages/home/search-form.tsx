@@ -5,9 +5,9 @@ import SearchIcon from "@mui/icons-material/Search";
 
 export default function SearchForm() {
   return (
-    <form className='flex items-center gap-2'>
-      <Input className='h-14' placeholder='Search...' />
-      <Button variant='secondary' className='h-14'>
+    <form className="flex items-center gap-2">
+      <Input className="h-14" placeholder="Search..." />
+      <Button variant="secondary" className="h-14">
         <SearchIcon />
       </Button>
     </form>

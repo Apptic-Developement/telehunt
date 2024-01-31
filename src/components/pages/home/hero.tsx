@@ -27,12 +27,12 @@ export default function Hero() {
     });
   };
   return (
-    <section className='flex flex-col gap-4'>
-      <h1 className='text-2xl font-bold'>
+    <section className="flex flex-col gap-4">
+      <h1 className="text-2xl font-bold">
         Discover numerous Telegram bots, channels, groups!
       </h1>
       <SearchForm />
-      <div className='flex justify-between'>
+      <div className="flex justify-between">
         <HomeTabs updateTab={updateTabWithTransition} />
         <ShortByMenu
           shortBy={shortBy}

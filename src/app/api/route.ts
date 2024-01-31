@@ -1,9 +1,7 @@
-import connectDB from "@/lib/connect-db"
-import { Dog, DogModel } from "@/models/Todo";
+import connectDB from "@/lib/connect-db";
+import { User } from "@/models/user";
 export async function GET() {
-    const conn = await connectDB();
-    await DogModel.create({
-        name: "Posta"
-    })
-    return Response.json({ name: "Pranoy" })
+  await connectDB();
+  console.log(await User.find().deleteMany());
+  return Response.json({ name: "Pranoy" });
 }

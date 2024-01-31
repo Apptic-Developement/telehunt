@@ -11,31 +11,40 @@ import {
 import UserAvatar from "./avatar";
 import { useDashboardNavRoutes } from "@/hooks/useNavRoutes";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
-export function UserDropdown() {
+export function UserDropdown({
+  email,
+  icon,
+  name,
+}: {
+  email: string;
+  icon: string;
+  name: string;
+}) {
   const routes = useDashboardNavRoutes();
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <span>
-          <UserAvatar />
+          <UserAvatar name={name} icon={icon} />
         </span>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className='w-56'>
-        <DropdownMenuLabel>Pranoy</DropdownMenuLabel>
+      <DropdownMenuContent className="w-56">
+        <DropdownMenuLabel>{email}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          {routes.map(({ name, href }) => {
+          {routes.map((route) => {
             return (
-              <Link href={href} key={href} passHref>
-                <DropdownMenuItem>{name}</DropdownMenuItem>
+              <Link href={route.href} key={route.href} passHref>
+                <DropdownMenuItem>{route.name}</DropdownMenuItem>
               </Link>
             );
           })}
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <Link href='/logout' passHref>
-          <DropdownMenuItem className='text-destructive'>
+        <Link href="/api/auth/logout" passHref>
+          <DropdownMenuItem className="text-destructive">
             Log out
           </DropdownMenuItem>
         </Link>

@@ -2,11 +2,17 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import React from "react";
 
-export default function UserAvatar() {
+export default function UserAvatar({
+  icon,
+  name,
+}: {
+  icon: string;
+  name: string;
+}) {
   return (
     <Avatar>
-      <AvatarImage src='https://github.com/shadcn.png' alt='@shadcn' />
-      <AvatarFallback>CN</AvatarFallback>
+      <AvatarImage src={icon} alt={name} />
+      <AvatarFallback>{name}</AvatarFallback>
     </Avatar>
   );
 }

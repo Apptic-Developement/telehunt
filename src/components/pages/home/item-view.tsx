@@ -36,7 +36,7 @@ export default function ItemView({ data }: { data: CardData[] }) {
   const updateShortBy = useHomeFilterStore((state) => state.updateShortBy);
 
   return (
-    <section className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6'>
+    <section className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6">
       {tab === "channels" &&
         data.map((card) => {
           return <Card key={card.name} {...card} />;
