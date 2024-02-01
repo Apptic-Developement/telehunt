@@ -6,6 +6,9 @@ export class UserModel {
 
   @prop({ required: true })
   public name!: string;
+
+  @prop({ required: true })
+  public isNewUser!: boolean;
 }
 
 export const User = getModelForClass(UserModel);

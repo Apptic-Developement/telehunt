@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import ThemeToggle from "@/components/utils/theme-toggle";
 import { useEffect, useState } from "react";
 import { UserDropdown } from "./user-dropdown";
-import { useSession, getSession, signIn } from "next-auth/react";
+import { useUser } from "@auth0/nextjs-auth0/client";
 
 export default function TopNav() {
   const routes = useTopNavRoutes();
@@ -78,19 +78,20 @@ export default function TopNav() {
 }
 
 const UserSection = () => {
-  const { data: session, status } = useSession();
+  const { user, error, isLoading } = useUser();
   return (
     <>
-      {!session?.user && status !== "authenticated" && (
-        <Button onClick={() => signIn('auth0', {redirect: false})}>
+      {isLoading && null}
+      {!user && !isLoading && (
+        <Link href="/api/auth/login" className={buttonVariants()}>
           Login
-        </Button>
+        </Link>
       )}
-      {session?.user && status === "authenticated" && (
+      {user && !isLoading && (
         <UserDropdown
-          name={session?.user.name as string}
-          email={session?.user.email as string}
-          icon={session?.user.image as string}
+          name={user.name as string}
+          email={user.email as string}
+          icon={user.picture as string}
         />
       )}
     </>
