@@ -4,8 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import NavBar from "@/components/common/nav";
 import Providers from "@/components/providers";
-import { UserProvider } from "@auth0/nextjs-auth0/client";
-
+import { SessionProvider } from "next-auth/react";
 const inter = Inter({
   subsets: ["latin"],
 });
@@ -22,14 +21,14 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <UserProvider>
+      <SessionProvider>
         <body className={cn(inter.className)}>
           <Providers>
             <NavBar />
             {children}
           </Providers>
         </body>
-      </UserProvider>
+      </SessionProvider>
     </html>
   );
 }

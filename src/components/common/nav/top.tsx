@@ -2,13 +2,12 @@
 
 import { useTopNavRoutes } from "@/hooks/useNavRoutes";
 import Link from "next/link";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import ThemeToggle from "@/components/utils/theme-toggle";
 import { useEffect, useState } from "react";
 import { UserDropdown } from "./user-dropdown";
-import { useUser } from "@auth0/nextjs-auth0/client";
-
+import { signIn, useSession } from "next-auth/react";
 export default function TopNav() {
   const routes = useTopNavRoutes();
   const [shouldVisible, setShouldVisible] = useState<boolean>(true);
@@ -78,20 +77,17 @@ export default function TopNav() {
 }
 
 const UserSection = () => {
-  const { user, error, isLoading } = useUser();
+  const { data, status } = useSession();
   return (
     <>
-      {isLoading && null}
-      {!user && !isLoading && (
-        <Link href="/api/auth/login" className={buttonVariants()}>
-          Login
-        </Link>
+      {status === "unauthenticated" && (
+        <Button onClick={() => signIn("google")}>Login</Button>
       )}
-      {user && !isLoading && (
+      {status === "authenticated" && data.user && (
         <UserDropdown
-          name={user.name as string}
-          email={user.email as string}
-          icon={user.picture as string}
+          name={data?.user.name as string}
+          email={data?.user.email as string}
+          icon={data?.user.image as string}
         />
       )}
     </>
