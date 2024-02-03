@@ -81,7 +81,13 @@ const UserSection = () => {
   return (
     <>
       {status === "unauthenticated" && (
-        <Button onClick={() => signIn("google")}>Login</Button>
+        <Button
+          onClick={() =>
+            signIn("google")
+          }
+        >
+          Login
+        </Button>
       )}
       {status === "authenticated" && data.user && (
         <UserDropdown

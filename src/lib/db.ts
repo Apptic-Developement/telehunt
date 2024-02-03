@@ -1,7 +1,10 @@
-import { drizzle } from 'drizzle-orm/postgres-js'
-import postgres from 'postgres'
+import { PrismaClient } from "@prisma/client/edge";
+import { withAccelerate } from '@prisma/extension-accelerate'
 
-const connectionString = process.env.DATABASE_URL as string
+declare global {
+  var prismaDb: PrismaClient;
+}
 
-const client = postgres(connectionString)
-export const db = drizzle(client);
+export const prismaDb = globalThis.prismaDb ?? new PrismaClient().$extends(withAccelerate());
+
+if (process.env.NODE_ENV !== "production") globalThis.prismaDb = prismaDb;

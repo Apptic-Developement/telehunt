@@ -12,6 +12,7 @@ import UserAvatar from "./avatar";
 import { useDashboardNavRoutes } from "@/hooks/useNavRoutes";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { signOut } from "next-auth/react";
 
 export function UserDropdown({
   email,
@@ -43,11 +44,9 @@ export function UserDropdown({
           })}
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <Link href="/api/auth/logout" passHref>
-          <DropdownMenuItem className="text-destructive">
-            Log out
-          </DropdownMenuItem>
-        </Link>
+        <DropdownMenuItem onClick={() => signOut()} className="text-destructive">
+          Log out
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
