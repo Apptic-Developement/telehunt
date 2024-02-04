@@ -11,8 +11,8 @@ import {
 import UserAvatar from "./avatar";
 import { useDashboardNavRoutes } from "@/hooks/useNavRoutes";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { signOut } from "next-auth/react";
+import { cn } from "@/lib/utils";
 
 export function UserDropdown({
   email,
@@ -38,7 +38,7 @@ export function UserDropdown({
           {routes.map((route) => {
             return (
               <Link href={route.href} key={route.href} passHref>
-                <DropdownMenuItem>{route.name}</DropdownMenuItem>
+                <DropdownMenuItem className={cn({ "bg-accent": route.active })}>{route.name}</DropdownMenuItem>
               </Link>
             );
           })}

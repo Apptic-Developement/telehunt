@@ -3,8 +3,6 @@ import { usePathname } from "next/navigation";
 import HomeIcon from "@mui/icons-material/Home";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
@@ -19,35 +17,45 @@ import GroupsIcon from "@mui/icons-material/People";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
 
-export interface NavRoute {
+export interface BaseNavRoute {
   name: string;
   href: string;
   active: boolean;
+  [key: string]: unknown;
+}
+
+export interface NavRoute extends BaseNavRoute {
   icon: OverridableComponent<SvgIconTypeMap>;
 }
 
-export const useTopNavRoutes = (): NavRoute[] => {
+export interface NavRouteTop extends BaseNavRoute {
+  icon?: OverridableComponent<SvgIconTypeMap>;
+}
+
+export const useTopNavRoutes = (): NavRouteTop[] => {
   const pathName = usePathname();
 
-  return useMemo<NavRoute[]>(
+  return useMemo<NavRouteTop[]>(
     () => [
       {
         name: "home",
         href: "/",
         active: pathName === "/",
-        icon: pathName.startsWith("/") ? HomeIcon : HomeOutlinedIcon,
+      },
+      {
+        name: "explore",
+        href: "/explore",
+        active: pathName.startsWith("/explore"),
       },
       {
         name: "support",
         href: "/",
         active: pathName === "/support",
-        icon: pathName === "/support" ? HelpIcon : HelpOutlineOutlinedIcon,
       },
       {
         name: "policy",
         href: "/",
         active: pathName === "/policy",
-        icon: pathName === "/policy" ? InfoIcon : InfoOutlinedIcon,
       },
     ],
     [pathName],

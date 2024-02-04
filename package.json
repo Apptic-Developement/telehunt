@@ -11,7 +11,7 @@
     "migrate": "drizzle-kit generate:pg && drizzle-kit push:pg"
   },
   "dependencies": {
-    "@auth/prisma-adapter": "^1.2.0",
+    "@auth/prisma-adapter": "^1.2.1",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.15.5",
@@ -32,6 +32,8 @@
     "next": "14.1.0",
     "next-auth": "beta",
     "next-themes": "^0.2.1",
+    "node-postgres": "^0.6.2",
+    "postgres": "^3.4.3",
     "react": "^18",
     "react-dom": "^18",
     "tailwind-merge": "^2.2.0",
