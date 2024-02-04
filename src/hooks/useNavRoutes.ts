@@ -5,10 +5,6 @@ import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
-import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
-import HelpIcon from "@mui/icons-material/Help";
-import InfoIcon from "@mui/icons-material/Info";
-import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import { SvgIconTypeMap } from "@mui/material";
 import { OverridableComponent } from "@mui/material/OverridableComponent";
 import ChannelIcon from "@mui/icons-material/DynamicFeed";
@@ -16,6 +12,8 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import GroupsIcon from "@mui/icons-material/People";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
+import ExploreIcon from "@mui/icons-material/Explore";
+import ExploreOutlinedIcon from "@mui/icons-material/ExploreOutlined";
 
 export interface BaseNavRoute {
   name: string;
@@ -74,18 +72,16 @@ export const useBottomNavRoutes = (): NavRoute[] => {
         icon: pathName === "/" ? HomeIcon : HomeOutlinedIcon,
       },
       {
+        name: "explore",
+        href: "/explore",
+        active: pathName.startsWith("/explore"),
+        icon: pathName.startsWith("/explore") ? ExploreIcon : ExploreOutlinedIcon,
+      },
+      {
         name: "menu",
         href: "/mobile-menu",
         active: pathName.startsWith("/mobile-menu"),
         icon: MenuOpenIcon,
-      },
-      {
-        name: "notifications",
-        href: "/notifications",
-        active: pathName.startsWith("/notifications"),
-        icon: pathName.startsWith("/notifications")
-          ? NotificationsIcon
-          : NotificationsNoneOutlinedIcon,
       },
       {
         name: "dashboard",

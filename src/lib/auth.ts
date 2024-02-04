@@ -9,27 +9,24 @@ export const {
   ...authConfig,
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
-      if (!user || ['null', 'undefined'].includes(typeof user.email)) {
-        return false
+      if (!user || typeof user.email === 'undefined' || user.email === null) {
+        return false;
       }
-      const find = await prismaDb.user.findFirst({
-        where: {
-          email: user.email as string
-        }
-      })
-      if (!find) {
-        const newUser = await prismaDb.user.create({
+    
+      const existingUser = await prismaDb.user.findFirst({
+        where: { email: user.email as string }
+      });
+    
+      if (!existingUser) {
+        await prismaDb.user.create({
           data: {
             name: user.name as string,
             email: user.email as string
           }
-        })
-
-        console.log("New User: ", newUser)
-      } else {
-        console.log("Old User: ", find)
+        });
       }
-      return true
+    
+      return true;
     },
     async redirect({ url, baseUrl }) {
       return baseUrl

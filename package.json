@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "fmt": "npx prettier --write ./**",
-    "migrate": "drizzle-kit generate:pg && drizzle-kit push:pg"
+    "migrate": "prisma generate && prisma db push"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^1.2.1",
