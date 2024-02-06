@@ -75,7 +75,9 @@ export const useBottomNavRoutes = (): NavRoute[] => {
         name: "explore",
         href: "/explore",
         active: pathName.startsWith("/explore"),
-        icon: pathName.startsWith("/explore") ? ExploreIcon : ExploreOutlinedIcon,
+        icon: pathName.startsWith("/explore")
+          ? ExploreIcon
+          : ExploreOutlinedIcon,
       },
       {
         name: "menu",

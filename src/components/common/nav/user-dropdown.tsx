@@ -38,13 +38,18 @@ export function UserDropdown({
           {routes.map((route) => {
             return (
               <Link href={route.href} key={route.href} passHref>
-                <DropdownMenuItem className={cn({ "bg-accent": route.active })}>{route.name}</DropdownMenuItem>
+                <DropdownMenuItem className={cn({ "bg-accent": route.active })}>
+                  {route.name}
+                </DropdownMenuItem>
               </Link>
             );
           })}
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={() => signOut()} className="text-destructive">
+        <DropdownMenuItem
+          onClick={() => signOut()}
+          className="text-destructive"
+        >
           Log out
         </DropdownMenuItem>
       </DropdownMenuContent>

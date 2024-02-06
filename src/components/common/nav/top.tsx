@@ -2,12 +2,13 @@
 
 import { useTopNavRoutes } from "@/hooks/useNavRoutes";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { Button, ButtonSkeleton } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import ThemeToggle from "@/components/utils/theme-toggle";
 import { useEffect, useState } from "react";
 import { UserDropdown } from "./user-dropdown";
 import { signIn, useSession } from "next-auth/react";
+
 export default function TopNav() {
   const routes = useTopNavRoutes();
   const [shouldVisible, setShouldVisible] = useState<boolean>(true);
@@ -78,24 +79,20 @@ export default function TopNav() {
 
 const UserSection = () => {
   const { data, status } = useSession();
-  return (
-    <>
-      {status === "unauthenticated" && (
-        <Button
-          onClick={() =>
-            signIn("google")
-          }
-        >
-          Login
-        </Button>
-      )}
-      {status === "authenticated" && data.user && (
-        <UserDropdown
-          name={data?.user.name as string}
-          email={data?.user.email as string}
-          icon={data?.user.image as string}
-        />
-      )}
-    </>
-  );
+  if (status === "unauthenticated") {
+    return <Button onClick={() => signIn("google")}>Login</Button>;
+  }
+
+  if (status === "loading") {
+    return <ButtonSkeleton className="!px-10" />;
+  }
+  if (status === "authenticated" && data.user) {
+    return (
+      <UserDropdown
+        name={data?.user.name as string}
+        email={data?.user.email as string}
+        icon={data?.user.image as string}
+      />
+    );
+  }
 };

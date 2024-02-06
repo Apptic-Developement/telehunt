@@ -1,6 +1,12 @@
 import { auth } from "@/lib/auth";
+import { authRoutes, authUrl } from "@/lib/routes";
+import { NextResponse } from "next/server";
+
 export default auth((req) => {
-  // req.auth
+  const isLoggedin = !!req.auth;
+  if (!isLoggedin && authRoutes.includes(req.nextUrl.pathname)) {
+    return NextResponse.redirect(new URL(authUrl, req.url));
+  }
 });
 
 // Optionally, don't invoke Middleware on some paths
