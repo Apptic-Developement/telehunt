@@ -1,8 +1,8 @@
 export const authRoutes: string[] = [
-    '/dashboard',
-    '/dashboard/settings',
-    '/dashboard/groups',
-    '/dashboard/channels',
-]
+  "/dashboard",
+  "/dashboard/settings",
+  "/dashboard/groups",
+  "/dashboard/channels",
+];
 
-export const authUrl = '/'
+export const authUrl = "/";

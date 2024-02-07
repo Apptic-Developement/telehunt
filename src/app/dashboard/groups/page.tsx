@@ -10,6 +10,7 @@ export default function Groups() {
         description="Groups uploaded by you."
         showButton
         buttonText="Add"
+        buttonType="group"
       />
       <DashboardShell>
         <h2>Content here</h2>

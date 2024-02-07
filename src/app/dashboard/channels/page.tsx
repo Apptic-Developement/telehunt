@@ -10,6 +10,7 @@ export default function Channels() {
         description="Channels uploaded by you."
         showButton
         buttonText="Add"
+        buttonType="channel"
       />
       <DashboardShell>
         <h2>Content here</h2>
