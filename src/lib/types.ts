@@ -10,10 +10,9 @@ export type CardData = {
 export type HomeTabsType = "channels" | "groups" | "bots";
 export type HomeShortByType = "top-voted" | "new";
 
-
 export interface ApiTelegramChannelData {
   name: string;
   description: string;
   icon: string;
-  subscribers: string
+  subscribers: string;
 }
