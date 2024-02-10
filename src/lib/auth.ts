@@ -22,7 +22,7 @@ export const {
           data: {
             name: user.name as string,
             email: user.email as string,
-            role: 'USER'
+            role: "USER",
           },
         });
       }
