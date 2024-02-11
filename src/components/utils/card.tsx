@@ -7,6 +7,22 @@ import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
 import { CardData } from "@/lib/types";
 import { Skeleton } from "../ui/skeleton";
 
+const CardImage = ({ logo }: { logo: string }) => {
+  if (logo.length) {
+    return (
+      <Image
+        className="rounded-md"
+        src={logo}
+        alt="Logo"
+        width={60}
+        height={60}
+      />
+    );
+  }
+
+  return <Skeleton className="rounded-md w-16 h-16" />;
+};
+
 export default function Card({
   logo,
   name,
@@ -20,6 +36,7 @@ export default function Card({
     .map((category, index) =>
       index === categories.slice(0, 2).length - 1 ? category : `${category},`,
     );
+
   return (
     <Link
       href="/"
@@ -27,13 +44,7 @@ export default function Card({
       className="flex flex-col px-4 py-3 gap-2 mx-auto md:w-[280px] w-full h-fit overflow-hidden rounded-md"
     >
       <div className="flex items-center gap-3">
-        <Image
-          className="rounded-md"
-          src={logo}
-          alt="Logo"
-          width={60}
-          height={60}
-        />
+        <CardImage logo={logo} />
         <div className="flex flex-col gap-1">
           <h2 className="text-lg font-semibold">{name}</h2>
           <div className="flex text-xs space-x-2">

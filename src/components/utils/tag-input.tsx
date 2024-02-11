@@ -20,6 +20,7 @@ export default function TagInput({
       tags.filter((tag) => tag !== tagName, tags),
     );
   };
+
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     const value = String(event.target.value);
     setCurrentTag(value);
@@ -28,6 +29,7 @@ export default function TagInput({
     }
     addTag();
   };
+
   const addTag = () => {
     const refinedValue = currentTag.replaceAll(",", "");
     if (
@@ -48,20 +50,21 @@ export default function TagInput({
         {tags.map((tag) => {
           return (
             <Button
-            key={tag}
+              key={tag}
               size="sm"
               type="button"
-              className="flex items-center justify-between gap-2"
-              variant="secondary"
+              className="flex items-center justify-between gap-2 text-xs px-2 py-3"
+              variant="outline"
               onClick={() => removeTag(tag)}
             >
               <span>{tag}</span>
-              <CloseIcon />
+              <CloseIcon fontSize="small" />
             </Button>
           );
         })}
       </div>
       <Input
+        disabled={tags.length === 10}
         onKeyDown={(event) => {
           event.preventDefault();
           event.key === "Enter" && addTag();
@@ -70,6 +73,7 @@ export default function TagInput({
         id="tags"
         type="text"
         value={currentTag}
+        placeholder="Add tags related to your channel."
       />
     </div>
   );

@@ -24,6 +24,7 @@ import React, { FormEvent, useTransition } from "react";
 import addChannelAction from "@/actions/addChannel";
 import { addChannelSchema } from "@/schemas/formSchema";
 import TagInput from "@/components/utils/tag-input";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function Add() {
   const [isPending, startTransition] = useTransition();
@@ -31,7 +32,7 @@ export default function Add() {
     resolver: zodResolver(addChannelSchema),
     defaultValues: {
       url: "",
-      name: "",
+      channelName: "",
       shortDescription: "",
       longDescription: "",
       tags: [],
@@ -39,12 +40,10 @@ export default function Add() {
     },
   });
 
-  function setTag(tag: string) {
-    return;
-  }
   function onSubmit(values: z.infer<typeof addChannelSchema>) {
     startTransition(() => addChannelAction(values));
   }
+
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -72,7 +71,7 @@ export default function Add() {
                     <ChannelUrl>
                       <Input
                         id="url"
-                        className="h-full"
+                        className="h-full rounded-l-none"
                         type="text"
                         placeholder="telehunt"
                         {...field}
@@ -86,16 +85,16 @@ export default function Add() {
             {/* Channel Name */}
             <FormField
               control={form.control}
-              name="name"
+              name="channelName"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel htmlFor="name">Name</FormLabel>
+                  <FormLabel htmlFor="channelName">Channel Name</FormLabel>
                   <FormControl>
                     <Input
-                      id="name"
+                      id="channelName"
                       type="text"
-                      placeholder="Telehunt"
                       {...field}
+                      placeholder="Your channel name."
                     />
                   </FormControl>
                   <FormMessage />
@@ -112,7 +111,12 @@ export default function Add() {
                     Short Description
                   </FormLabel>
                   <FormControl>
-                    <Input id="shortDescription" type="text" {...field} />
+                    <Input
+                      id="shortDescription"
+                      type="text"
+                      {...field}
+                      placeholder="Describe your channel in short."
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -128,7 +132,12 @@ export default function Add() {
                     Long Description
                   </FormLabel>
                   <FormControl>
-                    <Input id="longDescription" type="text" {...field} />
+                    <Textarea
+                      id="longDescription"
+                      rows={5}
+                      placeholder="Describe your channel in detail, including what it's about, who it's for, and what makes it special."
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
