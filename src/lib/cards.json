@@ -1,6 +1,6 @@
 [
   {
-    "logo": "https://vcodes.xyz/_next/image?url=https%3A%2F%2Fcdn.discordapp.com%2Favatars%2F825095206672138330%2F3d34b6ec189dc3dae7dc8f3e01b290de.png%3Fsize%3D4096&w=1080&q=100",
+    "logo": "/logo.png",
     "name": "Creative Minds",
     "description": "Unlock your creativity and connect with fellow artists and creators.",
     "categories": ["Art", "Design", "Creativity"],
@@ -16,7 +16,7 @@
     "totalVotes": 220
   },
   {
-    "logo": "https://vcodes.xyz/_next/image?url=https%3A%2F%2Fcdn.discordapp.com%2Favatars%2F825095206672138330%2F3d34b6ec189dc3dae7dc8f3e01b290de.png%3Fsize%3D4096&w=1080&q=100",
+    "logo": "/logo.png",
     "name": "Bookworms Club",
     "description": "A haven for book lovers to discuss literature, recommend books, and more.",
     "categories": ["Books", "Reading", "Book Club"],
@@ -24,7 +24,7 @@
     "totalVotes": 150
   },
   {
-    "logo": "https://vcodes.xyz/_next/image?url=https%3A%2F%2Fcdn.discordapp.com%2Favatars%2F825095206672138330%2F3d34b6ec189dc3dae7dc8f3e01b290de.png%3Fsize%3D4096&w=1080&q=100",
+    "logo": "/logo.png",
     "name": "Gaming Warriors",
     "description": "Connect with fellow gamers, share gaming experiences, and strategize.",
     "categories": ["Gaming", "Esports", "Strategy"],
@@ -32,7 +32,7 @@
     "totalVotes": 200
   },
   {
-    "logo": "https://vcodes.xyz/_next/image?url=https%3A%2F%2Fcdn.discordapp.com%2Favatars%2F825095206672138330%2F3d34b6ec189dc3dae7dc8f3e01b290de.png%3Fsize%3D4096&w=1080&q=100",
+    "logo": "/logo.png",
     "name": "Travel Enthusiasts",
     "description": "Share your travel stories, tips, and discover new destinations.",
     "categories": ["Travel", "Adventure", "Exploration"],
@@ -40,7 +40,7 @@
     "totalVotes": 250
   },
   {
-    "logo": "https://vcodes.xyz/_next/image?url=https%3A%2F%2Fcdn.discordapp.com%2Favatars%2F825095206672138330%2F3d34b6ec189dc3dae7dc8f3e01b290de.png%3Fsize%3D4096&w=1080&q=100",
+    "logo": "/logo.png",
     "name": "Tech Support Hub",
     "description": "Get help and support for all your tech-related queries and issues.",
     "categories": ["Technology", "Support", "Troubleshooting"],
@@ -48,7 +48,7 @@
     "totalVotes": 120
   },
   {
-    "logo": "https://vcodes.xyz/_next/image?url=https%3A%2F%2Fcdn.discordapp.com%2Favatars%2F825095206672138330%2F3d34b6ec189dc3dae7dc8f3e01b290de.png%3Fsize%3D4096&w=1080&q=100",
+    "logo": "/logo.png",
     "name": "Music Makers",
     "description": "Connect with fellow musicians, share your compositions, and collaborate.",
     "categories": ["Music", "Composition", "Collaboration"],
@@ -56,7 +56,7 @@
     "totalVotes": 110
   },
   {
-    "logo": "https://vcodes.xyz/_next/image?url=https%3A%2F%2Fcdn.discordapp.com%2Favatars%2F825095206672138330%2F3d34b6ec189dc3dae7dc8f3e01b290de.png%3Fsize%3D4096&w=1080&q=100",
+    "logo": "/logo.png",
     "name": "Foodie Haven",
     "description": "Discuss your favorite recipes, cooking tips, and culinary experiences.",
     "categories": ["Food", "Cooking", "Culinary"],
@@ -64,7 +64,7 @@
     "totalVotes": 180
   },
   {
-    "logo": "https://vcodes.xyz/_next/image?url=https%3A%2F%2Fcdn.discordapp.com%2Favatars%2F825095206672138330%2F3d34b6ec189dc3dae7dc8f3e01b290de.png%3Fsize%3D4096&w=1080&q=100",
+    "logo": "/logo.png",
     "name": "Photography Club",
     "description": "Share your photography skills, tips, and showcase your best shots.",
     "categories": ["Photography", "Art", "Visual Arts"],
@@ -72,7 +72,7 @@
     "totalVotes": 170
   },
   {
-    "logo": "https://vcodes.xyz/_next/image?url=https%3A%2F%2Fcdn.discordapp.com%2Favatars%2F825095206672138330%2F3d34b6ec189dc3dae7dc8f3e01b290de.png%3Fsize%3D4096&w=1080&q=100",
+    "logo": "/logo.png",
     "name": "Science Explorers",
     "description": "Discuss and explore the wonders of science with fellow enthusiasts.",
     "categories": ["Science", "Exploration", "Discovery"],

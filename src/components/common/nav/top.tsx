@@ -8,6 +8,8 @@ import ThemeToggle from "@/components/utils/theme-toggle";
 import { useEffect, useState } from "react";
 import { UserDropdown } from "./user-dropdown";
 import { signIn, useSession } from "next-auth/react";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 export default function TopNav() {
   const routes = useTopNavRoutes();
@@ -43,9 +45,7 @@ export default function TopNav() {
         {/* Nav Right Section */}
         <div className="flex items-center gap-6">
           {/* Nav Branding */}
-          <Link href="/" className="text-xl font-extrabold capitalize">
-            telehunt
-          </Link>
+          <NavBranding />
         </div>
         {/* Nav Left Section */}
         <div className="flex items-center gap-6">
@@ -96,3 +96,37 @@ const UserSection = () => {
     );
   }
 };
+
+
+const NavBranding = () => {
+  const isHome = usePathname() === '/';
+
+  if (!isHome) {
+    return (
+      <Link href="/" className="flex gap-1 items-center">
+        <Image
+          className="object-cover block"
+          id="nav-logo"
+          width={40}
+          height={40}
+          alt='logo'
+          src='/logo.png'
+          priority />
+        <span className='md:block hidden text-lg font-bold capitalize'>telehunt</span>
+      </Link>
+    )
+  }
+  return (
+    <div className="flex gap-1 items-center">
+      <Image
+        className="object-cover block"
+        id="nav-logo"
+        width={40}
+        height={40}
+        alt='logo'
+        src='/logo.png'
+        priority />
+      <span className='md:block hidden text-lg font-bold capitalize'>telehunt</span>
+    </div>
+  )
+}
