@@ -31,13 +31,15 @@ export default function Hero() {
       <h1 className="text-2xl font-bold">
         Discover numerous Telegram bots, channels, groups!
       </h1>
-      <SearchForm />
-      <div className="flex justify-between">
-        <HomeTabs updateTab={updateTabWithTransition} />
-        <ShortByMenu
-          shortBy={shortBy}
-          updateShortBy={updateShortByWithTransition}
-        />
+      <div className="flex md:flex-row flex-col gap-4 max-w-screen md:items-center md:h-10">
+        <SearchForm />
+        <div className="flex justify-between md:gap-2 h-full">
+          <HomeTabs updateTab={updateTabWithTransition} />
+          <ShortByMenu
+            shortBy={shortBy}
+            updateShortBy={updateShortByWithTransition}
+          />
+        </div>
       </div>
     </section>
   );

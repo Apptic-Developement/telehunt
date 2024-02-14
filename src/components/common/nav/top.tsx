@@ -97,9 +97,8 @@ const UserSection = () => {
   }
 };
 
-
 const NavBranding = () => {
-  const isHome = usePathname() === '/';
+  const isHome = usePathname() === "/";
 
   if (!isHome) {
     return (
@@ -109,12 +108,15 @@ const NavBranding = () => {
           id="nav-logo"
           width={40}
           height={40}
-          alt='logo'
-          src='/logo.png'
-          priority />
-        <span className='md:block hidden text-lg font-bold capitalize'>telehunt</span>
+          alt="logo"
+          src="/logo.png"
+          priority
+        />
+        <span className="md:block hidden text-lg font-bold capitalize">
+          telehunt
+        </span>
       </Link>
-    )
+    );
   }
   return (
     <div className="flex gap-1 items-center">
@@ -123,10 +125,13 @@ const NavBranding = () => {
         id="nav-logo"
         width={40}
         height={40}
-        alt='logo'
-        src='/logo.png'
-        priority />
-      <span className='md:block hidden text-lg font-bold capitalize'>telehunt</span>
+        alt="logo"
+        src="/logo.png"
+        priority
+      />
+      <span className="md:block hidden text-lg font-bold capitalize">
+        telehunt
+      </span>
     </div>
-  )
-}
+  );
+};

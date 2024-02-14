@@ -28,7 +28,7 @@ export default function BottomNav() {
   return (
     <nav
       className={cn(
-        "bg-background border-t backdrop-blur supports-[backdrop-filter]:bg-background/60 fixed flex justify-around bottom-0 right-0 left-0 py-4 duration-300 transition-all ease-in-out",
+        "z-50 bg-background border-t backdrop-blur supports-[backdrop-filter]:bg-background/60 fixed flex justify-around bottom-0 right-0 left-0 py-4 duration-300 transition-all ease-in-out",
         { "-bottom-20": shouldVisible === false },
       )}
     >

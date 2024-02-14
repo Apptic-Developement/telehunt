@@ -20,7 +20,7 @@ const CardImage = ({ logo }: { logo: string }) => {
     );
   }
 
-  return <Skeleton className="rounded-md w-16 h-16" />;
+  return <Skeleton className="w-16 h-16" />;
 };
 
 export default function Card({
