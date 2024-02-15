@@ -10,6 +10,7 @@ import { UserDropdown } from "./user-dropdown";
 import { signIn, useSession } from "next-auth/react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import NotificationIcon from "@mui/icons-material/NotificationsRounded";
 
 export default function TopNav() {
   const routes = useTopNavRoutes();
@@ -41,7 +42,7 @@ export default function TopNav() {
         { "top-0": shouldVisible },
       )}
     >
-      <div className="lg:px-16 md:px-8 flex items-center justify-between h-14">
+      <div className="flex items-center justify-between h-14">
         {/* Nav Right Section */}
         <div className="flex items-center gap-6">
           {/* Nav Branding */}
@@ -67,7 +68,8 @@ export default function TopNav() {
             })}
           </div>
           {/* Nav Buttons */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
+            <NotificationButton />
             <ThemeToggle />
             <UserSection />
           </div>
@@ -133,5 +135,13 @@ const NavBranding = () => {
         telehunt
       </span>
     </div>
+  );
+};
+
+const NotificationButton = () => {
+  return (
+    <Button variant="outline" className="rounded-full" size="icon">
+      <NotificationIcon />
+    </Button>
   );
 };

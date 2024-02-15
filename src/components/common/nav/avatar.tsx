@@ -10,7 +10,7 @@ export default function UserAvatar({
   name: string;
 }) {
   return (
-    <Avatar className="border-2">
+    <Avatar className="border-2 h-9 w-9">
       <AvatarImage src={icon} alt={name} />
       <AvatarFallback>{name}</AvatarFallback>
     </Avatar>

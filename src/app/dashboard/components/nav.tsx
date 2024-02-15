@@ -7,7 +7,7 @@ import React from "react";
 export default function Nav() {
   const routes = useDashboardNavRoutes();
   return (
-    <section className="hidden md:flex flex-col gap-3 w-52">
+    <section className="hidden md:flex flex-col gap-3 w-52 h-fit fixed">
       {routes.map(({ name, href, active, icon: Icon }) => {
         return (
           <Link

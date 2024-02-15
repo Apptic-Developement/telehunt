@@ -27,7 +27,7 @@ export default function Hero() {
     });
   };
   return (
-    <section className="flex flex-col gap-4">
+    <section className="flex flex-col gap-4 md:gap-8">
       <h1 className="text-2xl font-bold">
         Discover numerous Telegram bots, channels, groups!
       </h1>

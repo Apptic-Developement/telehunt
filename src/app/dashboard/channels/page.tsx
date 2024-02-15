@@ -15,6 +15,75 @@ export default function Channels() {
       <DashboardShell>
         <h2>Content here</h2>
       </DashboardShell>
+      <DashboardShell>
+        <h2>Content here</h2>
+      </DashboardShell>
+      <DashboardShell>
+        <h2>Content here</h2>
+      </DashboardShell>
+      <DashboardShell>
+        <h2>Content here</h2>
+      </DashboardShell>
+      <DashboardShell>
+        <h2>Content here</h2>
+      </DashboardShell>
+      <DashboardShell>
+        <h2>Content here</h2>
+      </DashboardShell>
+      <DashboardShell>
+        <h2>Content here</h2>
+      </DashboardShell>
+      <DashboardShell>
+        <h2>Content here</h2>
+      </DashboardShell>
+      <DashboardShell>
+        <h2>Content here</h2>
+      </DashboardShell>
+      <DashboardShell>
+        <h2>Content here</h2>
+      </DashboardShell>
+      <DashboardShell>
+        <h2>Content here</h2>
+      </DashboardShell>
+      <DashboardShell>
+        <h2>Content here</h2>
+      </DashboardShell>
+      <DashboardShell>
+        <h2>Content here</h2>
+      </DashboardShell>
+      <DashboardShell>
+        <h2>Content here</h2>
+      </DashboardShell>
+      <DashboardShell>
+        <h2>Content here</h2>
+      </DashboardShell>
+      <DashboardShell>
+        <h2>Content here</h2>
+      </DashboardShell>
+      <DashboardShell>
+        <h2>Content here</h2>
+      </DashboardShell>
+      <DashboardShell>
+        <h2>Content here</h2>
+      </DashboardShell>
+      <DashboardShell>
+        <h2>Content here</h2>
+      </DashboardShell>
+      <DashboardShell>
+        <h2>Content here</h2>
+      </DashboardShell>
+      <DashboardShell>
+        <h2>Content here</h2>
+      </DashboardShell>
+      <DashboardShell>
+        <h2>Content here</h2>
+      </DashboardShell>
+      <DashboardShell>
+        <h2>Content here</h2>
+      </DashboardShell>
+      <DashboardShell>
+        <h2>Content here</h2>
+      </DashboardShell>
     </section>
   );
 }
