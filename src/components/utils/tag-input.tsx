@@ -45,8 +45,8 @@ export default function TagInput({
     setCurrentTag("");
   };
   return (
-    <div className="flex flex-col gap-2">
-      <div className="flex flex-wrap gap-2">
+    <div className="flex flex-wrap items-center bg-card border rounded-md p-2">
+      {/* <div className="flex flex-wrap gap-2">
         {tags.map((tag) => {
           return (
             <Button
@@ -74,7 +74,33 @@ export default function TagInput({
         type="text"
         value={currentTag}
         placeholder="Add tags related to your channel."
+      /> */}
+      <div className="flex flex-wrap gap-1">
+        {
+          tags && tags.map((tag) => (<Tag key={tag} name={tag} onClick={() => removeTag(tag)}/>))
+        }
+      </div>
+      <Input 
+      className="bg-none border-none rounded-none focus-visible:ring-0 w-fit h-full"
+      disabled={tags.length === 10}
+        onKeyDown={(event) => {
+          event.preventDefault();
+          event.key === "Enter" && addTag();
+        }}
+        onChange={onChange}
+        id="tags"
+        type="text"
+        value={currentTag}
       />
     </div>
   );
+}
+
+const Tag = ({name, onClick}: {name: string; onClick: () => void}) => {
+  return (
+    <div className="bg-secondary p-1 flex items-center gap-1 rounded-md" onClick={() => onClick()}>
+      <span className="text-xs">{name}</span>
+      <CloseIcon fontSize="small"/>
+    </div>
+  )
 }
