@@ -3,8 +3,6 @@ import { usePathname } from "next/navigation";
 import HomeIcon from "@mui/icons-material/Home";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
-import NotificationsIcon from "@mui/icons-material/Notifications";
-import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import { SvgIconTypeMap } from "@mui/material";
 import { OverridableComponent } from "@mui/material/OverridableComponent";
 import ChannelIcon from "@mui/icons-material/DynamicFeed";
@@ -15,25 +13,17 @@ import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
 import ExploreIcon from "@mui/icons-material/Explore";
 import ExploreOutlinedIcon from "@mui/icons-material/ExploreOutlined";
 
-export interface BaseNavRoute {
+export interface NavRoute {
   name: string;
   href: string;
   active: boolean;
   [key: string]: unknown;
 }
 
-export interface NavRoute extends BaseNavRoute {
-  icon: OverridableComponent<SvgIconTypeMap>;
-}
-
-export interface NavRouteTop extends BaseNavRoute {
-  icon?: OverridableComponent<SvgIconTypeMap>;
-}
-
-export const useTopNavRoutes = (): NavRouteTop[] => {
+export const useNavRoutes = (): NavRoute[] => {
   const pathName = usePathname();
 
-  return useMemo<NavRouteTop[]>(
+  return useMemo<NavRoute[]>(
     () => [
       {
         name: "home",
@@ -54,44 +44,6 @@ export const useTopNavRoutes = (): NavRouteTop[] => {
         name: "policy",
         href: "/",
         active: pathName === "/policy",
-      },
-    ],
-    [pathName],
-  );
-};
-
-export const useBottomNavRoutes = (): NavRoute[] => {
-  const pathName = usePathname();
-
-  return useMemo<NavRoute[]>(
-    () => [
-      {
-        name: "home",
-        href: "/",
-        active: pathName === "/",
-        icon: pathName === "/" ? HomeIcon : HomeOutlinedIcon,
-      },
-      {
-        name: "explore",
-        href: "/explore",
-        active: pathName.startsWith("/explore"),
-        icon: pathName.startsWith("/explore")
-          ? ExploreIcon
-          : ExploreOutlinedIcon,
-      },
-      {
-        name: "menu",
-        href: "/mobile-menu",
-        active: pathName.startsWith("/mobile-menu"),
-        icon: MenuOpenIcon,
-      },
-      {
-        name: "dashboard",
-        href: "/dashboard",
-        active: pathName.startsWith("/dashboard"),
-        icon: pathName.startsWith("/dashboard")
-          ? DashboardIcon
-          : DashboardOutlinedIcon,
       },
     ],
     [pathName],

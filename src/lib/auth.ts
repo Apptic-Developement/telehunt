@@ -12,7 +12,6 @@ export const {
       if (!user || typeof user.email === "undefined" || user.email === null) {
         return false;
       }
-
       const existingUser = await prismaDb.user.findFirst({
         where: { email: user.email as string },
       });

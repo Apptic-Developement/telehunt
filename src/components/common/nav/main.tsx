@@ -1,20 +1,19 @@
 "use client";
 
-import { useTopNavRoutes } from "@/hooks/useNavRoutes";
+import { useNavRoutes } from "@/hooks/useNavRoutes";
 import Link from "next/link";
-import { Button, ButtonSkeleton } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import ThemeToggle from "@/components/utils/theme-toggle";
 import { useEffect, useState } from "react";
-import { UserDropdown } from "./user-dropdown";
-import { signIn, useSession } from "next-auth/react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import NotificationIcon from "@mui/icons-material/NotificationsRounded";
-import Search from "../search";
+import MobileMenuSheet from "./mobile-sheet";
+import { UserSection } from "./user-section";
 
-export default function TopNav() {
-  const routes = useTopNavRoutes();
+export function NavBar() {
+  const routes = useNavRoutes();
   const [shouldVisible, setShouldVisible] = useState<boolean>(true);
   const [previousOffset, setPreviousOffset] = useState<number | undefined>(
     undefined,
@@ -43,12 +42,11 @@ export default function TopNav() {
         { "top-0": shouldVisible },
       )}
     >
-      <div className="flex items-center justify-between h-14">
+      <div className="flex items-center gap-4 justify-between h-14">
         {/* Nav Right Section */}
         <div className="flex items-center gap-6 w-full">
           {/* Nav Branding */}
           <NavBranding />
-          <Search />
         </div>
         {/* Nav Left Section */}
         <div className="flex items-center gap-6">
@@ -73,7 +71,10 @@ export default function TopNav() {
           <div className="flex items-center gap-3">
             <NotificationButton />
             <ThemeToggle />
-            <UserSection />
+            <div className="hidden md:flex items-center gap-3">
+              <UserSection/>
+            </div>
+            <MobileMenuSheet />
           </div>
         </div>
       </div>
@@ -81,25 +82,6 @@ export default function TopNav() {
   );
 }
 
-const UserSection = () => {
-  const { data, status } = useSession();
-  if (status === "unauthenticated") {
-    return <Button onClick={() => signIn("google")}>Login</Button>;
-  }
-
-  if (status === "loading") {
-    return <ButtonSkeleton className="!px-10" />;
-  }
-  if (status === "authenticated" && data.user) {
-    return (
-      <UserDropdown
-        name={data?.user.name as string}
-        email={data?.user.email as string}
-        icon={data?.user.image as string}
-      />
-    );
-  }
-};
 
 const NavBranding = () => {
   const isHome = usePathname() === "/";
@@ -116,9 +98,9 @@ const NavBranding = () => {
           src="/logo.png"
           priority
         />
-        {/* <span className="md:block hidden text-lg font-bold capitalize">
+        <span className="md:block hidden text-lg font-bold capitalize">
           telehunt
-        </span> */}
+        </span>
       </Link>
     );
   }
@@ -133,9 +115,9 @@ const NavBranding = () => {
         src="/logo.png"
         priority
       />
-      {/* <span className="md:block hidden text-lg font-bold capitalize">
+      <span className="md:block hidden text-lg font-bold capitalize">
         telehunt
-      </span> */}
+      </span>
     </div>
   );
 };
