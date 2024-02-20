@@ -11,6 +11,7 @@ import { signIn, useSession } from "next-auth/react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import NotificationIcon from "@mui/icons-material/NotificationsRounded";
+import Search from "../search";
 
 export default function TopNav() {
   const routes = useTopNavRoutes();
@@ -44,9 +45,10 @@ export default function TopNav() {
     >
       <div className="flex items-center justify-between h-14">
         {/* Nav Right Section */}
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-6 w-full">
           {/* Nav Branding */}
           <NavBranding />
+          <Search />
         </div>
         {/* Nav Left Section */}
         <div className="flex items-center gap-6">
@@ -114,9 +116,9 @@ const NavBranding = () => {
           src="/logo.png"
           priority
         />
-        <span className="md:block hidden text-lg font-bold capitalize">
+        {/* <span className="md:block hidden text-lg font-bold capitalize">
           telehunt
-        </span>
+        </span> */}
       </Link>
     );
   }
@@ -131,9 +133,9 @@ const NavBranding = () => {
         src="/logo.png"
         priority
       />
-      <span className="md:block hidden text-lg font-bold capitalize">
+      {/* <span className="md:block hidden text-lg font-bold capitalize">
         telehunt
-      </span>
+      </span> */}
     </div>
   );
 };

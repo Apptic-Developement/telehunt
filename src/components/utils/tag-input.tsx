@@ -1,6 +1,5 @@
 import React, { ChangeEvent, useState } from "react";
 import { Input } from "../ui/input";
-import { Button } from "../ui/button";
 import CloseIcon from "@mui/icons-material/Close";
 
 export default function TagInput({
@@ -11,7 +10,7 @@ export default function TagInput({
   setTags: any;
 }) {
   const [currentTag, setCurrentTag] = useState<string>("");
-
+  const remaningTags: string = tags.length > 0 ? `(${tags.length}/10)` : "";
   const removeTag = (tagName: string) => {
     if (!tags.includes(tagName)) return;
 
@@ -45,62 +44,39 @@ export default function TagInput({
     setCurrentTag("");
   };
   return (
-    <div className="flex flex-wrap items-center bg-card border rounded-md p-2">
-      {/* <div className="flex flex-wrap gap-2">
-        {tags.map((tag) => {
-          return (
-            <Button
-              key={tag}
-              size="sm"
-              type="button"
-              className="flex items-center justify-between gap-2 text-xs px-2 py-3"
-              variant="outline"
-              onClick={() => removeTag(tag)}
-            >
-              <span>{tag}</span>
-              <CloseIcon fontSize="small" />
-            </Button>
-          );
-        })}
-      </div>
-      <Input
-        disabled={tags.length === 10}
-        onKeyDown={(event) => {
-          event.preventDefault();
-          event.key === "Enter" && addTag();
-        }}
-        onChange={onChange}
-        id="tags"
-        type="text"
-        value={currentTag}
-        placeholder="Add tags related to your channel."
-      /> */}
-      <div className="flex flex-wrap gap-1">
-        {
-          tags && tags.map((tag) => (<Tag key={tag} name={tag} onClick={() => removeTag(tag)}/>))
-        }
-      </div>
-      <Input 
-      className="bg-none border-none rounded-none focus-visible:ring-0 w-fit h-full"
-      disabled={tags.length === 10}
-        onKeyDown={(event) => {
-          event.preventDefault();
-          event.key === "Enter" && addTag();
-        }}
-        onChange={onChange}
-        id="tags"
-        type="text"
-        value={currentTag}
-      />
+    <div className="flex flex-wrap items-center bg-card border rounded-md p-2 w-full gap-1 relative">
+      {tags &&
+        tags.map((tag) => (
+          <Tag key={tag} name={tag} onClick={() => removeTag(tag)} />
+        ))}
+      {tags.length !== 10 && (
+        <Input
+          className="bg-none border-none rounded-none focus-visible:ring-0 w-fit h-full"
+          onKeyDown={(event) => {
+            event.preventDefault();
+            event.key === "Enter" && addTag();
+          }}
+          onChange={onChange}
+          id="tags"
+          type="text"
+          value={currentTag}
+        />
+      )}
+      <span className="absolute right-2 bottom-1 text-xs text-muted-foreground">
+        {remaningTags}
+      </span>
     </div>
   );
 }
 
-const Tag = ({name, onClick}: {name: string; onClick: () => void}) => {
+const Tag = ({ name, onClick }: { name: string; onClick: () => void }) => {
   return (
-    <div className="bg-secondary p-1 flex items-center gap-1 rounded-md" onClick={() => onClick()}>
-      <span className="text-xs">{name}</span>
-      <CloseIcon fontSize="small"/>
-    </div>
-  )
-}
+    <button
+      className="bg-secondary py-1 px-2 flex items-center gap-1 rounded-md"
+      onClick={() => onClick()}
+    >
+      <span className="text-xs font-semibold">{name}</span>
+      <CloseIcon fontSize="small" />
+    </button>
+  );
+};
