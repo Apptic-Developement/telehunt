@@ -4,18 +4,16 @@ import ChannelIcon from "@mui/icons-material/DynamicFeed";
 import SettingsIcon from "@mui/icons-material/Settings";
 import GroupsIcon from "@mui/icons-material/People";
 import DashboardIcon from "@mui/icons-material/Dashboard";
-
+import {SvgIconTypeMap} from '@mui/material';
+import {OverridableComponent} from '@mui/types'
 export interface NavRoute {
   name: string;
   href: string;
   active: boolean;
   [key: string]: unknown;
 }
-export interface NavRouteDashboard {
-  name: string;
-  href: string;
-  active: boolean;
-  [key: string]: unknown;
+export interface NavRouteDashboard extends NavRoute {
+  icon: OverridableComponent<SvgIconTypeMap>
 }
 
 export const useNavRoutes = (): NavRoute[] => {
@@ -43,9 +41,9 @@ export const useNavRoutes = (): NavRoute[] => {
   );
 };
 
-export const useDashboardNavRoutes = (): NavRoute[] => {
+export const useDashboardNavRoutes = (): NavRouteDashboard[] => {
   const pathName = usePathname();
-  return useMemo<NavRoute[]>(
+  return useMemo<NavRouteDashboard[]>(
     () => [
       {
         name: "Dashboard",
