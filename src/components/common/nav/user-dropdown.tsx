@@ -27,7 +27,7 @@ export function UserDropdown({
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <span>
+        <span className="hidden md:block">
           <UserAvatar name={name} icon={icon} />
         </span>
       </DropdownMenuTrigger>

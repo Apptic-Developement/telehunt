@@ -2,15 +2,18 @@
 import { Button, ButtonSkeleton } from "@/components/ui/button";
 import { signIn, useSession } from "next-auth/react";
 import { UserDropdown } from "./user-dropdown";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export const UserSection = () => {
     const { data, status } = useSession();
     if (status === "unauthenticated") {
-        return <Button onClick={() => signIn("google")}>Login</Button>;
+        return <Button className="hidden md:inline-block" onClick={() => signIn("google")}>Login</Button>;
     }
 
     if (status === "loading") {
-        return <ButtonSkeleton className="!px-10" />;
+        return (
+            <ButtonSkeleton className="hidden md:inline-block !px-10" />
+        )
     }
     if (status === "authenticated" && data.user) {
         return (

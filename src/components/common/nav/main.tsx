@@ -71,9 +71,7 @@ export function NavBar() {
           <div className="flex items-center gap-3">
             <NotificationButton />
             <ThemeToggle />
-            <div className="hidden md:flex items-center gap-3">
-              <UserSection/>
-            </div>
+            <UserSection />
             <MobileMenuSheet />
           </div>
         </div>
