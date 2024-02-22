@@ -80,7 +80,6 @@ export function NavBar() {
   );
 }
 
-
 const NavBranding = () => {
   const isHome = usePathname() === "/";
 

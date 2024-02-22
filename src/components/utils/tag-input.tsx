@@ -50,8 +50,8 @@ export default function TagInput({
           <Tag key={tag} name={tag} onClick={() => removeTag(tag)} />
         ))}
       {tags.length !== 10 && (
-        <Input
-          className="bg-none border-none rounded-none focus-visible:ring-0 w-fit h-full"
+        <input
+          className="bg-transparent p-1 border-none rounded-none focus-visible:outline-none focus-visible:ring-0 w-fit h-full"
           onKeyDown={(event) => {
             event.preventDefault();
             event.key === "Enter" && addTag();
@@ -72,7 +72,7 @@ export default function TagInput({
 const Tag = ({ name, onClick }: { name: string; onClick: () => void }) => {
   return (
     <button
-      className="bg-secondary py-1 px-2 flex items-center gap-1 rounded-md"
+      className="bg-secondary py-1 px-2 flex items-center gap-1 rounded-md shadow"
       onClick={() => onClick()}
     >
       <span className="text-xs font-semibold">{name}</span>

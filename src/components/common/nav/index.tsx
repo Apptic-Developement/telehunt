@@ -1,1 +1,1 @@
-export {NavBar as default} from './main';
+export { NavBar as default } from "./main";
