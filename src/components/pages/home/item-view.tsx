@@ -25,7 +25,6 @@
 
 import Card, { CardSkeleton } from "@/components/utils/card";
 import { CardData } from "@/lib/types";
-import { useContext } from "react";
 import { useHomeFilterStore } from "@/stores/home-filter";
 
 export default function ItemView({ data }: { data: CardData[] }) {

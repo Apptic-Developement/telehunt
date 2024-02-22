@@ -8,7 +8,7 @@ import SupportIcon from "@mui/icons-material/ContactSupportOutlined";
 import PolicyIcon from "@mui/icons-material/PolicyOutlined";
 import SettingsIcon from "@mui/icons-material/Settings";
 import GroupIcon from "@mui/icons-material/People";
-import DashboardIcon from "@mui/icons-material/Dashboard";
+import DashboardIcon from "@mui/icons-material/DashboardCustomizeOutlined";
 import { SvgIconTypeMap } from "@mui/material";
 import { OverridableComponent } from "@mui/types";
 
@@ -33,18 +33,18 @@ export const useNavRoutes = (): NavRoute[] => {
       {
         name: "explore",
         href: "/explore",
-        active: pathName.startsWith('/explore'),
+        active: pathName.startsWith("/explore"),
         icon: ExploreIcon,
       },
       {
         name: "support",
-        href: "/",
+        href: "/support",
         active: pathName === "/support",
         icon: SupportIcon,
       },
       {
         name: "policy",
-        href: "/",
+        href: "/policy",
         active: pathName === "/policy",
         icon: PolicyIcon,
       },

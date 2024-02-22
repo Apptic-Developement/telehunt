@@ -4,6 +4,9 @@ import { NextResponse } from "next/server";
 
 export default auth((req) => {
   const isLoggedin = !!req.auth;
+  if (req.nextUrl.pathname === "/explore") {
+    return NextResponse.redirect(new URL("/explore/channels", req.url));
+  }
   if (!isLoggedin && authRoutes.includes(req.nextUrl.pathname)) {
     return NextResponse.redirect(new URL(authUrl, req.url));
   }

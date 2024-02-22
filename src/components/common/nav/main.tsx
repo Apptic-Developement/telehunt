@@ -58,7 +58,7 @@ export function NavBar() {
                   href={href}
                   key={href}
                   className={cn("text-muted-foreground", {
-                    "bg-secondary text-secondary-foreground rounded-md px-3 py-1":
+                    "border supports-[backdrop-filter]:bg-secondary/50 text-secondary-foreground rounded-md px-3 py-1":
                       active,
                   })}
                 >
