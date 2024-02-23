@@ -38,7 +38,9 @@ export function UserDropdown({
           {routes.map((route) => {
             return (
               <Link href={route.href} key={route.href} passHref>
-                <DropdownMenuItem className={cn("capitalize",{ "bg-accent": route.active })}>
+                <DropdownMenuItem
+                  className={cn("capitalize", { "bg-accent": route.active })}
+                >
                   {route.name}
                 </DropdownMenuItem>
               </Link>
