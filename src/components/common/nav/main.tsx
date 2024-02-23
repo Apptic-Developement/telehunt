@@ -5,7 +5,6 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import ThemeToggle from "@/components/utils/theme-toggle";
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import NotificationIcon from "@mui/icons-material/NotificationsRounded";
@@ -14,34 +13,9 @@ import { UserSection } from "./user-section";
 
 export function NavBar() {
   const routes = useNavRoutes();
-  const [shouldVisible, setShouldVisible] = useState<boolean>(true);
-  const [previousOffset, setPreviousOffset] = useState<number | undefined>(
-    undefined,
-  );
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentOffset = window.scrollY;
-      setShouldVisible(
-        typeof previousOffset !== "undefined"
-          ? currentOffset < previousOffset
-          : currentOffset < 100,
-      );
-
-      setPreviousOffset(currentOffset);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [previousOffset]);
 
   return (
-    <nav
-      className={cn(
-        "container bg-background backdrop-blur supports-[backdrop-filter]:bg-background/70 border-b -top-[200px] sticky transition-all duration-300 ease-in-out z-0",
-        { "top-0": shouldVisible },
-      )}
-    >
+    <nav className="container bg-background backdrop-blur supports-[backdrop-filter]:bg-background/70 border-b top-0 sticky transition-all duration-300 ease-in-out z-0">
       <div className="flex items-center gap-4 justify-between h-14">
         {/* Nav Right Section */}
         <div className="flex items-center gap-6 w-full">
