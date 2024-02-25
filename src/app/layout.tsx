@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import NavBar from "@/components/common/nav";
 import Providers from "@/components/providers";
 import { SessionProvider } from "next-auth/react";
-
+import { Toaster } from "@/components/ui/toaster";
 const inter = Inter({
   subsets: ["latin"],
 });
@@ -25,6 +25,7 @@ export default async function RootLayout({
       <SessionProvider>
         <body className={cn(inter.className)}>
           <Providers>
+            <Toaster/>
             <NavBar />
             {children}
           </Providers>

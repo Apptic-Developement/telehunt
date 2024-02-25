@@ -1,5 +1,4 @@
 import React, { ChangeEvent, useState } from "react";
-import { Input } from "../ui/input";
 import CloseIcon from "@mui/icons-material/Close";
 
 export default function TagInput({
@@ -21,7 +20,7 @@ export default function TagInput({
   };
 
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const value = String(event.target.value);
+    const value = String(event.target.value).trim();
     setCurrentTag(value);
     if (!value.endsWith(",")) {
       return;

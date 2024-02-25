@@ -28,9 +28,6 @@ export const {
 
       return true;
     },
-    async redirect({ url, baseUrl }) {
-      return baseUrl;
-    },
     async session({ session }) {
       return session;
     },

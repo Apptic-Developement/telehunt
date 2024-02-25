@@ -15,33 +15,70 @@ import {
   SheetDescription,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
+import { Button, ButtonWithLoader } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import React, { FormEvent, useTransition } from "react";
+import React, { useTransition } from "react";
 import addChannelAction from "@/actions/addChannel";
 import { addChannelSchema } from "@/schemas/formSchema";
 import TagInput from "@/components/utils/tag-input";
 import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/components/ui/use-toast";
 
 export default function Add() {
   const [isPending, startTransition] = useTransition();
+  const { toast } = useToast();
   const form = useForm<z.infer<typeof addChannelSchema>>({
     resolver: zodResolver(addChannelSchema),
     defaultValues: {
-      url: "",
-      channelName: "",
-      shortDescription: "",
-      longDescription: "",
-      tags: [],
-      icon: "",
+      url: "vizu_stock_market",
+      channelName: "esdrftvgbhnjdrftvgbhnjmrftgybhunj",
+      shortDescription: "123456789012345678990123",
+      longDescription: "12345678901234567899012345678901234567899012234567899dfghjkzxcvbnmdfghjklxcvbnmdfghjk",
+      tags: ['anime', 'hehe'],
     },
+    shouldFocusError: true,
+    mode: "onChange",
   });
 
   function onSubmit(values: z.infer<typeof addChannelSchema>) {
-    startTransition(() => addChannelAction(values));
+    startTransition(() => {
+      return addChannelAction(values);
+    });
+  }
+
+  async function onAutoFetch() {
+
+    try {
+      const res = await fetch('/api/getChannelFromLink', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name: form.getValues('url') })
+      })
+
+      
+
+      const data = await res.json()
+      if (res.ok) {
+        form.setValue('channelName', data.name);
+        form.setValue('shortDescription', data.description);
+        return
+      }
+      return toast({
+        title: data.title, description: data.description
+      })
+    } catch (error) {
+
+      return toast({
+        title: 'Something went wrong!', description: error
+      })
+
+    }
+
   }
 
   return (
@@ -160,10 +197,16 @@ export default function Add() {
                 </FormItem>
               )}
             />
-            <Button>Submit</Button>
+            <ButtonWithLoader
+              disabled={isPending}
+              loading={isPending}
+              text="Submit"
+            />
           </form>
         </Form>
-        <Button variant="link">Auto fetch from url</Button>
+        <Button onClick={onAutoFetch} variant="link">
+          Auto fetch from url
+        </Button>
       </SheetContent>
     </Sheet>
   );

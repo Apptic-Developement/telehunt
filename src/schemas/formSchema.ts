@@ -33,5 +33,4 @@ export const addChannelSchema = z.object({
     .refine((tags) => tags.every((tag) => validTagRegex.test(tag)), {
       message: 'Tags can only contain letters, numbers, "_" and "-" symbols.',
     }),
-  icon: z.string(),
 });
