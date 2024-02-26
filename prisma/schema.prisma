@@ -15,7 +15,7 @@ model User {
   id    String @id @default(uuid())
   email String @unique
   name  String
-  role Role
+  role  Role
   posts Post[]
   votes Vote[]
 }
@@ -29,22 +29,21 @@ model Vote {
 }
 
 model Tag {
-  id String @id @default(uuid())
-  name String
-  slug String
+  id    String @id
   posts Post[]
 }
+
 model Post {
   id               String   @id @default(uuid())
   name             String
   shortDescription String
   longDescription  String
-  icon             String
+  url              String
   type             PostType
   author           User     @relation(fields: [authorId], references: [id])
   authorId         String
   Vote             Vote[]
-  tags Tag[]
+  tags             Tag[]
 }
 
 enum PostType {

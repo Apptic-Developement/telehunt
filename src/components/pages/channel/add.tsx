@@ -21,23 +21,26 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import React, { useTransition } from "react";
-import addChannelAction from "@/actions/addChannel";
+import addChannelAction, { AddChannelActionData } from "@/actions/addChannel";
 import { addChannelSchema } from "@/schemas/formSchema";
 import TagInput from "@/components/utils/tag-input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
+import { User } from "next-auth";
 
-export default function Add() {
+export default function Add({ user }: { user: User }) {
   const [isPending, startTransition] = useTransition();
   const { toast } = useToast();
+
   const form = useForm<z.infer<typeof addChannelSchema>>({
     resolver: zodResolver(addChannelSchema),
     defaultValues: {
       url: "vizu_stock_market",
       channelName: "esdrftvgbhnjdrftvgbhnjmrftgybhunj",
       shortDescription: "123456789012345678990123",
-      longDescription: "12345678901234567899012345678901234567899012234567899dfghjkzxcvbnmdfghjklxcvbnmdfghjk",
-      tags: ['anime', 'hehe'],
+      longDescription:
+        "12345678901234567899012345678901234567899012234567899dfghjkzxcvbnmdfghjklxcvbnmdfghjk",
+      tags: ["anime", "hehe"],
     },
     shouldFocusError: true,
     mode: "onChange",
@@ -45,40 +48,56 @@ export default function Add() {
 
   function onSubmit(values: z.infer<typeof addChannelSchema>) {
     startTransition(() => {
-      return addChannelAction(values);
+      addChannelAction(values)
+        .then((res) => {
+          if (res.error) {
+            return toast({
+              title: "Error",
+              description: res.errorMessage,
+            });
+          }
+          if (res.success) {
+            return toast({
+              title: "Success",
+              description: res.successMessage,
+            });
+          }
+        })
+        .catch((err) => {
+          return toast({
+            title: "Something went wrong!",
+            description: "Please try again after some time.",
+          });
+        });
     });
   }
 
   async function onAutoFetch() {
-
     try {
-      const res = await fetch('/api/getChannelFromLink', {
-        method: 'POST',
+      const res = await fetch("/api/getChannelFromLink", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ name: form.getValues('url') })
-      })
+        body: JSON.stringify({ name: form.getValues("url") }),
+      });
 
-      
-
-      const data = await res.json()
+      const data = await res.json();
       if (res.ok) {
-        form.setValue('channelName', data.name);
-        form.setValue('shortDescription', data.description);
-        return
+        form.setValue("channelName", data.name);
+        form.setValue("shortDescription", data.description);
+        return;
       }
       return toast({
-        title: data.title, description: data.description
-      })
+        title: data.title,
+        description: data.description,
+      });
     } catch (error) {
-
       return toast({
-        title: 'Something went wrong!', description: error
-      })
-
+        title: "Something went wrong!",
+        description: "Please try again after some time.",
+      });
     }
-
   }
 
   return (

@@ -14,7 +14,7 @@ export default function Nav() {
             href={href}
             key={href}
             className={cn(
-              "flex gap-2 items-center rounded-md px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground",
+              "flex capitalize gap-2 items-center rounded-md px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground",
               { "bg-accent text-accent-foreground": active },
             )}
           >

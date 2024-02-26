@@ -25,7 +25,7 @@ export default async function RootLayout({
       <SessionProvider>
         <body className={cn(inter.className)}>
           <Providers>
-            <Toaster/>
+            <Toaster />
             <NavBar />
             {children}
           </Providers>

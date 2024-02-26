@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 
 export default async function useUser() {
   const session = await auth();
-  if (!session) redirect(authUrl);
+  if (!session || typeof session.user === "undefined") redirect(authUrl);
 
   return session.user;
 }

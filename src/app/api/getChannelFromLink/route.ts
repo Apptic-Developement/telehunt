@@ -5,7 +5,7 @@ async function fetchHTML(url: string) {
   try {
     const response = await fetch(url);
     if (!response.ok) {
-      return null
+      return null;
     }
     return await response.text();
   } catch (error) {
@@ -14,7 +14,6 @@ async function fetchHTML(url: string) {
 }
 
 export const POST = async (req: NextRequest) => {
-
   const { name } = await req.json();
   if (!name)
     return NextResponse.json(
@@ -23,8 +22,7 @@ export const POST = async (req: NextRequest) => {
     );
   const BASE_URL = "https://t.me/";
   try {
-
-    const html = await fetchHTML(BASE_URL + name)
+    const html = await fetchHTML(BASE_URL + name);
     if (typeof html !== "string")
       return NextResponse.json(
         { title: "Try again later!", description: "Something went wrong." },
@@ -37,19 +35,21 @@ export const POST = async (req: NextRequest) => {
     const channelDescription = root.querySelector(
       "." + "tgme_page_description",
     )?.innerText;
-    const channelMembers = root.querySelector("." + "tgme_page_extra")?.innerText;
+    const channelMembers = root.querySelector(
+      "." + "tgme_page_extra",
+    )?.innerText;
     if (channelMembers?.includes("online")) {
       return NextResponse.json({
         error: "Only telegram channel url are allowed.",
-        status: 400
+        status: 400,
       });
-      
     }
-    if (
-      typeof channelName !== 'string' || channelName === ''
-    ) {
+    if (typeof channelName !== "string" || channelName === "") {
       return NextResponse.json(
-        { title: "Invalid channel url", description: "Provide a valid channel url name." },
+        {
+          title: "Invalid channel url",
+          description: "Provide a valid channel url name.",
+        },
         { status: 404 },
       );
     }
@@ -59,15 +59,10 @@ export const POST = async (req: NextRequest) => {
       description: channelDescription,
       members: channelMembers?.replace(/[^0-9]/g, ""),
     });
-
   } catch (error) {
     return NextResponse.json(
       { title: "Try again later!", description: "Something went wrong." },
       { status: 404 },
     );
   }
-
-  
-
-
 };

@@ -1,13 +1,17 @@
 import { Button } from "@/components/ui/button";
 import React from "react";
 import { ChannelAddSheet } from "@/components/pages/channel";
+import { User } from "next-auth";
+
 export default function Header({
+  user,
   title,
   description,
   showButton,
   buttonText,
   buttonType,
 }: {
+  user: User;
   title: string;
   description: string;
   showButton?: boolean;
@@ -18,7 +22,7 @@ export default function Header({
     channel: React.ReactNode;
     group: React.ReactNode;
   } = {
-    channel: <ChannelAddSheet />,
+    channel: <ChannelAddSheet user={user} />,
     group: <Button>Add</Button>,
   };
 
