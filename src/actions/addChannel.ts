@@ -88,7 +88,7 @@ const addChannelAction = async (
     return {
       success: true,
       error: false,
-      successMessage: `Successfully created '${createPost.name}' post. `,
+      successMessage: `Successfully created '${createPost.name}' channel. `,
       postUrl: createPost.url,
     } as AddChannelActionData;
   } catch (error) {
