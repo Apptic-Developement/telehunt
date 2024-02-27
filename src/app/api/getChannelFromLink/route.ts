@@ -1,20 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { parse } from "node-html-parser";
-
-async function fetchHTML(url: string) {
-  try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      return null;
-    }
-    return await response.text();
-  } catch (error) {
-    return null;
-  }
-}
+import fetchHTML from "@/lib/fetchHTML";
 
 export const POST = async (req: NextRequest) => {
   const { name } = await req.json();
+  console.log("Not found");
   if (!name)
     return NextResponse.json(
       { error: "Channel url not specified." },
@@ -44,6 +34,7 @@ export const POST = async (req: NextRequest) => {
         status: 400,
       });
     }
+
     if (typeof channelName !== "string" || channelName === "") {
       return NextResponse.json(
         {
@@ -53,12 +44,17 @@ export const POST = async (req: NextRequest) => {
         { status: 404 },
       );
     }
-    return NextResponse.json({
-      name: channelName?.trim(),
-      logo: channelLogo,
-      description: channelDescription,
-      members: channelMembers?.replace(/[^0-9]/g, ""),
-    });
+    return NextResponse.json(
+      {
+        name: channelName?.trim(),
+        logo: channelLogo,
+        description: channelDescription?.trim(),
+        members: channelMembers?.replace(/[^0-9]/g, ""),
+      },
+      {
+        status: 200,
+      },
+    );
   } catch (error) {
     return NextResponse.json(
       { title: "Try again later!", description: "Something went wrong." },

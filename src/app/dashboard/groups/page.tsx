@@ -8,7 +8,7 @@ export default async function Groups() {
   return (
     <section className="flex flex-col gap-4 w-full">
       <Header
-      user={user}
+        user={user}
         title="Groups"
         description="Groups uploaded by you."
         showButton

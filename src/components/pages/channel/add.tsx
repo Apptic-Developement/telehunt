@@ -26,10 +26,11 @@ import { addChannelSchema } from "@/schemas/formSchema";
 import TagInput from "@/components/utils/tag-input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
-import { User } from "next-auth";
+import { useRouter } from "next/navigation";
 
-export default function Add({ user }: { user: User }) {
+export default function Add() {
   const [isPending, startTransition] = useTransition();
+  const router = useRouter();
   const { toast } = useToast();
 
   const form = useForm<z.infer<typeof addChannelSchema>>({
@@ -50,16 +51,23 @@ export default function Add({ user }: { user: User }) {
     startTransition(() => {
       addChannelAction(values)
         .then((res) => {
-          if (res.error) {
-            return toast({
-              title: "Error",
-              description: res.errorMessage,
-            });
-          }
-          if (res.success) {
-            return toast({
-              title: "Success",
-              description: res.successMessage,
+          if (!res.forField) {
+            if (res.error) {
+              return toast({
+                title: "Error",
+                description: res.errorMessage,
+              });
+            }
+            if (res.success) {
+              return toast({
+                title: "Success",
+                description: res.successMessage,
+              });
+            }
+          } else {
+            form.setFocus(res.forField);
+            form.setError(res.forField, {
+              message: res.errorMessage,
             });
           }
         })
@@ -85,7 +93,12 @@ export default function Add({ user }: { user: User }) {
       const data = await res.json();
       if (res.ok) {
         form.setValue("channelName", data.name);
-        form.setValue("shortDescription", data.description);
+        form.setValue(
+          data.description.length > 100
+            ? "longDescription"
+            : "shortDescription",
+          data.description,
+        );
         return;
       }
       return toast({

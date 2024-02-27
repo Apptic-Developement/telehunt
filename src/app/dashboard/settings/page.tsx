@@ -6,11 +6,10 @@ import useUser from "@/hooks/useUser";
 export default async function Settings() {
   const user = await useUser();
 
-
   return (
     <section className="flex flex-col gap-4 w-full">
       <Header
-      user={user}
+        user={user}
         title="Settings"
         description="Manage account and website settings."
       />

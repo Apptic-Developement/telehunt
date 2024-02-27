@@ -4,6 +4,8 @@ import { addChannelSchema } from "@/schemas/formSchema";
 import { z } from "zod";
 import { prismaDb } from "@/lib/db";
 import { auth } from "@/lib/auth";
+import { parse } from "node-html-parser";
+import fetchHTML from "@/lib/fetchHTML";
 
 export interface AddChannelActionData {
   success?: boolean;
@@ -11,8 +13,32 @@ export interface AddChannelActionData {
   errorMessage?: string;
   successMessage?: string;
   postUrl?: string;
+  forField?:
+    | "url"
+    | "channelName"
+    | "shortDescription"
+    | "longDescription"
+    | "tags";
 }
 
+const isValidChannel = async (url: string): Promise<boolean> => {
+  try {
+    const BASE_URL = "https://t.me/";
+    const html = await fetchHTML(BASE_URL + url);
+    if (typeof html !== "string") {
+      return false;
+    }
+
+    const root = parse(html);
+    const channelName = root.querySelector("." + "tgme_page_title")?.innerText;
+    if (typeof channelName !== "string" || channelName === "") {
+      return false;
+    }
+    return true;
+  } catch (error) {
+    return false;
+  }
+};
 const addChannelAction = async (
   formData: z.infer<typeof addChannelSchema>,
 ): Promise<AddChannelActionData> => {
@@ -31,6 +57,14 @@ const addChannelAction = async (
 
   try {
     const validFormData = addChannelSchema.parse(formData);
+
+    if (!(await isValidChannel(validFormData.url))) {
+      return {
+        error: true,
+        errorMessage: "Invalid channel url provided.",
+        forField: "url",
+      };
+    }
     const user = await prismaDb.user.findFirst({
       select: {
         id: true,
