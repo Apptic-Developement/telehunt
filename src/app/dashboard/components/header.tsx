@@ -22,7 +22,7 @@ export default function Header({
     channel: React.ReactNode;
     group: React.ReactNode;
   } = {
-    channel: <ChannelAddSheet user={user} />,
+    channel: <ChannelAddSheet />,
     group: <Button>Add</Button>,
   };
 

@@ -26,11 +26,9 @@ import { addChannelSchema } from "@/schemas/formSchema";
 import TagInput from "@/components/utils/tag-input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
-import { useRouter } from "next/navigation";
 
 export default function Add() {
   const [isPending, startTransition] = useTransition();
-  const router = useRouter();
   const { toast } = useToast();
 
   const form = useForm<z.infer<typeof addChannelSchema>>({
