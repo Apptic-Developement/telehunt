@@ -15,8 +15,7 @@ export const MobileSheet = () => {
                     <ListIcon />
                 </Button>
             </SheetTrigger>
-            {/* @ts-ignore */}
-            <SheetContent side='left'>
+             <SheetContent side='left'>
                 <nav className="flex gap-2 flex-col items-start">
                     {
                         routes && routes.map(({ name, href, active }) => {
