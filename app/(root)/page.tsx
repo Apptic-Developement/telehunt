@@ -1,12 +1,60 @@
 import React from 'react'
-import { ThemeToggle } from '../_components/header/theme-toggle'
 
-const Home = () => {
+const Header = () => {
   return (
-    <div>
-      <ThemeToggle />
+    <div className='text-3xl font-bold flex items-center flex-col'>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
+      <h1>Hello World!</h1>
     </div>
   )
 }
 
-export default Home
+export default Header
