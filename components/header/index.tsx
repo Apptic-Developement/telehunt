@@ -10,7 +10,7 @@ import { MobileSheet } from "./mobile-sheet";
 export const Header = () => {
   const routes = useRoutes();
   return (
-    <header className="sticky top-0 border-b h-12 flex justify-between items-center lg:px-8 md:px-6 px-4 mx-auto bg-background/50 backdrop-blur-lg">
+    <header className="sticky top-0 border-b h-12 flex justify-between items-center lg:px-8 md:px-6 px-4 mx-auto bg-background/50 backdrop-blur-lg mb-5">
       <nav className="md:flex hidden gap-3 items-center">
         <Link href='/'>
           <ShoppingBag className="w-5 h-5" />

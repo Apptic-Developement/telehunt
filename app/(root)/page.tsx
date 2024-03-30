@@ -1,59 +1,17 @@
-import React from 'react'
-
-const Header = () => {
+ 
+const Header = async () => {
   return (
-    <div className='text-3xl font-bold flex items-center flex-col'>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-      <h1>Hello World!</h1>
-    </div>
+    <main className="min-h-screen min-w-screen base-container">
+ 
+      <section className="flex flex-col gap-2 items-center">
+        <div className="flex flex-col items-center text-center text-3xl max-sm:text-xl font-bold mt-3">
+           <h1>Welcome to Telehunt</h1>
+          <p className="text-sm text-muted-foreground font-normal mt-2">
+            Explore a variety of Telegram channels, bots, and groups matching your interests.
+          </p>
+        </div>
+      </section>
+    </main>
   )
 }
 
