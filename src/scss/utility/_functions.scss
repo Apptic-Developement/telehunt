@@ -1,0 +1,3 @@
+@function clr($name, $shade: 900, $opacity: 1) {
+  @return rgba(var(--clr-#{$name}-#{$shade}), $opacity);
+}

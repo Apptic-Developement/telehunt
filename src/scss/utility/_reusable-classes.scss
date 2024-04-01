@@ -1,0 +1,22 @@
+@import './mixins';
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 5rem;
+    @include responsive(sm) {
+        max-width: 540px;
+    }
+
+    @include responsive(md) {
+        max-width: 720px;
+    }
+
+    @include responsive(lg) {
+        max-width: 960px;
+    }
+
+    @include responsive(xl) {
+        max-width: 1140px;
+    }
+}
