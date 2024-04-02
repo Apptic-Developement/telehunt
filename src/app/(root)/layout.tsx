@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { Poppins } from 'next/font/google';
-import '@/scss/main.scss';
+import '@/styles/globals.css';
+import { cn } from '@/lib/utils';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -9,7 +10,9 @@ const poppins = Poppins({
 const RootLayout = ({ children }: { children: ReactNode }) => {
   return (
     <html lang='en'>
-      <body className={poppins.className}>{children}</body>
+      <body className={cn('min-h-screen min-w-full', poppins.className)}>
+        {children}
+      </body>
     </html>
   );
 };

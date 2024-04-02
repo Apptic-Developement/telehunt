@@ -1,5 +1,10 @@
+import { Button } from "@/components/ui/button";
+
 const Home = async () => {
-  return <div>Home</div>;
+  return <main className='container'>
+    <Button>Click me!</Button>
+  </main>;
 };
 
 export default Home;
+``
