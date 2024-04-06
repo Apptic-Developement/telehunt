@@ -15,7 +15,9 @@ export const MobileSheet = () => {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <button className='md:hidden inline-block'><List /></button>
+        <button className='inline-block md:hidden'>
+          <List />
+        </button>
       </SheetTrigger>
       <SheetContent side='left'>
         <SheetHeader>

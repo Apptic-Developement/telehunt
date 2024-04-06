@@ -6,12 +6,21 @@ interface Route {
   href: string;
   active: boolean;
 }
+
 export const useRoutes = (): Route[] => {
   const pathName = usePathname();
   return useMemo<Route[]>(
     () => [
-      { name: 'Home', href: '/', active: pathName === '/' },
-      { name: 'Bots', href: '/bots', active: pathName.startsWith('/bots') },
+      {
+        name: 'Home',
+        href: '/',
+        active: pathName === '/',
+      },
+      {
+        name: 'Bots',
+        href: '/bots',
+        active: pathName.startsWith('/bots'),
+      },
       {
         name: 'Channels',
         href: '/channels',
@@ -22,11 +31,10 @@ export const useRoutes = (): Route[] => {
         href: '/groups',
         active: pathName.startsWith('/groups'),
       },
-      { name: 'Tags', href: '/tags', active: pathName.startsWith('/tags') },
       {
-        name: 'Support',
-        href: '/support',
-        active: pathName.startsWith('/support'),
+        name: 'Tags',
+        href: '/tags',
+        active: pathName.startsWith('/tags'),
       },
     ],
     [pathName]

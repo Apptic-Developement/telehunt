@@ -53,24 +53,28 @@
   * {
     @apply border-border;
   }
- 
+
   ::selection {
     @apply bg-primary/90 text-primary-foreground;
   }
 
   ::-webkit-scrollbar {
-    @apply w-2
+    @apply w-1.5;
   }
   ::-webkit-scrollbar-track {
-    @apply bg-background
+    @apply bg-background;
   }
   ::-webkit-scrollbar-thumb {
-    @apply bg-primary rounded-md
+    @apply rounded-md bg-primary;
   }
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-primary/80
+    @apply bg-primary/80;
   }
   body {
     @apply bg-background text-foreground;
+  }
+
+  main {
+    @apply container mx-auto px-4 md:px-6 lg:px-8;
   }
 }
