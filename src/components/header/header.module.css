@@ -1,0 +1,8 @@
+.header {
+    @apply sticky top-0 z-50 border border-border/45 h-12 bg-background/95 supports-[backdrop-filter]:bg-background/60 backdrop-blur;
+    @apply flex items-center
+}
+
+.nav {
+    @apply container mx-auto flex items-center justify-between
+}
