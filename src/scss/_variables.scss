@@ -1,0 +1,14 @@
+@import '/node_modules/bootstrap/scss/variables';
+
+$primary: #6f4ff2;
+$body-bg: #f2f2f2;
+$secondary: #6C7AA0;
+$body-color: #000000;
+
+
+$custom-theme: (
+    'bg-card': #ffffff,
+);
+
+$theme-colors: map-merge($custom-theme, $theme-colors);
+
