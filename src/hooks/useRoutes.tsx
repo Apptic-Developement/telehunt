@@ -1,5 +1,3 @@
-'use client';
-
 import { SvgIconComponent } from '@mui/icons-material';
 import { usePathname } from 'next/navigation';
 import { useMemo } from 'react';
@@ -8,6 +6,9 @@ import {
   HomeOutlined as HomeOutlinedIcon,
   Explore as ExploreIcon,
   ExploreOutlined as ExploreOutlinedIcon,
+  Notifications as NotificationsIcon,
+  AccountCircle as AccountCircleIcon,
+  AccountCircleOutlined as AccountCircleOutlinedIcon,
 } from '@mui/icons-material';
 
 interface Route {
@@ -21,7 +22,7 @@ interface Route {
 }
 
 export const useRoutes = ({
-  bottomRoutes = false,
+  bottomRoutes,
 }: {
   bottomRoutes: boolean;
 }): Route[] => {
@@ -76,15 +77,22 @@ export const useRoutes = ({
       },
       {
         name: 'Notifications',
-        href: '',
-        active: pathName.startsWith('/explore/'),
         icon: {
-          filled: ExploreIcon,
-          outlined: ExploreOutlinedIcon,
+          filled: NotificationsIcon,
+          outlined: NotificationsIcon,
+        },
+      },
+      {
+        name: 'Profile',
+        href: '/profile',
+        active: pathName.startsWith('/profile'),
+        icon: {
+          filled: AccountCircleIcon,
+          outlined: AccountCircleOutlinedIcon,
         },
       },
     ],
-    
+
     [pathName]
   );
 

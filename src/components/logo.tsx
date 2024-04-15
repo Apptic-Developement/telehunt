@@ -11,7 +11,7 @@ export const Logo = ({width, height}: {
       xmlns="http://www.w3.org/2000/svg"
       className="logo"
     >
-      <g clip-path="url(#clip0_202_13585)">
+      <g clipPath="url(#clip0_202_13585)">
         <path
           fill-rule="evenodd"
           clip-rule="evenodd"
