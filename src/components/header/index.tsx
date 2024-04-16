@@ -11,6 +11,8 @@ import {
 } from '@mui/icons-material';
 import { MoonIcon } from '@radix-ui/react-icons';
 import { useScreenSize } from '@/hooks/useScreenSize';
+import { BottomNav } from './bottom-nav';
+
 export const Header = () => {
   const { isMobile } = useScreenSize();
   const [scrollPosition, setScrollPosition] = useState<number>(0);
@@ -67,7 +69,7 @@ export const Header = () => {
     );
   }
 
-  return <></>;
+  return <BottomNav />;
 };
 
 const NavLinks = () => {
