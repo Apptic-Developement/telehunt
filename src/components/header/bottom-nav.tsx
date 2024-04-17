@@ -9,71 +9,138 @@ import {
   Settings as SettingsIcon,
   SettingsOutlined as SettingsOutlinedIcon,
   Person as PersonIcon,
-  PersonOutlined as PersonOutlined,
+  PersonOutlined as PersonOutlinedIcon,
+  SvgIconComponent,
 } from '@mui/icons-material';
-import Link from 'next/link';
-import { Button } from '../ui/button';
 import { cn } from '@/lib/utils';
+import { useEffect, useMemo, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
+
+interface Route {
+  name: string;
+  active: boolean;
+  onClick: (...args: any) => void;
+  href?: string;
+  icon: {
+    filled: SvgIconComponent;
+    outlined: SvgIconComponent;
+  };
+}
 
 export const BottomNav = () => {
-  const routes = [
-    { name: 'Home', type: 'page', href: '/', active: true, icon: HomeIcon },
-    {
-      name: 'Explore',
-      type: 'page',
-      href: '/',
-      active: false,
-      icon: ExploreOutlinedIcon,
-    },
-    {
-      name: 'Notifications',
-      type: 'page',
-      href: '/',
-      active: false,
-      icon: NotificationsOutlinedIcon,
-    },
-    {
-      name: 'Settings',
-      type: 'page',
-      href: '/',
-      active: false,
-      icon: SettingsOutlinedIcon,
-    },
-    {
-      name: 'Profile',
-      type: 'page',
-      href: '/',
-      active: false,
-      icon: PersonOutlined,
-    },
-  ];
+  const [scrollPosition, setScrollPosition] = useState<number>(0);
+  const [lastScrollPosition, setLastScrollPosition] = useState<number>(0);
+
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      setScrollPosition((previousPosition) => {
+        previousPosition !== window.scrollY &&
+          setLastScrollPosition(previousPosition);
+        return window.scrollY;
+      });
+    });
+
+    return () =>
+      window.removeEventListener('scroll', () => {
+        setScrollPosition(0);
+        setLastScrollPosition(0);
+      });
+  }, []);
+
+  const pathName = usePathname();
+  const routes = useMemo<Route[]>(
+    () => [
+      {
+        name: 'Home',
+        href: '/',
+        active: pathName === '/',
+        icon: {
+          filled: HomeIcon,
+          outlined: HomeOutlinedIcon,
+        },
+        onClick() {},
+      },
+      {
+        name: 'Explore',
+        href: '/explore/bots',
+        active: pathName.startsWith('/explore'),
+        icon: {
+          filled: ExploreIcon,
+          outlined: ExploreOutlinedIcon,
+        },
+        onClick() {},
+      },
+      {
+        name: 'Notifications',
+        active: false,
+        icon: {
+          filled: NotificationsIcon,
+          outlined: NotificationsOutlinedIcon,
+        },
+        onClick() {
+          alert('Not implimented!');
+        },
+      },
+      {
+        name: 'Settings',
+        active: false,
+        icon: {
+          filled: SettingsIcon,
+          outlined: SettingsOutlinedIcon,
+        },
+        onClick() {
+          alert('Not implimented!');
+        },
+      },
+      {
+        name: 'Profile',
+        href: '/profile',
+        active: pathName.startsWith('/profile'),
+        icon: {
+          filled: PersonIcon,
+          outlined: PersonOutlinedIcon,
+        },
+        onClick() {},
+      },
+    ],
+    [pathName]
+  );
   return (
-    <div className="h-[3.5rem] flex items-center justify-center bg-card border-t fixed z-50 left-0 right-0 bottom-0 rounded-t-sm">
-      <nav className="flex items-center gap-3 w-full px-1">
+    <section
+      className={cn(
+        'md:hidden block fixed bottom-0 left-0 right-0 bg-card border-t-2 h-[3.2rem] p-1 transition-all duration-300 ease-in-out',
+        {
+          '-bottom-14': scrollPosition > lastScrollPosition,
+        }
+      )}
+    >
+      <div className="flex items-center justify-around py-auto h-full">
         {routes &&
           routes.map((route) => {
-            const Icon = route.icon;
-            if (route.type === 'page' && typeof route.href !== 'undefined') {
+            const ActiveIcon = route.icon.filled;
+            const NonActiveIcon = route.icon.outlined;
+            const classNames = cn('bg-transparent p-1 rounded-md', {
+              'text-primary bg-primary/10 p-1': route.active,
+            });
+            if (route.href) {
               return (
-                <Link
-                  href="/"
-                  className={cn('mx-auto flex flex-col items-center', {
-                    'text-primary': route.active,
-                  })}
-                >
-                  <Icon />
-                  <span
-                    className={cn('text-[.5rem]', {
-                      'text-[.7rem]': route.active,
-                    })}
-                  >
-                    {route.name}
-                  </span>
+                <Link href={route.href} key={route.href} className={classNames}>
+                  {route.active ? <ActiveIcon /> : <NonActiveIcon />}
                 </Link>
               );
             }
+            return (
+              <button
+                key={route.name}
+                onClick={() => route.onClick()}
+                className={classNames}
+              >
+                {route.active ? <ActiveIcon /> : <NonActiveIcon />}
+              </button>
+            );
           })}
-      </nav>
-    </div>
+      </div>
+    </section>
   );
 };

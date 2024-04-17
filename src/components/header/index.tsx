@@ -3,18 +3,17 @@
 import Link from 'next/link';
 import { Button } from '../ui/button';
 import { Logo } from '../logo';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { cn } from '@/lib/utils';
 import {
   Person as PersionIcon,
   Settings as SettingsIcon,
+  Notifications as NotificationsIcon,
 } from '@mui/icons-material';
-import { MoonIcon } from '@radix-ui/react-icons';
-import { useScreenSize } from '@/hooks/useScreenSize';
-import { BottomNav } from './bottom-nav';
+
+import { usePathname } from 'next/navigation';
 
 export const Header = () => {
-  const { isMobile } = useScreenSize();
   const [scrollPosition, setScrollPosition] = useState<number>(0);
   const [lastScrollPosition, setLastScrollPosition] = useState<number>(0);
 
@@ -31,57 +30,74 @@ export const Header = () => {
     return () =>
       window.removeEventListener('scroll', () => {
         setScrollPosition(0);
+        setLastScrollPosition(0);
       });
   }, []);
 
-  if (!isMobile) {
-    return (
-      <header
-        className={cn(
-          'h-[3.5rem] flex items-center justify-center z-50 sticky transition-all duration-500 ease-in-out',
-          {
-            'bg-background/95 supports-[backdrop-filter]:bg-background/65 backdrop-blur border-b':
-              scrollPosition > 30,
-          },
-          `${scrollPosition < lastScrollPosition ? 'top-0' : '-top-24'}`
-        )}
-      >
-        <nav className="container flex items-center justify-between my-3">
-          <div className="flex items-center gap-5" id="leftSection">
-            <Link href="/">
-              <Logo />
-            </Link>
-            <NavLinks />
-          </div>
-          <div className="flex items-center gap-2" id="rightSection">
-            <Button size="icon" variant="outline">
-              <MoonIcon />
-            </Button>
-            <Button size="icon" variant="outline">
-              <SettingsIcon />
-            </Button>
-            <Button size="icon" variant="outline">
-              <PersionIcon />
-            </Button>
-          </div>
-        </nav>
-      </header>
-    );
-  }
-
-  return <BottomNav />;
+  return (
+    <header
+      className={cn(
+        'h-[3.5rem] md:flex hidden items-center justify-center z-50 sticky transition-all duration-500 ease-in-out',
+        {
+          'bg-background/95 supports-[backdrop-filter]:bg-background/65 backdrop-blur border-b':
+            scrollPosition > 30,
+        },
+        `${scrollPosition < lastScrollPosition ? 'top-0' : '-top-24'}`
+      )}
+    >
+      <nav className="container flex items-center justify-between my-3">
+        <div className="flex items-center gap-5" id="leftSection">
+          <Link href="/">
+            <Logo />
+          </Link>
+          <NavLinks />
+        </div>
+        <div className="flex items-center gap-2" id="rightSection">
+          <Button size="icon" variant="outline">
+            <NotificationsIcon />
+          </Button>
+          <Button size="icon" variant="outline">
+            <SettingsIcon />
+          </Button>
+          <Button size="icon" variant="outline">
+            <PersionIcon />
+          </Button>
+        </div>
+      </nav>
+    </header>
+  );
 };
 
+interface Route {
+  name: string;
+  href: string;
+  active: boolean;
+}
 const NavLinks = () => {
-  const routes = [
-    { name: 'Home', href: '/', active: true },
-    { name: 'Bots', href: '/', active: false },
-    { name: 'Channels', href: '/', active: false },
-    { name: 'Groups', href: '/', active: false },
-    { name: 'Policy', href: '/', active: false },
-  ];
+  const pathName = usePathname();
+  const routes = useMemo<Route[]>(
+    () => [
+      { name: 'Home', href: '/', active: pathName === '/' },
+      {
+        name: 'Bots',
+        href: '/explore/bots',
+        active: pathName.startsWith('/explore/bots'),
+      },
+      {
+        name: 'Channels',
+        href: '/explore/channels',
+        active: pathName.startsWith('/explore/channels'),
+      },
+      {
+        name: 'Groups',
+        href: '/explore/groups',
+        active: pathName.startsWith('/explore/groups'),
+      },
+    ],
+    [pathName]
+  );
   return (
-    <div className="flex items-center gap-2">
+    <div className="md:flex hidden items-center gap-2">
       {routes &&
         routes.map((route) => {
           return (
