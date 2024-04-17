@@ -16,6 +16,8 @@ import { cn } from '@/lib/utils';
 import { useEffect, useMemo, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
+import { SettingsDrawer } from '../mobile-drawers/settings';
+import { NotificationsDrawer } from '../mobile-drawers/notifications';
 
 interface Route {
   name: string;
@@ -26,6 +28,7 @@ interface Route {
     filled: SvgIconComponent;
     outlined: SvgIconComponent;
   };
+  parentComponent?: any;
 }
 
 export const BottomNav = () => {
@@ -78,9 +81,8 @@ export const BottomNav = () => {
           filled: NotificationsIcon,
           outlined: NotificationsOutlinedIcon,
         },
-        onClick() {
-          alert('Not implimented!');
-        },
+        onClick() {},
+        parentComponent: NotificationsDrawer,
       },
       {
         name: 'Settings',
@@ -89,9 +91,8 @@ export const BottomNav = () => {
           filled: SettingsIcon,
           outlined: SettingsOutlinedIcon,
         },
-        onClick() {
-          alert('Not implimented!');
-        },
+        onClick() {},
+        parentComponent: SettingsDrawer,
       },
       {
         name: 'Profile',
@@ -109,25 +110,40 @@ export const BottomNav = () => {
   return (
     <section
       className={cn(
-        'md:hidden block fixed bottom-0 left-0 right-0 bg-card border-t-2 h-[3.2rem] p-1 transition-all duration-300 ease-in-out',
+        'md:hidden block fixed bottom-0 left-0 right-0 rounded-t-md bg-card drop-shadow-lg border-t-2 h-[3.2rem] p-1 transition-all duration-300 ease-in-out',
+ 
         {
           '-bottom-14': scrollPosition > lastScrollPosition,
         }
       )}
     >
-      <div className="flex items-center justify-around py-auto h-full">
+      <div className="flex items-center gap-4 justify-around py-auto h-full">
         {routes &&
           routes.map((route) => {
             const ActiveIcon = route.icon.filled;
             const NonActiveIcon = route.icon.outlined;
-            const classNames = cn('bg-transparent p-1 rounded-md', {
-              'text-primary bg-primary/10 p-1': route.active,
-            });
+            const classNames = cn(
+              'bg-transparent text-muted-foreground p-1 rounded-sm',
+              {
+                '!text-primary bg-primary/20 p-1': route.active,
+              }
+            );
             if (route.href) {
               return (
                 <Link href={route.href} key={route.href} className={classNames}>
                   {route.active ? <ActiveIcon /> : <NonActiveIcon />}
                 </Link>
+              );
+            }
+            if (route.parentComponent) {
+              const ParentComponent = route.parentComponent;
+
+              return (
+                <ParentComponent key={route.name}>
+                  <button className={classNames}>
+                    {route.active ? <ActiveIcon /> : <NonActiveIcon />}
+                  </button>
+                </ParentComponent>
               );
             }
             return (

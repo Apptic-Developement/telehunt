@@ -4,6 +4,7 @@ import './globals.css';
 import { Header } from '@/components/header';
 import { BottomNav } from '@/components/header/bottom-nav';
 import { cn } from '@/lib/utils';
+import { Providers } from './providers';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,10 +20,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(inter.className, 'min-h-screen overflow-hidden')}>
-        <Header />
-        <BottomNav />
-        {children}
+      <body
+        className={cn(inter.className, 'min-h-screen overflow-x-hidden')}
+      >
+        <Providers>
+          <Header />
+          <BottomNav />
+          {children}
+        </Providers>
       </body>
     </html>
   );
