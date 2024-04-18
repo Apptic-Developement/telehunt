@@ -111,7 +111,7 @@ export const BottomNav = () => {
     <section
       className={cn(
         'md:hidden block fixed bottom-0 left-0 right-0 rounded-t-md bg-card drop-shadow-lg border-t-2 h-[3.2rem] p-1 transition-all duration-300 ease-in-out',
- 
+
         {
           '-bottom-14': scrollPosition > lastScrollPosition,
         }

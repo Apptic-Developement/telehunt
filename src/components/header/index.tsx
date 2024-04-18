@@ -12,7 +12,73 @@ import {
 } from '@mui/icons-material';
 
 import { usePathname } from 'next/navigation';
-
+/**
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ * Add Shadcn Nav Links
+ */
 export const Header = () => {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
   const [lastScrollPosition, setLastScrollPosition] = useState<number>(0);
@@ -46,20 +112,20 @@ export const Header = () => {
       )}
     >
       <nav className="container flex items-center justify-between my-3">
-        <div className="flex items-center gap-5" id="leftSection">
+        <div className="flex items-center gap-10" id="leftSection">
           <Link href="/">
             <Logo />
           </Link>
           <NavLinks />
         </div>
         <div className="flex items-center gap-2" id="rightSection">
-          <Button size="icon" variant="outline">
+          <Button size="icon" variant="ghost" className='text-muted-foreground'>
             <NotificationsIcon />
           </Button>
-          <Button size="icon" variant="outline">
+          <Button size="icon" variant="ghost" className='text-muted-foreground'>
             <SettingsIcon />
           </Button>
-          <Button size="icon" variant="outline">
+          <Button size="icon" variant="ghost" className='text-muted-foreground'>
             <PersionIcon />
           </Button>
         </div>
@@ -97,13 +163,13 @@ const NavLinks = () => {
     [pathName]
   );
   return (
-    <div className="md:flex hidden items-center gap-2">
+    <div className="md:flex hidden items-center gap-3">
       {routes &&
         routes.map((route) => {
           return (
             <Link
-              className={cn('font-medium text-sm', {
-                'text-primary': route.active,
+              className={cn('font-medium text-muted-foreground text-[1rem] transition-all duration-300 ease-in-out', {
+                'text-foreground': route.active,
               })}
               href={route.href}
               key={route.href}
