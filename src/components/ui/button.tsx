@@ -1,57 +1,57 @@
-import * as React from "react"
-import { Slot } from "@radix-ui/react-slot"
-import { cva, type VariantProps } from "class-variance-authority"
+import * as React from 'react';
+import { Slot } from '@radix-ui/react-slot';
+import { cva, type VariantProps } from 'class-variance-authority';
 
-import { cn } from "@/lib/utils"
+import { cn } from '@/lib/utils';
 
 const buttonVariants = cva(
-  "telehuntinline-flex telehuntitems-center telehuntjustify-center telehuntwhitespace-nowrap telehuntrounded-md telehunttext-sm telehuntfont-medium telehunttransition-colors focus-visible:telehuntoutline-none focus-visible:telehuntring-1 focus-visible:telehuntring-ring disabled:telehuntpointer-events-none disabled:telehuntopacity-50",
+  'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50',
   {
     variants: {
       variant: {
         default:
-          "telehuntbg-primary telehunttext-primary-foreground telehuntshadow hover:telehuntbg-primary/90",
+          'bg-primary text-primary-foreground shadow hover:bg-primary/90',
         destructive:
-          "telehuntbg-destructive telehunttext-destructive-foreground telehuntshadow-sm hover:telehuntbg-destructive/90",
+          'bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90',
         outline:
-          "telehuntborder telehuntborder-input telehuntbg-background telehuntshadow-sm hover:telehuntbg-accent hover:telehunttext-accent-foreground",
+          'border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground',
         secondary:
-          "telehuntbg-secondary telehunttext-secondary-foreground telehuntshadow-sm hover:telehuntbg-secondary/80",
-        ghost: "hover:telehuntbg-accent hover:telehunttext-accent-foreground",
-        link: "telehunttext-primary telehuntunderline-offset-4 hover:telehuntunderline",
+          'bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80',
+        ghost: 'hover:bg-accent hover:text-accent-foreground',
+        link: 'text-primary underline-offset-4 hover:underline',
       },
       size: {
-        default: "telehunth-9 telehuntpx-4 telehuntpy-2",
-        sm: "telehunth-8 telehuntrounded-md telehuntpx-3 telehunttext-xs",
-        lg: "telehunth-10 telehuntrounded-md telehuntpx-8",
-        icon: "telehunth-9 telehuntw-9",
+        default: 'h-9 px-4 py-2',
+        sm: 'h-8 rounded-md px-3 text-xs',
+        lg: 'h-10 rounded-md px-8',
+        icon: 'h-9 w-9',
       },
     },
     defaultVariants: {
-      variant: "default",
-      size: "default",
+      variant: 'default',
+      size: 'default',
     },
   }
-)
+);
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
-  asChild?: boolean
+  asChild?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button"
+    const Comp = asChild ? Slot : 'button';
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
         {...props}
       />
-    )
+    );
   }
-)
-Button.displayName = "Button"
+);
+Button.displayName = 'Button';
 
-export { Button, buttonVariants }
+export { Button, buttonVariants };

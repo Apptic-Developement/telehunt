@@ -1,10 +1,10 @@
-"use client"
+'use client';
 
-import * as React from "react"
-import * as CheckboxPrimitive from "@radix-ui/react-checkbox"
-import { CheckIcon } from "@radix-ui/react-icons"
+import * as React from 'react';
+import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
+import { CheckIcon } from '@radix-ui/react-icons';
 
-import { cn } from "@/lib/utils"
+import { cn } from '@/lib/utils';
 
 const Checkbox = React.forwardRef<
   React.ElementRef<typeof CheckboxPrimitive.Root>,
@@ -13,18 +13,18 @@ const Checkbox = React.forwardRef<
   <CheckboxPrimitive.Root
     ref={ref}
     className={cn(
-      "telehuntpeer telehunth-4 telehuntw-4 telehuntshrink-0 telehuntrounded-sm telehuntborder telehuntborder-primary telehuntshadow focus-visible:telehuntoutline-none focus-visible:telehuntring-1 focus-visible:telehuntring-ring disabled:telehuntcursor-not-allowed disabled:telehuntopacity-50 data-[state=checked]:telehuntbg-primary data-[state=checked]:telehunttext-primary-foreground",
+      'peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground',
       className
     )}
     {...props}
   >
     <CheckboxPrimitive.Indicator
-      className={cn("telehuntflex telehuntitems-center telehuntjustify-center telehunttext-current")}
+      className={cn('flex items-center justify-center text-current')}
     >
-      <CheckIcon className="telehunth-4 telehuntw-4" />
+      <CheckIcon className='h-4 w-4' />
     </CheckboxPrimitive.Indicator>
   </CheckboxPrimitive.Root>
-))
-Checkbox.displayName = CheckboxPrimitive.Root.displayName
+));
+Checkbox.displayName = CheckboxPrimitive.Root.displayName;
 
-export { Checkbox }
+export { Checkbox };

@@ -1,5 +1,8 @@
+import { redirect } from 'next/navigation';
+
 const Home = async () => {
-  return <div>Home</div>;
+  redirect('/explore/bots');
+  return <div></div>;
 };
 
 export default Home;

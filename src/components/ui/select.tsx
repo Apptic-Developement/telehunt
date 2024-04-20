@@ -1,21 +1,21 @@
-"use client"
+'use client';
 
-import * as React from "react"
+import * as React from 'react';
 import {
   CaretSortIcon,
   CheckIcon,
   ChevronDownIcon,
   ChevronUpIcon,
-} from "@radix-ui/react-icons"
-import * as SelectPrimitive from "@radix-ui/react-select"
+} from '@radix-ui/react-icons';
+import * as SelectPrimitive from '@radix-ui/react-select';
 
-import { cn } from "@/lib/utils"
+import { cn } from '@/lib/utils';
 
-const Select = SelectPrimitive.Root
+const Select = SelectPrimitive.Root;
 
-const SelectGroup = SelectPrimitive.Group
+const SelectGroup = SelectPrimitive.Group;
 
-const SelectValue = SelectPrimitive.Value
+const SelectValue = SelectPrimitive.Value;
 
 const SelectTrigger = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Trigger>,
@@ -24,18 +24,18 @@ const SelectTrigger = React.forwardRef<
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(
-      "telehuntflex telehunth-9 telehuntw-full telehuntitems-center telehuntjustify-between telehuntwhitespace-nowrap telehuntrounded-md telehuntborder telehuntborder-input telehuntbg-transparent telehuntpx-3 telehuntpy-2 telehunttext-sm telehuntshadow-sm telehuntring-offset-background placeholder:telehunttext-muted-foreground focus:telehuntoutline-none focus:telehuntring-1 focus:telehuntring-ring disabled:telehuntcursor-not-allowed disabled:telehuntopacity-50 [&>span]:telehuntline-clamp-1",
+      'flex h-9 w-full items-center justify-between whitespace-nowrap rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1',
       className
     )}
     {...props}
   >
     {children}
     <SelectPrimitive.Icon asChild>
-      <CaretSortIcon className="telehunth-4 telehuntw-4 telehuntopacity-50" />
+      <CaretSortIcon className='h-4 w-4 opacity-50' />
     </SelectPrimitive.Icon>
   </SelectPrimitive.Trigger>
-))
-SelectTrigger.displayName = SelectPrimitive.Trigger.displayName
+));
+SelectTrigger.displayName = SelectPrimitive.Trigger.displayName;
 
 const SelectScrollUpButton = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.ScrollUpButton>,
@@ -44,15 +44,15 @@ const SelectScrollUpButton = React.forwardRef<
   <SelectPrimitive.ScrollUpButton
     ref={ref}
     className={cn(
-      "telehuntflex telehuntcursor-default telehuntitems-center telehuntjustify-center telehuntpy-1",
+      'flex cursor-default items-center justify-center py-1',
       className
     )}
     {...props}
   >
     <ChevronUpIcon />
   </SelectPrimitive.ScrollUpButton>
-))
-SelectScrollUpButton.displayName = SelectPrimitive.ScrollUpButton.displayName
+));
+SelectScrollUpButton.displayName = SelectPrimitive.ScrollUpButton.displayName;
 
 const SelectScrollDownButton = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.ScrollDownButton>,
@@ -61,28 +61,28 @@ const SelectScrollDownButton = React.forwardRef<
   <SelectPrimitive.ScrollDownButton
     ref={ref}
     className={cn(
-      "telehuntflex telehuntcursor-default telehuntitems-center telehuntjustify-center telehuntpy-1",
+      'flex cursor-default items-center justify-center py-1',
       className
     )}
     {...props}
   >
     <ChevronDownIcon />
   </SelectPrimitive.ScrollDownButton>
-))
+));
 SelectScrollDownButton.displayName =
-  SelectPrimitive.ScrollDownButton.displayName
+  SelectPrimitive.ScrollDownButton.displayName;
 
 const SelectContent = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content>
->(({ className, children, position = "popper", ...props }, ref) => (
+>(({ className, children, position = 'popper', ...props }, ref) => (
   <SelectPrimitive.Portal>
     <SelectPrimitive.Content
       ref={ref}
       className={cn(
-        "telehuntrelative telehuntz-50 telehuntmax-h-96 telehuntmin-w-[8rem] telehuntoverflow-hidden telehuntrounded-md telehuntborder telehuntbg-popover telehunttext-popover-foreground telehuntshadow-md data-[state=open]:telehuntanimate-in data-[state=closed]:telehuntanimate-out data-[state=closed]:telehuntfade-out-0 data-[state=open]:telehuntfade-in-0 data-[state=closed]:telehuntzoom-out-95 data-[state=open]:telehuntzoom-in-95 data-[side=bottom]:telehuntslide-in-from-top-2 data-[side=left]:telehuntslide-in-from-right-2 data-[side=right]:telehuntslide-in-from-left-2 data-[side=top]:telehuntslide-in-from-bottom-2",
-        position === "popper" &&
-          "data-[side=bottom]:telehunttranslate-y-1 data-[side=left]:telehunt-translate-x-1 data-[side=right]:telehunttranslate-x-1 data-[side=top]:telehunt-translate-y-1",
+        'relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-md border bg-popover text-popover-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',
+        position === 'popper' &&
+          'data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1',
         className
       )}
       position={position}
@@ -91,9 +91,9 @@ const SelectContent = React.forwardRef<
       <SelectScrollUpButton />
       <SelectPrimitive.Viewport
         className={cn(
-          "telehuntp-1",
-          position === "popper" &&
-            "telehunth-[var(--radix-select-trigger-height)] telehuntw-full telehuntmin-w-[var(--radix-select-trigger-width)]"
+          'p-1',
+          position === 'popper' &&
+            'h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)]'
         )}
       >
         {children}
@@ -101,8 +101,8 @@ const SelectContent = React.forwardRef<
       <SelectScrollDownButton />
     </SelectPrimitive.Content>
   </SelectPrimitive.Portal>
-))
-SelectContent.displayName = SelectPrimitive.Content.displayName
+));
+SelectContent.displayName = SelectPrimitive.Content.displayName;
 
 const SelectLabel = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Label>,
@@ -110,11 +110,11 @@ const SelectLabel = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.Label
     ref={ref}
-    className={cn("telehuntpx-2 telehuntpy-1.5 telehunttext-sm telehuntfont-semibold", className)}
+    className={cn('px-2 py-1.5 text-sm font-semibold', className)}
     {...props}
   />
-))
-SelectLabel.displayName = SelectPrimitive.Label.displayName
+));
+SelectLabel.displayName = SelectPrimitive.Label.displayName;
 
 const SelectItem = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Item>,
@@ -123,20 +123,20 @@ const SelectItem = React.forwardRef<
   <SelectPrimitive.Item
     ref={ref}
     className={cn(
-      "telehuntrelative telehuntflex telehuntw-full telehuntcursor-default telehuntselect-none telehuntitems-center telehuntrounded-sm telehuntpy-1.5 telehuntpl-2 telehuntpr-8 telehunttext-sm telehuntoutline-none focus:telehuntbg-accent focus:telehunttext-accent-foreground data-[disabled]:telehuntpointer-events-none data-[disabled]:telehuntopacity-50",
+      'relative flex w-full cursor-default select-none items-center rounded-sm py-1.5 pl-2 pr-8 text-sm outline-none focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50',
       className
     )}
     {...props}
   >
-    <span className="telehuntabsolute telehuntright-2 telehuntflex telehunth-3.5 telehuntw-3.5 telehuntitems-center telehuntjustify-center">
+    <span className='absolute right-2 flex h-3.5 w-3.5 items-center justify-center'>
       <SelectPrimitive.ItemIndicator>
-        <CheckIcon className="telehunth-4 telehuntw-4" />
+        <CheckIcon className='h-4 w-4' />
       </SelectPrimitive.ItemIndicator>
     </span>
     <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
   </SelectPrimitive.Item>
-))
-SelectItem.displayName = SelectPrimitive.Item.displayName
+));
+SelectItem.displayName = SelectPrimitive.Item.displayName;
 
 const SelectSeparator = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Separator>,
@@ -144,11 +144,11 @@ const SelectSeparator = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.Separator
     ref={ref}
-    className={cn("telehunt-mx-1 telehuntmy-1 telehunth-px telehuntbg-muted", className)}
+    className={cn('-mx-1 my-1 h-px bg-muted', className)}
     {...props}
   />
-))
-SelectSeparator.displayName = SelectPrimitive.Separator.displayName
+));
+SelectSeparator.displayName = SelectPrimitive.Separator.displayName;
 
 export {
   Select,
@@ -161,4 +161,4 @@ export {
   SelectSeparator,
   SelectScrollUpButton,
   SelectScrollDownButton,
-}
+};
