@@ -54,10 +54,10 @@ const MenuPopover = () => {
         </Button>
       </PopoverTrigger>
       <PopoverContent className='mr-5 flex h-fit flex-col gap-5 bg-secondary/95 backdrop-blur supports-[backdrop-filter]:bg-secondary/65'>
-        <div className="flex flex-col items-center w-full">
+        <div className="md:hidden flex flex-col items-center w-full">
           <Button className='w-full'>Login</Button>
         </div>
-        <Separator />
+        <Separator className='md:hidden block' />
         <div className='flex items-center justify-start gap-5'>
           <button
             className='flex flex-col items-start gap-2'
