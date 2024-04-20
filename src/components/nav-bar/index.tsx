@@ -53,7 +53,11 @@ const MenuPopover = () => {
           <Menu />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className='mr-5 flex h-fit flex-col gap-2 bg-secondary/95 backdrop-blur supports-[backdrop-filter]:bg-secondary/65'>
+      <PopoverContent className='mr-5 flex h-fit flex-col gap-5 bg-secondary/95 backdrop-blur supports-[backdrop-filter]:bg-secondary/65'>
+        <div className="flex flex-col items-center w-full">
+          <Button className='w-full'>Login</Button>
+        </div>
+        <Separator />
         <div className='flex items-center justify-start gap-5'>
           <button
             className='flex flex-col items-start gap-2'
@@ -64,6 +68,9 @@ const MenuPopover = () => {
               alt='Light Theme'
               width={60}
               height={60}
+              className={cn('rounded-md', {
+                'border-2 border-blue-500': theme === 'light'
+              })}
             />
             <span
               className={cn('text-sm font-semibold text-muted-foreground', {
@@ -82,6 +89,9 @@ const MenuPopover = () => {
               alt='Dark Theme'
               width={60}
               height={60}
+              className={cn('rounded-md', {
+                'border-2 border-blue-500': theme === 'dark'
+              })}
             />
             <span
               className={cn('text-sm font-semibold text-muted-foreground', {
@@ -100,6 +110,9 @@ const MenuPopover = () => {
               alt='system Theme'
               width={60}
               height={60}
+              className={cn('rounded-md', {
+                'border-2 border-blue-500': theme === 'system'
+              })}
             />
             <span
               className={cn('text-sm font-semibold text-muted-foreground', {
@@ -126,9 +139,9 @@ const MenuPopover = () => {
 
           <Separator />
 
-          <li className='w-full rounded-md px-2 py-1 text-red-500'>
+          <li className='w-full rounded-md px-2 py-1 text-red-500 hover:text-red-500/50'>
             <Link className='text-sm font-semibold' href='#'>
-              Login
+              Logout
             </Link>
           </li>
         </ul>
