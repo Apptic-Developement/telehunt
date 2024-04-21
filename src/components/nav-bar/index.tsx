@@ -4,13 +4,15 @@ import Link from 'next/link';
 import { Logo } from '../utils/logo';
 import { SearchBar } from './search-bar';
 import { Button, buttonVariants } from '../ui/button';
-import { Menu } from 'lucide-react';
+import { ExternalLink, LogOutIcon, Menu } from 'lucide-react';
 import { NavLinks } from './links';
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
 import Image from 'next/image';
 import { Separator } from '../ui/separator';
 import { useTheme } from 'next-themes';
 import { cn } from '@/lib/utils';
+import { useMemo } from 'react';
+import { usePathname } from 'next/navigation';
 
 export const NavBar = () => {
   return (
@@ -44,8 +46,30 @@ export const NavBar = () => {
   );
 };
 
+interface Route {
+  name: string;
+  href: string;
+  active: boolean;
+  link?: boolean;
+}
 const MenuPopover = () => {
   const { theme, setTheme } = useTheme();
+  const pathName = usePathname();
+  const routes = useMemo<Route[]>(
+    () => [
+      { name: 'Home', href: '/', active: pathName === '/' },
+      { name: 'Blogs', href: '/blogs', active: pathName.startsWith('/blogs') },
+      { name: 'Policy', href: '/policy', active: pathName === '/policy' },
+      {
+        name: 'Join Telegram',
+        href: '/join-telegram',
+        active: pathName === '/join-telegram',
+        link: true,
+      },
+    ],
+    [pathName]
+  );
+
   return (
     <Popover>
       <PopoverTrigger asChild>
@@ -53,7 +77,7 @@ const MenuPopover = () => {
           <Menu />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className='mr-5 flex h-fit flex-col gap-5 bg-secondary/95 backdrop-blur supports-[backdrop-filter]:bg-secondary/65'>
+      <PopoverContent className='mr-5 flex h-fit flex-col gap-5 rounded-xl bg-secondary/95 backdrop-blur supports-[backdrop-filter]:bg-secondary/65'>
         <div className='flex w-full flex-col items-center md:hidden'>
           <Button className='w-full'>Login</Button>
         </div>
@@ -125,24 +149,37 @@ const MenuPopover = () => {
         </div>
         <Separator />
 
-        <ul className='flex w-full flex-col items-start justify-center gap-3'>
-          <li className='w-full rounded-md px-2 py-1 text-muted-foreground hover:bg-secondary/40 hover:text-foreground'>
-            <Link className='text-sm font-semibold' href='#'>
-              Blogs
-            </Link>
-          </li>
-          <li className='w-full rounded-md px-2 py-1 text-muted-foreground hover:bg-secondary/40 hover:text-foreground'>
-            <Link className='text-sm font-semibold' href='#'>
-              Policy
-            </Link>
-          </li>
+        <ul className='flex w-full flex-col items-start justify-center gap-1'>
+          {routes &&
+            routes.map((route) => {
+              return (
+                <li
+                  className={cn(
+                    'w-full rounded-xl border-2 border-transparent px-2 py-2 text-[0.9rem] font-medium',
+                    'hover:border-border hover:bg-popover hover:text-popover-foreground dark:hover:bg-popover/20',
+                    {
+                      'border-border bg-popover text-popover-foreground dark:bg-popover/60':
+                        route.active,
+                      'flex items-center justify-between gap-2': route.link,
+                    }
+                  )}
+                  key={route.href}
+                >
+                  <Link href={route.href} target={route.link ? '_blank' : ''}>
+                    {route.name}
+                  </Link>
+                  {route.link && <ExternalLink className='h-5 w-5' />}
+                </li>
+              );
+            })}
 
           <Separator />
 
-          <li className='w-full rounded-md px-2 py-1 text-red-500 hover:text-red-500/50'>
+          <li className='flex w-full items-center justify-between gap-2  rounded-md px-2 py-2 text-red-500 hover:text-red-500/50'>
             <Link className='text-sm font-semibold' href='#'>
               Logout
             </Link>
+            <LogOutIcon className='h-5 w-5' />
           </li>
         </ul>
       </PopoverContent>
