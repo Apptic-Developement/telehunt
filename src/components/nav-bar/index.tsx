@@ -16,7 +16,7 @@ import { usePathname } from 'next/navigation';
 
 export const NavBar = () => {
   return (
-    <nav className='container z-50 sticky top-0 flex h-[4rem] w-full items-center justify-between gap-4 overflow-x-hidden bg-background'>
+    <nav className='container sticky top-0 z-50 flex h-[4rem] w-full items-center justify-between gap-4 overflow-x-hidden bg-background'>
       <div className='flex items-center justify-center gap-5'>
         <Logo />
         <NavLinks classNames='md:flex hidden' />

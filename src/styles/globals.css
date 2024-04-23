@@ -38,7 +38,7 @@
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
-    --hehe: #262626;
+
     --card: 0 0% 3.9%;
     --card-foreground: 0 0% 98%;
 
@@ -87,6 +87,6 @@
   #active-explore-filter-button::before {
     content: '';
     position: absolute;
-    @apply -bottom-2 h-[0.15rem] w-full bg-foreground;
+    @apply -bottom-1 h-[0.10rem] w-full rounded-lg bg-foreground;
   }
 }
