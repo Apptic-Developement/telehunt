@@ -53,7 +53,6 @@ const ExploreLayout = ({ children }: { children: ReactNode }) => {
             <button id='active-explore-filter-button'>Top Voted</button>
             <button>Newly Voted</button>
             <button>Newly Added</button>
-
           </div>
 
           <div className='hidden-scrollbar flex w-full items-start justify-start gap-3 overflow-x-scroll'>
