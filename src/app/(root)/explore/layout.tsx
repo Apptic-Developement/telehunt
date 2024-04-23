@@ -49,28 +49,22 @@ const ExploreLayout = ({ children }: { children: ReactNode }) => {
           <h1 className='text-4xl font-bold'>Explore</h1>
         </div>
 
-        <div
-          id='Explore type'
-          className='hidden-scrollbar flex h-10 w-full items-start justify-start gap-5 overflow-x-scroll text-nowrap text-sm font-medium text-muted-foreground md:text-[1rem]'
-        >
-          <button id='active-explore-filter-button'>Top Voted</button>
-          <button>Recently Voted</button>
-          <button>Recently Added</button>
-        </div>
+        <div id="ExploreActions" className='flex flex-col items-start justify-start gap-2 max-w-full'>
 
-        <div className='flex max-w-full items-center justify-start gap-3'>
-          <Button
-            className='flex items-center justify-center gap-2 rounded-2xl'
-            variant='secondary'
+          <div
+            id='Explore type'
+            className='hidden-scrollbar flex h-10 w-full items-start justify-start gap-5 overflow-x-scroll text-nowrap text-sm font-medium text-muted-foreground md:text-[1rem]'
           >
-            <FilterIcon className='h-5 w-5' />
-            <span className='font-medium'>Filter</span>
-          </Button>
-          <Separator orientation='vertical' className='h-6 w-1 rounded-lg' />
-          <div className='hidden-scrollbar flex items-start justify-start gap-3 overflow-x-scroll'>
-            {buttons.map((name) => {
+            <button id='active-explore-filter-button'>Top Voted</button>
+            <button>Recently Voted</button>
+            <button>Recently Added</button>
+          </div>
+
+
+          <div className='hidden-scrollbar flex items-start justify-start gap-3 overflow-x-scroll w-full'>
+            {buttons.map((name, index) => {
               return (
-                <Button className='rounded-2xl' key={name} variant='outline'>
+                <Button className='rounded-2xl' key={name} variant={index === 0 ? 'default' : 'outline'}>
                   {name}
                 </Button>
               );
