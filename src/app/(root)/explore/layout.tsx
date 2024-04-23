@@ -1,15 +1,8 @@
 import { NavLinks } from '@/components/nav-bar/links';
 import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel';
+ 
 import type { ReactNode } from 'react';
-import { FilterIcon } from 'lucide-react';
-
+ 
 const ExploreLayout = ({ children }: { children: ReactNode }) => {
   const buttons = [
     'All',
