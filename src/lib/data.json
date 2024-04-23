@@ -1,0 +1,242 @@
+[
+  {
+    "icon": "https://github.com/shadcn.png",
+    "name": "Crypto Enthusiasts",
+    "tags": ["cryptocurrency", "trading", "investing"],
+    "description": "Join us for daily discussions on the latest trends and news in the cryptocurrency world.",
+    "totalUsers": 15000,
+    "totalVoters": 5000
+  },
+  {
+    "icon": "https://github.com/shadcn.png",
+    "name": "Healthy Living",
+    "tags": ["health", "fitness", "nutrition"],
+    "description": "A community dedicated to promoting a healthy lifestyle through exercise, diet, and mindfulness.",
+    "totalUsers": 20000,
+    "totalVoters": 7000
+  },
+  {
+    "icon": "https://github.com/shadcn.png",
+    "name": "Travel Wanderlust",
+    "tags": ["travel", "adventure", "exploration"],
+    "description": "Explore the world with fellow travel enthusiasts and share your experiences and tips.",
+    "totalUsers": 18000,
+    "totalVoters": 6000
+  },
+  {
+    "icon": "https://github.com/shadcn.png",
+    "name": "Tech Geeks",
+    "tags": ["technology", "gadgets", "innovation"],
+    "description": "Stay updated with the latest in technology, gadgets, and innovation with our community of tech enthusiasts.",
+    "totalUsers": 25000,
+    "totalVoters": 8000
+  },
+  {
+    "icon": "https://github.com/shadcn.png",
+    "name": "Foodies Haven",
+    "tags": ["food", "cooking", "recipes"],
+    "description": "Join us to discover mouthwatering recipes, culinary tips, and share your love for food!",
+    "totalUsers": 22000,
+    "totalVoters": 7500
+  },
+  {
+    "icon": "https://github.com/shadcn.png",
+    "name": "Artistic Creations",
+    "tags": ["art", "creativity", "design"],
+    "description": "A place for artists and creative minds to showcase their work, get inspired, and collaborate.",
+    "totalUsers": 17000,
+    "totalVoters": 5500
+  },
+  {
+    "icon": "https://github.com/shadcn.png",
+    "name": "Bookworms Club",
+    "tags": ["books", "reading", "literature"],
+    "description": "Discover new books, join discussions, and connect with fellow book lovers in our community.",
+    "totalUsers": 19000,
+    "totalVoters": 6500
+  },
+  {
+    "icon": "https://github.com/shadcn.png",
+    "name": "Fashionistas Hub",
+    "tags": ["fashion", "style", "trends"],
+    "description": "Explore the latest fashion trends, style tips, and share your fashion inspirations with us!",
+    "totalUsers": 21000,
+    "totalVoters": 7000
+  },
+  {
+    "icon": "https://github.com/shadcn.png",
+    "name": "Music Vibes",
+    "tags": ["music", "concerts", "musician"],
+    "description": "Join our community of music lovers to discuss your favorite bands, concerts, and share playlists.",
+    "totalUsers": 23000,
+    "totalVoters": 7500
+  },
+  {
+    "icon": "https://github.com/shadcn.png",
+    "name": "Gaming World",
+    "tags": ["gaming", "videogames", "esports"],
+    "description": "Connect with fellow gamers, discuss the latest game releases, and share gaming tips and strategies.",
+    "totalUsers": 24000,
+    "totalVoters": 8000
+  },
+  {
+    "icon": "https://github.com/shadcn.png",
+    "name": "Pet Lovers Community",
+    "tags": ["pets", "dogs", "cats"],
+    "description": "A community for pet owners to share adorable pet photos, tips on pet care, and discuss pet-related topics.",
+    "totalUsers": 20000,
+    "totalVoters": 7000
+  },
+  {
+    "icon": "https://github.com/shadcn.png",
+    "name": "DIY Enthusiasts",
+    "tags": ["diy", "crafts", "homeimprovement"],
+    "description": "Get inspired with DIY projects, home improvement tips, and creative craft ideas from our community.",
+    "totalUsers": 18000,
+    "totalVoters": 6000
+  },
+  {
+    "icon": "https://github.com/shadcn.png",
+    "name": "Photography Passion",
+    "tags": ["photography", "photos", "cameras"],
+    "description": "Share your photography skills, learn new techniques, and explore the world of photography with us.",
+    "totalUsers": 21000,
+    "totalVoters": 7000
+  },
+  {
+    "icon": "https://github.com/shadcn.png",
+    "name": "Fitness Fanatics",
+    "tags": ["fitness", "workout", "exercise"],
+    "description": "Join our fitness community to stay motivated, share workout routines, and achieve your fitness goals.",
+    "totalUsers": 22000,
+    "totalVoters": 7500
+  },
+  {
+    "icon": "https://github.com/shadcn.png",
+    "name": "Parenting Tips",
+    "tags": ["parenting", "kids", "family"],
+    "description": "A supportive space for parents to exchange advice, tips, and experiences on raising children.",
+    "totalUsers": 19000,
+    "totalVoters": 6500
+  },
+  {
+    "icon": "https://github.com/shadcn.png",
+    "name": "Science Explorers",
+    "tags": ["science", "research", "discoveries"],
+    "description": "Explore the wonders of science, share scientific discoveries, and engage in discussions with fellow science enthusiasts.",
+    "totalUsers": 17000,
+    "totalVoters": 5500
+  },
+  {
+    "icon": "https://github.com/shadcn.png",
+    "name": "Motivational Quotes",
+    "tags": ["motivation", "inspiration", "positivity"],
+    "description": "Stay inspired with daily motivational quotes, positive affirmations, and uplifting messages.",
+    "totalUsers": 20000,
+    "totalVoters": 7000
+  },
+  {
+    "icon": "https://github.com/shadcn.png",
+    "name": "Movie Buffs Club",
+    "tags": ["movies", "cinema", "film"],
+    "description": "Discuss your favorite movies, discover new films, and connect with fellow movie enthusiasts in our community.",
+    "totalUsers": 21000,
+    "totalVoters": 7000
+  },
+  {
+    "icon": "https://github.com/shadcn.png",
+    "name": "Language Learners",
+    "tags": ["language", "learning", "linguistics"],
+    "description": "Join our community of language learners to practice languages, share resources, and exchange cultural insights.",
+    "totalUsers": 23000,
+    "totalVoters": 7500
+  },
+  {
+    "icon": "https://github.com/shadcn.png",
+    "name": "Environmental Advocates",
+    "tags": ["environment", "sustainability", "climatechange"],
+    "description": "Take action for the planet, discuss environmental issues, and share eco-friendly tips with our community.",
+    "totalUsers": 24000,
+    "totalVoters": 8000
+  },
+  {
+    "icon": "https://github.com/shadcn.png",
+    "name": "Fashion Trends",
+    "tags": ["fashion", "style", "trends"],
+    "description": "Stay ahead of the fashion curve with the latest trends, style guides, and fashion news.",
+    "totalUsers": 22000,
+    "totalVoters": 7500
+  },
+  {
+    "icon": "https://github.com/shadcn.png",
+    "name": "Home Decor Inspiration",
+    "tags": ["homedecor", "interiordesign", "decorating"],
+    "description": "Get inspired with home decor ideas, interior design tips, and DIY decorating projects.",
+    "totalUsers": 19000,
+    "totalVoters": 6500
+  },
+  {
+    "icon": "https://github.com/shadcn.png",
+    "name": "Cooking Adventures",
+    "tags": ["cooking", "recipes", "culinary"],
+    "description": "Embark on culinary adventures, discover new recipes, and share cooking tips with fellow food enthusiasts.",
+    "totalUsers": 18000,
+    "totalVoters": 6000
+  },
+  {
+    "icon": "https://github.com/shadcn.png",
+    "name": "Tech Innovators",
+    "tags": ["technology", "innovation", "startups"],
+    "description": "Explore groundbreaking tech innovations, startup stories, and the future of technology with us.",
+    "totalUsers": 25000,
+    "totalVoters": 8000
+  },
+  {
+    "icon": "https://github.com/shadcn.png",
+    "name": "Art Appreciation Society",
+    "tags": ["art", "painting", "sculpture"],
+    "description": "Celebrate the beauty of art, discuss famous artists, and share your own artistic creations with our community.",
+    "totalUsers": 17000,
+    "totalVoters": 5500
+  },
+  {
+    "icon": "https://github.com/shadcn.png",
+    "name": "Music Therapy",
+    "tags": ["music", "relaxation", "wellness"],
+    "description": "Relax and unwind with soothing music, meditation playlists, and wellness tips from our community.",
+    "totalUsers": 23000,
+    "totalVoters": 7500
+  },
+  {
+    "icon": "https://github.com/shadcn.png",
+    "name": "Game Development Hub",
+    "tags": ["gamedev", "programming", "indiedev"],
+    "description": "Connect with game developers, discuss game development techniques, and share indie game projects.",
+    "totalUsers": 24000,
+    "totalVoters": 8000
+  },
+  {
+    "icon": "https://github.com/shadcn.png",
+    "name": "Animal Kingdom",
+    "tags": ["animals", "wildlife", "conservation"],
+    "description": "Explore the wonders of the animal kingdom, learn about wildlife conservation efforts, and share animal facts.",
+    "totalUsers": 20000,
+    "totalVoters": 7000
+  },
+  {
+    "icon": "https://github.com/shadcn.png",
+    "name": "Fashion Photography",
+    "tags": ["fashion", "photography", "models"],
+    "description": "Discover the art of fashion photography, share tips on capturing the perfect shot, and explore fashion editorials.",
+    "totalUsers": 21000,
+    "totalVoters": 7000
+  },
+  {
+    "icon": "https://github.com/shadcn.png",
+    "name": "Healthy Recipes",
+    "tags": ["health", "nutrition", "recipes"],
+    "description": "Discover nutritious and delicious recipes, cooking tips, and healthy meal ideas for a balanced lifestyle.",
+    "totalUsers": 22000,
+    "totalVoters": 7500
+  }
+]

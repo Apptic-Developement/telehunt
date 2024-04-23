@@ -77,15 +77,16 @@
   .logo .logo-path {
     @apply fill-foreground;
   }
-
-  .active-explore-filter-button {
+  .hidden-scrollbar::-webkit-scrollbar {
+    width: 0px;
+  }
+  #active-explore-filter-button {
     position: relative;
     @apply text-foreground;
   }
-  .active-explore-filter-button::before {
+  #active-explore-filter-button::before {
     content: '';
     position: absolute;
     @apply -bottom-2 h-[0.15rem] w-full bg-foreground;
   }
- 
 }
