@@ -13,8 +13,11 @@ import { useTheme } from 'next-themes';
 import { cn } from '@/lib/utils';
 import { useMemo } from 'react';
 import { usePathname } from 'next/navigation';
+import { useMounted } from '@/hooks/useMounted';
+import { Skeleton } from '../ui/skeleton';
 
 export const NavBar = () => {
+  const isMounted = useMounted();
   return (
     <nav className='container sticky top-0 z-50 flex h-[4rem] w-full items-center justify-between gap-4 overflow-x-hidden bg-background'>
       <div className='flex items-center justify-center gap-5'>
@@ -22,7 +25,11 @@ export const NavBar = () => {
         <NavLinks classNames='md:flex hidden' />
       </div>
       <div className='flex w-full items-center justify-center'>
-        <SearchBar />
+        {isMounted ? (
+          <SearchBar />
+        ) : (
+          <Skeleton className='h-10 w-full rounded-2xl' />
+        )}
       </div>
       <div className='flex w-fit items-center justify-end gap-3 lg:w-full'>
         <Link
@@ -40,7 +47,7 @@ export const NavBar = () => {
         >
           Login
         </Link>
-        <MenuPopover />
+        {isMounted ? <MenuPopover /> : <Skeleton className='h-10 w-10' />}
       </div>
     </nav>
   );
