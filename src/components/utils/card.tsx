@@ -43,7 +43,7 @@ export const Card = ({
     >
       <div id='header' className='flex items-center gap-3'>
         <Avatar className='flex h-10 w-10 items-center justify-center rounded-full bg-muted'>
-          <AvatarImage className='h-full w-full' src={'icon'} alt={name} />
+          <AvatarImage className='h-full w-full' src={icon} alt={name} />
           <AvatarFallback>{getNameForAvatar()}</AvatarFallback>
         </Avatar>
         <div className='flex flex-col'>
