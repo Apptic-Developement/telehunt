@@ -9,7 +9,7 @@
   },
   {
     "icon": "https://github.com/shadcn.png",
-    "name": "Healthy Living",
+    "name": "Healthy",
     "tags": ["health", "fitness", "nutrition"],
     "description": "A community dedicated to promoting a healthy lifestyle through exercise, diet, and mindfulness.",
     "totalUsers": 20000,
@@ -17,7 +17,7 @@
   },
   {
     "icon": "https://github.com/shadcn.png",
-    "name": "Travel Wanderlust",
+    "name": "Travel Wanderlust HQ",
     "tags": ["travel", "adventure", "exploration"],
     "description": "Explore the world with fellow travel enthusiasts and share your experiences and tips.",
     "totalUsers": 18000,

@@ -2,7 +2,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar';
 import { ServerIcon, ArrowBigUpDashIcon } from 'lucide-react';
 import Link from 'next/link';
-
 interface CardProps {
   icon: string;
   name: string;
@@ -19,16 +18,33 @@ export const Card = ({
   totalUsers,
   totalVoters,
 }: CardProps) => {
+  const getNameForAvatar = () => {
+    const NFA = name.split(' ');
+    let nameForAvatar: string;
+    if (NFA.length > 0) {
+      const eachWord: string[] = [];
+      let index: number = 0;
+      for (let name of NFA) {
+        if (index === 2) break;
+        eachWord.push(name[0]);
+        index++;
+      }
+      nameForAvatar = eachWord.toString();
+    } else {
+      nameForAvatar = NFA[0][0];
+    }
+    return nameForAvatar.replaceAll(',', '');
+  };
   return (
     <Link
       href='#'
       passHref
-      className='flex h-56 w-64 flex-col gap-4 rounded-lg bg-card px-4 py-3 text-card-foreground max-sm:w-full'
+      className='flex h-56 w-full flex-col gap-4 rounded-lg bg-card px-4 py-3 text-card-foreground md:w-72'
     >
       <div id='header' className='flex items-center gap-3'>
-        <Avatar>
-          <AvatarImage className='h-10 w-10' src={icon} alt={name} />
-          <AvatarFallback>{name}</AvatarFallback>
+        <Avatar className='flex h-10 w-10 items-center justify-center rounded-full bg-muted'>
+          <AvatarImage className='h-full w-full' src={'icon'} alt={name} />
+          <AvatarFallback>{getNameForAvatar()}</AvatarFallback>
         </Avatar>
         <div className='flex flex-col'>
           <h2 className='text-md font-semibold'>{name}</h2>

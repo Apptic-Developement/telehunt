@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { Button } from '../ui/button';
 
 type FilterType = 'popular' | 'newly-voted' | 'newly-added';
@@ -38,14 +38,11 @@ export const ExploreHeader = () => {
     'Entertenment',
   ];
   const [activeFilter, setActiveFilter] = useState<FilterType>('popular');
-  const filterButtons = useMemo<FilterButton[]>(
-    () => [
-      { name: 'Popular', href: 'popular' },
-      { name: 'Newly Voted', href: 'newly-voted' },
-      { name: 'Newly Added', href: 'newly-added' },
-    ],
-    [activeFilter]
-  );
+  const filterButtons: FilterButton[] = [
+    { name: 'Popular', href: 'popular' },
+    { name: 'Newly Voted', href: 'newly-voted' },
+    { name: 'Newly Added', href: 'newly-added' },
+  ];
   return (
     <section className='container mt-5 flex w-full flex-col items-start justify-center gap-8'>
       <div id='ExploreText'>
