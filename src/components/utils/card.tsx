@@ -2,6 +2,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar';
 import { ServerIcon, ArrowBigUpDashIcon } from 'lucide-react';
 import Link from 'next/link';
+
 interface CardProps {
   icon: string;
   name: string;
