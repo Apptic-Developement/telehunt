@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Button } from '../ui/button';
+import { cn } from '@/lib/utils';
 
 type FilterType = 'popular' | 'newly-voted' | 'newly-added';
 type FilterButton = {
@@ -55,18 +56,18 @@ export const ExploreHeader = () => {
       >
         <div
           id='Explore type'
-          className='hidden-scrollbar flex h-10 w-full items-start justify-start gap-5 overflow-x-scroll text-nowrap text-[0.975rem] font-semibold text-muted-foreground max-md:text-sm'
+          className='hidden-scrollbar flex h-10 w-full items-start justify-start gap-5 overflow-x-scroll text-nowrap text-[0.975rem] font-semibold text-muted-foreground'
         >
           {filterButtons.map((button) => (
             <button
               onClick={() => setActiveFilter(button.href)}
-              className='transition-all duration-300 ease-in-out hover:text-foreground'
+              className={cn(
+                'transition-all duration-300 ease-in-out hover:text-foreground',
+                {
+                  'active-explore-filter-button': activeFilter === button.href,
+                }
+              )}
               key={button.href}
-              id={
-                activeFilter === button.href
-                  ? 'active-explore-filter-button'
-                  : ''
-              }
             >
               {button.name}
             </button>

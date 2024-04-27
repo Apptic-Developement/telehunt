@@ -80,11 +80,11 @@
   .hidden-scrollbar::-webkit-scrollbar {
     width: 0px;
   }
-  #active-explore-filter-button {
+  .active-explore-filter-button {
     position: relative;
     @apply text-foreground;
   }
-  #active-explore-filter-button::before {
+  .active-explore-filter-button::before {
     content: '';
     position: absolute;
     @apply -bottom-1 h-[0.10rem] w-full rounded-lg bg-foreground;

@@ -1,5 +1,5 @@
 const Groups = () => {
-  return <section>Groups</section>;
+  return <div>Groups</div>;
 };
 
 export default Groups;

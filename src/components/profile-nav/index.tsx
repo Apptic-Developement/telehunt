@@ -1,6 +1,6 @@
 'use client';
 import { cn } from '@/lib/utils';
-import { LucideIcon, Settings, User2, Bot, Server, Group } from 'lucide-react';
+import { LucideIcon, User2, Bot, Server, Group } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useMemo } from 'react';
@@ -43,34 +43,28 @@ const ProfileNav = () => {
     [pathName]
   );
   return (
-    <div className='border-b md:border-none'>
-      <ul className='container mb-2 mt-5 flex flex-row gap-5 md:sticky md:top-[7rem] md:mx-0 md:mb-0 md:mt-0 md:flex md:h-fit md:w-72 md:flex-col md:gap-3'>
-        {routes &&
-          routes.map((route) => {
-            const Icon = route.icon;
-            return (
-              <li key={route.href}>
-                <Link
-                  className='flex items-center justify-start gap-2'
-                  href={route.href}
-                >
-                  <Icon className='hidden h-5 w-5 md:block' />
-                  <span
-                    className={cn(
-                      'font-semibold text-muted-foreground transition hover:text-foreground',
-                      {
-                        '!text-foreground': route.active,
-                      }
-                    )}
-                  >
-                    {route.name}
-                  </span>
-                </Link>
-              </li>
-            );
-          })}
-      </ul>
-    </div>
+    <aside className='hidden-scrollbar flex flex-row gap-4 md:fixed md:bottom-0 md:top-16 md:mt-5 md:w-64 md:flex-col md:gap-3'>
+      {routes &&
+        routes.map((route) => {
+          const Icon = route.icon;
+          return (
+            <Link
+              className={cn(
+                'md:text-md text-nowrap font-semibold text-muted-foreground transition hover:text-foreground md:flex md:items-center md:justify-start md:gap-3',
+                {
+                  'max-md:active-explore-filter-button !text-foreground':
+                    route.active,
+                }
+              )}
+              key={route.href}
+              href={route.href}
+            >
+              <Icon className='hidden h-5 w-5 md:block' />
+              <span>{route.name}</span>
+            </Link>
+          );
+        })}
+    </aside>
   );
 };
 
