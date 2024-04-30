@@ -1,31 +1,18 @@
 'use client';
 import { cn } from '@/lib/utils';
-import {
-  LucideIcon,
-  User2,
-  Bot,
-  Server,
-  Group,
-  UserCog,
-  StickyNote,
-  BadgePlus,
-} from 'lucide-react';
-import { Poppins } from 'next/font/google';
+import { LucideIcon, UserCog, StickyNote, BadgePlus } from 'lucide-react';
+
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useMemo } from 'react';
 
-const poppins = Poppins({
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-  subsets: ['latin'],
-});
 interface Route {
   name: string;
   icon: LucideIcon;
   active: boolean;
   href: string;
 }
-const ProfileNav = () => {
+const AccountNav = () => {
   const pathName = usePathname();
   const routes = useMemo<Route[]>(
     () => [
@@ -68,7 +55,7 @@ const ProfileNav = () => {
               href={route.href}
             >
               <Icon className='hidden h-5 w-5 md:block' />
-              <span className={poppins.className}>{route.name}</span>
+              <span>{route.name}</span>
             </Link>
           );
         })}
@@ -76,4 +63,4 @@ const ProfileNav = () => {
   );
 };
 
-export default ProfileNav;
+export default AccountNav;

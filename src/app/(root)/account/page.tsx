@@ -22,6 +22,14 @@ const General = () => {
         description='Please enter the email address you want to use to log in with Telehunt.'
         footerText='We will email you to verify the change.'
       />
+      <GeneralSection
+        title='Delete Account'
+        type='delete'
+        description='Permanently remove your Personal Account and all of its contents
+        from the Telehunt platform. This action is not reversible, so please
+        continue with caution.'
+        footerText='This action can not be reverse.'
+      />
     </div>
   );
 };

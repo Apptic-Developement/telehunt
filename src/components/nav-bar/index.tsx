@@ -64,7 +64,6 @@ const MenuPopover = () => {
   const pathName = usePathname();
   const routes = useMemo<Route[]>(
     () => [
-      { name: 'Home', href: '/', active: pathName === '/' },
       { name: 'Blogs', href: '/blogs', active: pathName.startsWith('/blogs') },
       { name: 'Policy', href: '/policy', active: pathName === '/policy' },
       {
