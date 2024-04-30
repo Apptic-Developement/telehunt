@@ -35,7 +35,6 @@ export const DeleteAccountModal = () => {
             value={deleteText}
             onChange={(e) => setDeleteText(e.target.value)}
             type='text'
-            className='border-destructive'
             placeholder={`Type '${DELETE_TEXT}'`}
           />
         </div>
