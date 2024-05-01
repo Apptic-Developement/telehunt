@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import '@/styles/globals.css';
-import { NavBar } from '@/components/nav-bar';
+
 import { Providers } from './providers';
 import { cn } from '@/lib/utils';
 
@@ -20,10 +20,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={cn(inter.className, 'overflow-x-hidden')}>
-        <Providers>
-          <NavBar />
-          {children}
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

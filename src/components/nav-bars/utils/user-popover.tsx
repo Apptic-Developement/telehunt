@@ -1,57 +1,19 @@
 'use client';
 
-import Link from 'next/link';
-import { Logo } from '../utils/logo';
-import { SearchBar } from './search-bar';
-import { Button, buttonVariants } from '../ui/button';
-import { ExternalLink, LogOutIcon, Menu } from 'lucide-react';
-import { NavLinks } from './links';
-import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
-import Image from 'next/image';
-import { Separator } from '../ui/separator';
-import { useTheme } from 'next-themes';
+import { Button } from '@/components/ui/button';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover';
+import { Separator } from '@/components/ui/separator';
 import { cn } from '@/lib/utils';
-import { useMemo } from 'react';
+import { ExternalLink, LogOutIcon, Menu } from 'lucide-react';
+import { useTheme } from 'next-themes';
+import Image from 'next/image';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useMounted } from '@/hooks/useMounted';
-import { Skeleton } from '../ui/skeleton';
-
-export const NavBar = () => {
-  const isMounted = useMounted();
-  return (
-    <nav className='container sticky top-0 z-50 flex h-[4rem] w-full items-center justify-between gap-4 overflow-x-hidden bg-background'>
-      <div className='flex items-center justify-center gap-5'>
-        <Logo />
-        <NavLinks classNames='md:flex hidden' />
-      </div>
-      <div className='flex w-full items-center justify-center'>
-        {isMounted ? (
-          <SearchBar />
-        ) : (
-          <Skeleton className='h-10 w-full rounded-2xl' />
-        )}
-      </div>
-      <div className='flex w-fit items-center justify-end gap-3 lg:w-full'>
-        <Link
-          href='#'
-          className={buttonVariants({
-            variant: 'link',
-            className: 'hidden px-2 md:block lg:px-4',
-          })}
-        >
-          Policy
-        </Link>
-        <Link
-          href='#'
-          className={buttonVariants({ className: 'hidden md:block' })}
-        >
-          Login
-        </Link>
-        {isMounted ? <MenuPopover /> : <Skeleton className='h-10 w-10' />}
-      </div>
-    </nav>
-  );
-};
+import { useMemo } from 'react';
 
 interface Route {
   name: string;
@@ -59,7 +21,7 @@ interface Route {
   active: boolean;
   link?: boolean;
 }
-const MenuPopover = () => {
+export const UserPopover = () => {
   const { theme, setTheme } = useTheme();
   const pathName = usePathname();
   const routes = useMemo<Route[]>(

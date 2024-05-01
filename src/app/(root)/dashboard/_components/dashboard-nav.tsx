@@ -1,6 +1,14 @@
 'use client';
 import { cn } from '@/lib/utils';
-import { LucideIcon, UserCog, StickyNote, BadgePlus } from 'lucide-react';
+import {
+  LucideIcon,
+  UserCog,
+  StickyNote,
+  BadgePlus,
+  Bell,
+  User2,
+  Wallet,
+} from 'lucide-react';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -17,28 +25,34 @@ const AccountNav = () => {
   const routes = useMemo<Route[]>(
     () => [
       {
-        name: 'General',
-        href: '/account',
-        active: pathName === '/account',
-        icon: UserCog,
+        name: 'Account',
+        href: '/dashboard/account',
+        active: pathName === '/dashboard/account',
+        icon: User2,
+      },
+      {
+        name: 'Notifications',
+        href: '/dashboard/notifications',
+        active: pathName.startsWith('/dashboard/notifications'),
+        icon: Bell,
       },
       {
         name: 'Posts',
-        href: '/account/posts',
-        active: pathName.startsWith('/account/posts'),
+        href: '/dashboard/posts',
+        active: pathName.startsWith('/dashboard/posts'),
         icon: StickyNote,
       },
       {
-        name: 'Creator',
-        href: '/account/creator',
-        active: pathName.startsWith('/account/creator'),
-        icon: BadgePlus,
+        name: 'Wallet',
+        href: '/dashboard/wallet',
+        active: pathName.startsWith('/dashboard/wallet'),
+        icon: Wallet,
       },
     ],
     [pathName]
   );
   return (
-    <aside className='hidden-scrollbar flex flex-row gap-4 md:fixed md:bottom-0 md:top-16 md:mt-5 md:w-48 md:flex-col md:gap-3 lg:w-64'>
+    <aside className='hidden-scrollbar mb-5 flex flex-row gap-4 md:fixed md:bottom-0 md:top-16 md:mt-10 md:w-48 md:flex-col md:gap-3 lg:w-64'>
       {routes &&
         routes.map((route) => {
           const Icon = route.icon;

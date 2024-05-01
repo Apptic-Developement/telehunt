@@ -1,10 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Button } from '../ui/button';
+import { Button } from '../../ui/button';
 
 import { Search } from 'lucide-react';
-import { usePathname } from 'next/navigation';
 
 export const SearchBar = () => {
   const [open, setOpen] = useState(false);
