@@ -31,6 +31,16 @@ export const PersionalDetails = () => {
         </div>
         <Separator />
       </div>
+      <div className='flex w-full flex-col gap-3 md:pr-40'>
+        <div className='flex items-center justify-between gap-3'>
+          <div className='flex flex-col items-start justify-center gap-1'>
+            <h2 className='font-semibold'>Region</h2>
+            <small className='text-sm text-muted-foreground'>India</small>
+          </div>
+          <Button variant='link'>Edit</Button>
+        </div>
+        <Separator />
+      </div>
     </section>
   );
 };

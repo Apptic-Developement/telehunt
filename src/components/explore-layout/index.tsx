@@ -1,49 +1,41 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Button } from '../ui/button';
 import { cn } from '@/lib/utils';
+import { FilterIcon, TagIcon } from 'lucide-react';
+import { ResetIcon } from '@radix-ui/react-icons';
 
 type FilterType = 'popular' | 'newly-voted' | 'newly-added';
 type FilterButton = {
   name: string;
   href: FilterType;
 };
+
 export const ExploreHeader = () => {
-  const buttons = [
-    'All',
-    'Anime',
-    'Nsfw',
-    'Community',
-    'Movies',
-    'Entertenment',
-    'Nsfw',
-    'Community',
-    'Movies',
-    'Entertenment',
-    'Nsfw',
-    'Community',
-    'Movies',
-    'Entertenment',
-    'Nsfw',
-    'Community',
-    'Movies',
-    'Entertenment',
-    'Nsfw',
-    'Community',
-    'Movies',
-    'Entertenment',
-    'Nsfw',
-    'Community',
-    'Movies',
-    'Entertenment',
-  ];
   const [activeFilter, setActiveFilter] = useState<FilterType>('popular');
+
   const filterButtons: FilterButton[] = [
     { name: 'Popular', href: 'popular' },
     { name: 'Newly Voted', href: 'newly-voted' },
     { name: 'Newly Added', href: 'newly-added' },
   ];
+
+  useEffect(() => {
+    const tagSection = document.getElementById('tagSection');
+    const tagPrevious = document.getElementById('tagPrevious');
+    const tagNext = document.getElementById('tagNext');
+
+    tagNext?.addEventListener('click', () => {
+      return tagSection?.scrollTo({
+        behavior: 'smooth',
+        left: 100,
+      });
+    });
+    tagPrevious?.addEventListener('click', () => {
+      return;
+    });
+  }, []);
   return (
     <section className='container mt-5 flex w-full flex-col items-start justify-center gap-8'>
       <div id='ExploreText'>
@@ -74,18 +66,31 @@ export const ExploreHeader = () => {
           ))}
         </div>
 
-        <div className='hidden-scrollbar flex w-full items-start justify-start gap-3 overflow-x-scroll'>
-          {buttons.map((name, index) => {
-            return (
-              <Button
-                className='rounded-2xl'
-                key={name}
-                variant={index === 0 ? 'default' : 'outline'}
-              >
-                {name}
-              </Button>
-            );
-          })}
+        <div className='flex w-full items-center justify-start gap-3'>
+          <Button
+            className='flex items-center justify-center gap-2 rounded-full'
+            variant='secondary'
+            size='sm'
+          >
+            <FilterIcon className='h-4 w-4' />
+            <span>Filters</span>
+          </Button>
+          <Button
+            className='flex items-center justify-center gap-2 rounded-full'
+            variant='secondary'
+            size='sm'
+          >
+            <TagIcon className='h-4 w-4' />
+            <span>Tags</span>
+          </Button>
+          <Button
+            className='flex items-center justify-center gap-2 rounded-full border-destructive'
+            variant='secondary'
+            size='sm'
+          >
+            <ResetIcon className='h-4 w-4' />
+            <span>Reset</span>
+          </Button>
         </div>
       </div>
     </section>
