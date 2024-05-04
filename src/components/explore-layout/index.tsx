@@ -1,9 +1,9 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Button } from '../ui/button';
 import { cn } from '@/lib/utils';
-import { FilterIcon, TagIcon } from 'lucide-react';
+import { FilterIcon, TagIcon, SortAsc } from 'lucide-react';
 import { ResetIcon } from '@radix-ui/react-icons';
 
 type FilterType = 'popular' | 'newly-voted' | 'newly-added';
@@ -17,25 +17,10 @@ export const ExploreHeader = () => {
 
   const filterButtons: FilterButton[] = [
     { name: 'Popular', href: 'popular' },
-    { name: 'Newly Voted', href: 'newly-voted' },
+    { name: 'Recently Voted', href: 'newly-voted' },
     { name: 'Newly Added', href: 'newly-added' },
   ];
 
-  useEffect(() => {
-    const tagSection = document.getElementById('tagSection');
-    const tagPrevious = document.getElementById('tagPrevious');
-    const tagNext = document.getElementById('tagNext');
-
-    tagNext?.addEventListener('click', () => {
-      return tagSection?.scrollTo({
-        behavior: 'smooth',
-        left: 100,
-      });
-    });
-    tagPrevious?.addEventListener('click', () => {
-      return;
-    });
-  }, []);
   return (
     <section className='container mt-5 flex w-full flex-col items-start justify-center gap-8'>
       <div id='ExploreText'>
@@ -69,28 +54,36 @@ export const ExploreHeader = () => {
         <div className='flex w-full items-center justify-start gap-3'>
           <Button
             className='flex items-center justify-center gap-2 rounded-full'
-            variant='secondary'
-            size='sm'
+            variant='outline'
+            // size='sm'
           >
             <FilterIcon className='h-4 w-4' />
             <span>Filters</span>
           </Button>
           <Button
             className='flex items-center justify-center gap-2 rounded-full'
-            variant='secondary'
-            size='sm'
+            variant='outline'
+            // size='sm'
+          >
+            <SortAsc className='h-4 w-4' />
+            <span>Short</span>
+          </Button>
+          <Button
+            className='flex items-center justify-center gap-2 rounded-full'
+            variant='outline'
+            // size='sm'
           >
             <TagIcon className='h-4 w-4' />
             <span>Tags</span>
           </Button>
-          <Button
+          {/* <Button
             className='flex items-center justify-center gap-2 rounded-full border-destructive'
             variant='secondary'
             size='sm'
           >
             <ResetIcon className='h-4 w-4' />
             <span>Reset</span>
-          </Button>
+          </Button> */}
         </div>
       </div>
     </section>
