@@ -4,8 +4,7 @@ import { useState } from 'react';
 import { Button } from '../ui/button';
 import { cn } from '@/lib/utils';
 import { FilterIcon, TagIcon, SortAsc } from 'lucide-react';
-import { ResetIcon } from '@radix-ui/react-icons';
-
+ 
 type FilterType = 'popular' | 'newly-voted' | 'newly-added';
 type FilterButton = {
   name: string;

@@ -57,10 +57,10 @@ export const UserPopover = () => {
           >
             <Image
               src='/assets/light-theme.svg'
-              alt='Light Theme'
+              alt='Light'
               width={60}
               height={60}
-              className={cn('rounded-md', {
+              className={cn('rounded-md w-[4rem] h-10', {
                 'border-2 border-blue-500': theme === 'light',
               })}
             />
@@ -78,10 +78,10 @@ export const UserPopover = () => {
           >
             <Image
               src='/assets/dark-theme.svg'
-              alt='Dark Theme'
+              alt='Dark'
               width={60}
               height={60}
-              className={cn('rounded-md', {
+              className={cn('rounded-md w-[4rem] h-10', {
                 'border-2 border-blue-500': theme === 'dark',
               })}
             />
@@ -99,10 +99,10 @@ export const UserPopover = () => {
           >
             <Image
               src='/assets/system-theme.svg'
-              alt='system Theme'
+              alt='System'
               width={60}
               height={60}
-              className={cn('rounded-md', {
+              className={cn('rounded-md w-[4rem] h-10', {
                 'border-2 border-blue-500': theme === 'system',
               })}
             />

@@ -1,7 +1,6 @@
 import { ExploreHeader } from '@/components/explore-layout';
 import { ExploreNavBar } from '@/components/nav-bars/explore';
 import { NavLinks } from '@/components/nav-bars/explore/links';
-
 import type { ReactNode } from 'react';
 
 const ExploreLayout = ({ children }: { children: ReactNode }) => {
