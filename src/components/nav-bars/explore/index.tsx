@@ -8,6 +8,7 @@ import { NavLinks } from './links';
 import { useMounted } from '@/hooks/useMounted';
 import { Skeleton } from '../../ui/skeleton';
 import { UserPopover } from '../utils/user-popover';
+import Image from 'next/image';
 
 export const ExploreNavBar = () => {
   const isMounted = useMounted();

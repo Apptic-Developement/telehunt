@@ -3,7 +3,7 @@ import React from 'react';
 
 const Loading = () => {
   return (
-    <div className='grid h-screen w-screen items-center justify-center'>
+    <div className='grid h-screen w-screen animate-pulse items-center justify-center'>
       <Logo />
     </div>
   );

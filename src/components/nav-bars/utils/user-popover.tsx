@@ -60,7 +60,7 @@ export const UserPopover = () => {
               alt='Light'
               width={60}
               height={60}
-              className={cn('rounded-md w-[4rem] h-10', {
+              className={cn('h-10 w-[4rem] rounded-md', {
                 'border-2 border-blue-500': theme === 'light',
               })}
             />
@@ -81,7 +81,7 @@ export const UserPopover = () => {
               alt='Dark'
               width={60}
               height={60}
-              className={cn('rounded-md w-[4rem] h-10', {
+              className={cn('h-10 w-[4rem] rounded-md', {
                 'border-2 border-blue-500': theme === 'dark',
               })}
             />
@@ -102,7 +102,7 @@ export const UserPopover = () => {
               alt='System'
               width={60}
               height={60}
-              className={cn('rounded-md w-[4rem] h-10', {
+              className={cn('h-10 w-[4rem] rounded-md', {
                 'border-2 border-blue-500': theme === 'system',
               })}
             />

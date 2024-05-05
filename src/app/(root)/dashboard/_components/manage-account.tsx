@@ -9,15 +9,13 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-  DialogDescription
+  DialogDescription,
 } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useMounted } from '@/hooks/useMounted';
- import { useState } from 'react';
-
-
+import { useState } from 'react';
 
 const DeleteAccountModal = () => {
   const DELETE_TEXT = 'Delete My Account';

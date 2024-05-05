@@ -12,7 +12,7 @@ interface Route {
   active: boolean;
   href: string;
 }
-const AccountNav = () => {
+const DashboardNavLinks = () => {
   const pathName = usePathname();
   const routes = useMemo<Route[]>(
     () => [
@@ -51,7 +51,7 @@ const AccountNav = () => {
           return (
             <Link
               className={cn(
-                'text-nowrap font-medium text-muted-foreground transition hover:text-foreground md:flex md:items-center md:justify-start md:gap-2',
+                'text-nowrap font-medium text-muted-foreground transition hover:text-foreground md:flex md:items-center md:justify-start md:gap-2 md:font-semibold',
                 {
                   'max-md:active-explore-filter-button !text-foreground':
                     route.active,
@@ -69,4 +69,4 @@ const AccountNav = () => {
   );
 };
 
-export default AccountNav;
+export default DashboardNavLinks;

@@ -9,7 +9,7 @@ import React from 'react';
 import { UserPopover } from '../utils/user-popover';
 import { Skeleton } from '@/components/ui/skeleton';
 
-export const AccountsNavBar = () => {
+export const DashboardNavBar = () => {
   const isMounted = useMounted();
   return (
     <nav className='container sticky top-0 z-50 flex h-[4rem] w-full items-center justify-between gap-3 overflow-x-hidden bg-background'>
