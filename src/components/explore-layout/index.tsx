@@ -32,13 +32,13 @@ export const ExploreHeader = () => {
       >
         <div
           id='Explore type'
-          className='hidden-scrollbar flex h-10 w-full items-start justify-start gap-5 overflow-x-scroll text-nowrap text-[0.975rem] font-semibold text-muted-foreground'
+          className='hidden-scrollbar flex w-full items-start justify-start gap-5 overflow-x-scroll text-nowrap text-[0.975rem] font-semibold text-muted-foreground'
         >
           {filterButtons.map((button) => (
             <button
               onClick={() => setActiveFilter(button.href)}
               className={cn(
-                'transition-all duration-300 ease-in-out hover:text-foreground',
+                'pb-1 transition-all duration-300 ease-in-out hover:text-foreground',
                 {
                   'active-explore-filter-button': activeFilter === button.href,
                 }

@@ -92,7 +92,7 @@
   .active-explore-filter-button::before {
     content: '';
     position: absolute;
-    @apply -bottom-1 h-[0.15rem] w-full bg-foreground;
+    @apply -bottom-0 h-[0.15rem] w-full bg-foreground;
   }
 
   .transition {

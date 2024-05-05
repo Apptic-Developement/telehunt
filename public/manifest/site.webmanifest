@@ -1,7 +1,7 @@
 {
-  "name": "Telehunt - Explore Telegram Bots, Channels and Groups",
+  "name": "Telehunt - Discover Telegram Communities",
   "short_name": "Telehunt",
-  "description": "Explore telegram bots, channels, groups",
+  "description": "Discover and list Telegram channels, groups, and bots effortlessly. Join us to explore a diverse range of communities tailored to your interests.",
   "icons": [
     {
       "src": "windows11/SmallTile.scale-100.png",
@@ -455,7 +455,7 @@
   "theme_color": "#0f0f0f",
   "background_color": "#0f0f0f",
   "display": "standalone",
-  "id": "/?source=pwa",
-  "start_url": "/?source=pwa",
+  "id": "/",
+  "start_url": "/",
   "orientation": "portrait-primary"
 }

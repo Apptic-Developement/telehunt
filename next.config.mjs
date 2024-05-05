@@ -1,12 +1,10 @@
-/** @type {import('next').NextConfig} */
-import NextPwa from 'next-pwa';
+import withSerwistInit from '@serwist/next';
 
-const withPwa = NextPwa({
-  dest: 'public',
-  register: true,
-  skipWaiting: true,
-  
+const withSerwist = withSerwistInit({
+  swSrc: 'src/lib/sw.ts',
+  swDest: 'public/sw.js',
 });
-const nextConfig = {};
 
-export default withPwa(nextConfig);
+export default withSerwist({
+  // Your Next.js config
+});
