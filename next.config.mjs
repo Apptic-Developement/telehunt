@@ -5,6 +5,4 @@ const withSerwist = withSerwistInit({
   swDest: 'public/sw.js',
 });
 
-export default withSerwist({
-  // Your Next.js config
-});
+export default withSerwist({});
