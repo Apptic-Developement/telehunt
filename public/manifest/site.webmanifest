@@ -456,6 +456,5 @@
   "background_color": "#0f0f0f",
   "display": "standalone",
   "id": "/",
-  "start_url": "/",
-  "orientation": "portrait-primary"
+  "start_url": "/"
 }
