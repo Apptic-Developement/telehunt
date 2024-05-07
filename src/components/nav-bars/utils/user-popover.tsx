@@ -8,11 +8,16 @@ import {
 } from '@/components/ui/popover';
 import { Separator } from '@/components/ui/separator';
 import { cn } from '@/lib/utils';
-import { ExternalLink, LogOutIcon, Menu } from 'lucide-react';
+import {
+  ExternalLink,
+  LayoutDashboardIcon,
+  LogOutIcon,
+  Menu,
+} from 'lucide-react';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useMemo } from 'react';
 
 interface Route {
@@ -24,6 +29,7 @@ interface Route {
 export const UserPopover = () => {
   const { theme, setTheme } = useTheme();
   const pathName = usePathname();
+  const router = useRouter();
   const routes = useMemo<Route[]>(
     () => [
       { name: 'Blogs', href: '/blogs', active: pathName.startsWith('/blogs') },
@@ -115,6 +121,15 @@ export const UserPopover = () => {
             </span>
           </button>
         </div>
+        <Separator />
+        <Button
+          className='flex items-center justify-start gap-2 rounded-2xl'
+          variant='secondary'
+          onClick={() => router.push('/dashboard')}
+        >
+          <LayoutDashboardIcon />
+          <span>Dashboard</span>
+        </Button>
         <Separator />
 
         <ul className='flex w-full flex-col items-start justify-center gap-1'>

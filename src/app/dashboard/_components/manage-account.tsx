@@ -50,7 +50,7 @@ const DeleteAccountModal = () => {
           <DialogClose
             className={buttonVariants({
               variant: 'secondary',
-              className: 'w-full rounded-xl border-foreground',
+              className: 'w-full !rounded-2xl border-foreground',
             })}
           >
             Cancel
@@ -58,7 +58,7 @@ const DeleteAccountModal = () => {
 
           <Button
             variant='outline'
-            className='w-full rounded-xl border-destructive text-destructive hover:text-destructive'
+            className='w-full rounded-2xl border-destructive text-destructive hover:text-destructive'
             disabled={deleteText !== DELETE_TEXT}
           >
             Delete

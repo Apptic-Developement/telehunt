@@ -4,6 +4,7 @@ import '@/styles/globals.css';
 
 import { Providers } from './_providers';
 import { cn } from '@/lib/utils';
+import { NavBar } from '@/components/nav-bars';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -65,7 +66,10 @@ export default function RootLayout({
         />
       </head>
       <body className={cn(inter.className, 'overflow-x-hidden')}>
-        <Providers>{children}</Providers>
+        <Providers>
+          <NavBar />
+          {children}
+        </Providers>
       </body>
     </html>
   );
