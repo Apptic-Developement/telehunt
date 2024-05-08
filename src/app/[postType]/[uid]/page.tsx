@@ -1,66 +1,35 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Badge } from '@/components/ui/badge';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import {
-  ArrowBigUpIcon,
-  BadgeInfoIcon,
   CrownIcon,
   HashIcon,
   InfoIcon,
   Link2Icon,
   LinkIcon,
-  TagIcon,
   TagsIcon,
   ViewIcon,
 } from 'lucide-react';
 import Link from 'next/link';
+import PostHeader from './_components/header';
 
 const VALID_POST_TYPE = ['bot', 'channel', 'group'];
 
 const Post = async ({
   params: { postType, uid },
 }: {
-  params: { postType: string; uid: number };
+  params: { postType: string; uid: string };
 }) => {
   if (!VALID_POST_TYPE.includes(postType)) {
-    // An error should be thrown!
+    throw new Error('Unsupported post type');
   }
+  const postId: number = Number(uid);
 
   return (
     <main className='container mt-5 flex max-w-full flex-col items-center justify-center'>
-      <section className='flex w-full flex-col items-center justify-center gap-3 md:flex-row md:justify-between'>
-        <div className='flex flex-col items-center justify-center gap-4 md:flex-row'>
-          <Avatar className='flex h-[4rem] w-[4rem] items-center justify-center rounded-xl bg-muted'>
-            <AvatarImage
-              className='h-full w-full'
-              src='https://github.com/shadcn.png'
-              alt={`${postType} logo`}
-            />
-            <AvatarFallback>Bot</AvatarFallback>
-          </Avatar>
-          <div className='flex flex-col gap-1 text-center md:text-start'>
-            <h1 className='text-xl font-bold'>Crypto Hub</h1>
-            <small className='text-md text-muted-foreground'>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque,
-              et!
-            </small>
-          </div>
-        </div>
-
-        <div className='flex w-full items-center justify-between gap-3 md:w-fit md:justify-normal'>
-          <Button className='w-full rounded-2xl md:w-fit'>Join</Button>
-          <Button
-            className='flex w-full items-center justify-center gap-1 rounded-2xl md:w-fit'
-            variant='secondary'
-          >
-            <ArrowBigUpIcon />
-            <span>Vote</span>
-          </Button>
-        </div>
-      </section>
+      <PostHeader postType={postType} />
       <Separator className='my-5 bg-transparent' />
-      <section className='grid grid-cols-1 gap-8 md:grid-cols-[1fr_1fr]'>
+      <section className='grid grid-cols-1 gap-6 md:grid-cols-[60%_35%]'>
         <div className='flex h-fit flex-col items-start justify-start gap-3 rounded-xl border bg-secondary/40 p-3 backdrop-blur supports-[backdrop-filter]:bg-secondary/40'>
           <div className='flex items-center gap-2'>
             <ViewIcon />
@@ -125,7 +94,7 @@ const Post = async ({
               <TagsIcon />
               <h2 className='text-2xl font-semibold'>Tags</h2>
             </div>
-            <ul className='flex items-center gap-2'>
+            <ul className='flex flex-wrap items-center gap-2'>
               {Array.from(['Crypto', 'Bitcoin', 'Trading']).map((tag) => {
                 return (
                   <li
@@ -167,6 +136,7 @@ const Post = async ({
           </div>
         </div>
       </section>
+      <Separator className='mt-5' />
     </main>
   );
 };
