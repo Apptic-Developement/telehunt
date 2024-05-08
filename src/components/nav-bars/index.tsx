@@ -8,5 +8,5 @@ export const NavBar = () => {
   if (pathName.startsWith('/dashboard')) {
     return <DashboardNavBar />;
   }
-  return <DefaultNavBar/>
+  return <DefaultNavBar />;
 };

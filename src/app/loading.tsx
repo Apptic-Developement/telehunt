@@ -1,12 +1,7 @@
-import { Logo } from '@/components/utils/logo';
-import React from 'react';
-
-const Loading = () => {
+export default function Loading() {
   return (
-    <div className='grid h-screen w-screen animate-pulse items-center justify-center'>
-      <Logo />
+    <div className='grid h-screen items-center justify-center'>
+      <div className='h-14 w-14 animate-spin rounded-full border-8 border-t-foreground' />
     </div>
   );
-};
-
-export default Loading;
+}

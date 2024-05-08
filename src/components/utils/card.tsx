@@ -38,7 +38,7 @@ export const Card = ({
   };
   return (
     <Link
-      href='#'
+      href='/bot/123'
       passHref
       className='flex h-56 w-full flex-col gap-4 rounded-lg bg-card px-4 py-3 text-card-foreground md:w-72'
     >
