@@ -23,7 +23,7 @@ export const DefaultNavBar = () => {
           {isMounted ? (
             <SearchBar />
           ) : (
-            <Skeleton className='h-10 w-full rounded-2xl' />
+            <Skeleton className='h-10 w-full rounded-full' />
           )}
         </div>
         <div className='flex w-fit items-center justify-end gap-3 lg:w-full'>
